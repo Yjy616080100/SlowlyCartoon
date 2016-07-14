@@ -25,6 +25,16 @@
 		D6A449C91D37242A0096830F /* tabbar_me_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449C11D37242A0096830F /* tabbar_me_sel@2x.png */; };
 		D6A449CA1D37242A0096830F /* tabbar_room@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449C21D37242A0096830F /* tabbar_room@2x.png */; };
 		D6A449CB1D37242A0096830F /* tabbar_room_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449C31D37242A0096830F /* tabbar_room_sel@2x.png */; };
+		D6A591101D3724F200CE6820 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5910F1D3724F200CE6820 /* RecommendViewController.m */; };
+		D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591121D37250100CE6820 /* HigtenerViewController.m */; };
+		D6A591161D37250F00CE6820 /* RankListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591151D37250F00CE6820 /* RankListViewController.m */; };
+		D6A5911A1D3793D000CE6820 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591191D3793D000CE6820 /* BaseRequest.m */; };
+		D6A5911D1D37944500CE6820 /* NetWorkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5911C1D37944500CE6820 /* NetWorkRequest.m */; };
+		D6A591201D37954000CE6820 /* RecommendRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5911F1D37954000CE6820 /* RecommendRequest.m */; };
+		D6A591251D37A98300CE6820 /* firstScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591241D37A98300CE6820 /* firstScrollViewModel.m */; };
+		D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591271D37A9B400CE6820 /* oneTableViewModel.m */; };
+		D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */; };
+		D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +80,26 @@
 		D6A449C11D37242A0096830F /* tabbar_me_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me_sel@2x.png"; sourceTree = "<group>"; };
 		D6A449C21D37242A0096830F /* tabbar_room@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_room@2x.png"; sourceTree = "<group>"; };
 		D6A449C31D37242A0096830F /* tabbar_room_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_room_sel@2x.png"; sourceTree = "<group>"; };
+		D6A5910E1D3724F200CE6820 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		D6A5910F1D3724F200CE6820 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		D6A591111D37250000CE6820 /* HigtenerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HigtenerViewController.h; sourceTree = "<group>"; };
+		D6A591121D37250100CE6820 /* HigtenerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HigtenerViewController.m; sourceTree = "<group>"; };
+		D6A591141D37250F00CE6820 /* RankListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListViewController.h; sourceTree = "<group>"; };
+		D6A591151D37250F00CE6820 /* RankListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListViewController.m; sourceTree = "<group>"; };
+		D6A591181D3793D000CE6820 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		D6A591191D3793D000CE6820 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		D6A5911B1D37944500CE6820 /* NetWorkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequest.h; sourceTree = "<group>"; };
+		D6A5911C1D37944500CE6820 /* NetWorkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequest.m; sourceTree = "<group>"; };
+		D6A5911E1D37954000CE6820 /* RecommendRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendRequest.h; sourceTree = "<group>"; };
+		D6A5911F1D37954000CE6820 /* RecommendRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendRequest.m; sourceTree = "<group>"; };
+		D6A591231D37A98300CE6820 /* firstScrollViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = firstScrollViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/firstScrollViewModel.h"; sourceTree = SOURCE_ROOT; };
+		D6A591241D37A98300CE6820 /* firstScrollViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = firstScrollViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/firstScrollViewModel.m"; sourceTree = SOURCE_ROOT; };
+		D6A591261D37A9B400CE6820 /* oneTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oneTableViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/oneTableViewModel.h"; sourceTree = SOURCE_ROOT; };
+		D6A591271D37A9B400CE6820 /* oneTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = oneTableViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/oneTableViewModel.m"; sourceTree = SOURCE_ROOT; };
+		D6A591291D37A9CA00CE6820 /* itemizeScrollViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = itemizeScrollViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/itemizeScrollViewModel.h"; sourceTree = SOURCE_ROOT; };
+		D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = itemizeScrollViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/itemizeScrollViewModel.m"; sourceTree = SOURCE_ROOT; };
+		D6A5912C1D37A9DE00CE6820 /* lastCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lastCollectionViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.h"; sourceTree = SOURCE_ROOT; };
+		D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lastCollectionViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +302,7 @@
 		D691F5CF1D366C94004359E1 /* Home(主页) */ = {
 			isa = PBXGroup;
 			children = (
+				D6A591171D37936400CE6820 /* Request */,
 				D691F5D01D366C94004359E1 /* Controller */,
 				D691F5D11D366C94004359E1 /* Model */,
 				D691F5D21D366C94004359E1 /* View */,
@@ -284,6 +315,12 @@
 			children = (
 				D691F5ED1D366FAA004359E1 /* HomeViewController.h */,
 				D691F5EE1D366FAA004359E1 /* HomeViewController.m */,
+				D6A5910E1D3724F200CE6820 /* RecommendViewController.h */,
+				D6A5910F1D3724F200CE6820 /* RecommendViewController.m */,
+				D6A591111D37250000CE6820 /* HigtenerViewController.h */,
+				D6A591121D37250100CE6820 /* HigtenerViewController.m */,
+				D6A591141D37250F00CE6820 /* RankListViewController.h */,
+				D6A591151D37250F00CE6820 /* RankListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,6 +328,14 @@
 		D691F5D11D366C94004359E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D6A591231D37A98300CE6820 /* firstScrollViewModel.h */,
+				D6A591241D37A98300CE6820 /* firstScrollViewModel.m */,
+				D6A591261D37A9B400CE6820 /* oneTableViewModel.h */,
+				D6A591271D37A9B400CE6820 /* oneTableViewModel.m */,
+				D6A591291D37A9CA00CE6820 /* itemizeScrollViewModel.h */,
+				D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */,
+				D6A5912C1D37A9DE00CE6820 /* lastCollectionViewModel.h */,
+				D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +420,19 @@
 				D6A449C31D37242A0096830F /* tabbar_room_sel@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		D6A591171D37936400CE6820 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				D6A591181D3793D000CE6820 /* BaseRequest.h */,
+				D6A591191D3793D000CE6820 /* BaseRequest.m */,
+				D6A5911B1D37944500CE6820 /* NetWorkRequest.h */,
+				D6A5911C1D37944500CE6820 /* NetWorkRequest.m */,
+				D6A5911E1D37954000CE6820 /* RecommendRequest.h */,
+				D6A5911F1D37954000CE6820 /* RecommendRequest.m */,
+			);
+			name = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,9 +596,19 @@
 				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
 				D691F59F1D366B1E004359E1 /* main.m in Sources */,
+				D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */,
+				D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */,
 				D691F5DC1D366DAC004359E1 /* RootViewController.m in Sources */,
+				D6A591251D37A98300CE6820 /* firstScrollViewModel.m in Sources */,
+				D6A591161D37250F00CE6820 /* RankListViewController.m in Sources */,
+				D6A591101D3724F200CE6820 /* RecommendViewController.m in Sources */,
+				D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */,
 				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
 				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
+				D6A5911D1D37944500CE6820 /* NetWorkRequest.m in Sources */,
+				D6A5911A1D3793D000CE6820 /* BaseRequest.m in Sources */,
+				D6A591201D37954000CE6820 /* RecommendRequest.m in Sources */,
+				D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
