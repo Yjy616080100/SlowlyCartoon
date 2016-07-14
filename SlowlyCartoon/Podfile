@@ -1,0 +1,5 @@
+platform :ios, '7.0'
+target "SlowlyCartoon" do
+pod 'HyphenateFullSDK'
+pod 'AFNetworking', '~> 3.1.0'
+end

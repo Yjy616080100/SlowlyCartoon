@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */; };
+		D691F59F1D366B1E004359E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F59E1D366B1E004359E1 /* main.m */; };
+		D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5A11D366B1E004359E1 /* AppDelegate.m */; };
+		D691F5AA1D366B1E004359E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D691F5A91D366B1E004359E1 /* Assets.xcassets */; };
+		D691F5B81D366B1E004359E1 /* SlowlyCartoonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5B71D366B1E004359E1 /* SlowlyCartoonTests.m */; };
+		D691F5DC1D366DAC004359E1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5DB1D366DAC004359E1 /* RootViewController.m */; };
+		D691F5E51D366F6B004359E1 /* tabbar_game_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5DD1D366F6B004359E1 /* tabbar_game_sel@2x.png */; };
+		D691F5E61D366F6B004359E1 /* tabbar_game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5DE1D366F6B004359E1 /* tabbar_game@2x.png */; };
+		D691F5E71D366F6B004359E1 /* tabbar_home_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5DF1D366F6B004359E1 /* tabbar_home_sel@2x.png */; };
+		D691F5E81D366F6B004359E1 /* tabbar_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5E01D366F6B004359E1 /* tabbar_home@2x.png */; };
+		D691F5E91D366F6B004359E1 /* tabbar_me_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5E11D366F6B004359E1 /* tabbar_me_sel@2x.png */; };
+		D691F5EA1D366F6B004359E1 /* tabbar_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5E21D366F6B004359E1 /* tabbar_me@2x.png */; };
+		D691F5EB1D366F6B004359E1 /* tabbar_room_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5E31D366F6B004359E1 /* tabbar_room_sel@2x.png */; };
+		D691F5EC1D366F6B004359E1 /* tabbar_room@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D691F5E41D366F6B004359E1 /* tabbar_room@2x.png */; };
+		D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5EE1D366FAA004359E1 /* HomeViewController.m */; };
+		D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F11D366FB6004359E1 /* FriendViewController.m */; };
+		D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F41D366FD9004359E1 /* CommunityViewController.m */; };
+		D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F71D366FF9004359E1 /* MineViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D691F5B41D366B1E004359E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D691F5921D366B1E004359E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D691F5991D366B1E004359E1;
+			remoteInfo = SlowlyCartoon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.release.xcconfig"; sourceTree = "<group>"; };
+		8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlowlyCartoon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.debug.xcconfig"; sourceTree = "<group>"; };
+		D691F59A1D366B1E004359E1 /* SlowlyCartoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlowlyCartoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D691F59E1D366B1E004359E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
+		D691F5A01D366B1E004359E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		D691F5A11D366B1E004359E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
+		D691F5A91D366B1E004359E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		D691F5AE1D366B1E004359E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D691F5B31D366B1E004359E1 /* SlowlyCartoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlowlyCartoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D691F5B71D366B1E004359E1 /* SlowlyCartoonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlowlyCartoonTests.m; sourceTree = "<group>"; };
+		D691F5B91D366B1E004359E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D691F5DA1D366DAC004359E1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		D691F5DB1D366DAC004359E1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		D691F5DD1D366F6B004359E1 /* tabbar_game_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_game_sel@2x.png"; sourceTree = "<group>"; };
+		D691F5DE1D366F6B004359E1 /* tabbar_game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_game@2x.png"; sourceTree = "<group>"; };
+		D691F5DF1D366F6B004359E1 /* tabbar_home_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home_sel@2x.png"; sourceTree = "<group>"; };
+		D691F5E01D366F6B004359E1 /* tabbar_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home@2x.png"; sourceTree = "<group>"; };
+		D691F5E11D366F6B004359E1 /* tabbar_me_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me_sel@2x.png"; sourceTree = "<group>"; };
+		D691F5E21D366F6B004359E1 /* tabbar_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me@2x.png"; sourceTree = "<group>"; };
+		D691F5E31D366F6B004359E1 /* tabbar_room_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_room_sel@2x.png"; sourceTree = "<group>"; };
+		D691F5E41D366F6B004359E1 /* tabbar_room@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_room@2x.png"; sourceTree = "<group>"; };
+		D691F5ED1D366FAA004359E1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D691F5EE1D366FAA004359E1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D691F5F01D366FB6004359E1 /* FriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendViewController.h; sourceTree = "<group>"; };
+		D691F5F11D366FB6004359E1 /* FriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendViewController.m; sourceTree = "<group>"; };
+		D691F5F31D366FD9004359E1 /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		D691F5F41D366FD9004359E1 /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
+		D691F5F61D366FF9004359E1 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		D691F5F71D366FF9004359E1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		D691F5F91D3670DF004359E1 /* Contants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
+		D691F5FA1D3670F0004359E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D691F5971D366B1E004359E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D691F5B01D366B1E004359E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F7B05A59BA7F3A21B9602A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */,
+				32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B95C0CE4880B2E6D2B45D548 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D691F5911D366B1E004359E1 = {
+			isa = PBXGroup;
+			children = (
+				D691F5DD1D366F6B004359E1 /* tabbar_game_sel@2x.png */,
+				D691F5DE1D366F6B004359E1 /* tabbar_game@2x.png */,
+				D691F5DF1D366F6B004359E1 /* tabbar_home_sel@2x.png */,
+				D691F5E01D366F6B004359E1 /* tabbar_home@2x.png */,
+				D691F5E11D366F6B004359E1 /* tabbar_me_sel@2x.png */,
+				D691F5E21D366F6B004359E1 /* tabbar_me@2x.png */,
+				D691F5E31D366F6B004359E1 /* tabbar_room_sel@2x.png */,
+				D691F5E41D366F6B004359E1 /* tabbar_room@2x.png */,
+				D691F59C1D366B1E004359E1 /* SlowlyCartoon */,
+				D691F5B61D366B1E004359E1 /* SlowlyCartoonTests */,
+				D691F59B1D366B1E004359E1 /* Products */,
+				2F7B05A59BA7F3A21B9602A9 /* Pods */,
+				B95C0CE4880B2E6D2B45D548 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D691F59B1D366B1E004359E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D691F59A1D366B1E004359E1 /* SlowlyCartoon.app */,
+				D691F5B31D366B1E004359E1 /* SlowlyCartoonTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D691F59C1D366B1E004359E1 /* SlowlyCartoon */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5C21D366C94004359E1 /* Classes */,
+				D691F5D91D366D2C004359E1 /* Main(主要) */,
+				D691F5D81D366CDB004359E1 /* Resources(资源) */,
+				D691F5D71D366CD5004359E1 /* Other(其他) */,
+				D691F59D1D366B1E004359E1 /* Supporting Files */,
+			);
+			path = SlowlyCartoon;
+			sourceTree = "<group>";
+		};
+		D691F59D1D366B1E004359E1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5AE1D366B1E004359E1 /* Info.plist */,
+				D691F5F91D3670DF004359E1 /* Contants.h */,
+				D691F5FA1D3670F0004359E1 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D691F5B61D366B1E004359E1 /* SlowlyCartoonTests */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5B71D366B1E004359E1 /* SlowlyCartoonTests.m */,
+				D691F5B91D366B1E004359E1 /* Info.plist */,
+			);
+			path = SlowlyCartoonTests;
+			sourceTree = "<group>";
+		};
+		D691F5C21D366C94004359E1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5C31D366C94004359E1 /* BaseClasses */,
+				D691F5C71D366C94004359E1 /* Community(社区) */,
+				D691F5CB1D366C94004359E1 /* Friend(好友) */,
+				D691F5CF1D366C94004359E1 /* Home(主页) */,
+				D691F5D31D366C94004359E1 /* Mine(个人中心) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D691F5C31D366C94004359E1 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5C41D366C94004359E1 /* Controller */,
+				D691F5C51D366C94004359E1 /* Model */,
+				D691F5C61D366C94004359E1 /* View */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		D691F5C41D366C94004359E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D691F5C51D366C94004359E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D691F5C61D366C94004359E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D691F5C71D366C94004359E1 /* Community(社区) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5C81D366C94004359E1 /* Controller */,
+				D691F5C91D366C94004359E1 /* Model */,
+				D691F5CA1D366C94004359E1 /* View */,
+			);
+			path = "Community(社区)";
+			sourceTree = "<group>";
+		};
+		D691F5C81D366C94004359E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5F31D366FD9004359E1 /* CommunityViewController.h */,
+				D691F5F41D366FD9004359E1 /* CommunityViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D691F5C91D366C94004359E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D691F5CA1D366C94004359E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D691F5CB1D366C94004359E1 /* Friend(好友) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5CC1D366C94004359E1 /* Controller */,
+				D691F5CD1D366C94004359E1 /* Model */,
+				D691F5CE1D366C94004359E1 /* View */,
+			);
+			path = "Friend(好友)";
+			sourceTree = "<group>";
+		};
+		D691F5CC1D366C94004359E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5F01D366FB6004359E1 /* FriendViewController.h */,
+				D691F5F11D366FB6004359E1 /* FriendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D691F5CD1D366C94004359E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D691F5CE1D366C94004359E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D691F5CF1D366C94004359E1 /* Home(主页) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5D01D366C94004359E1 /* Controller */,
+				D691F5D11D366C94004359E1 /* Model */,
+				D691F5D21D366C94004359E1 /* View */,
+			);
+			path = "Home(主页)";
+			sourceTree = "<group>";
+		};
+		D691F5D01D366C94004359E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5ED1D366FAA004359E1 /* HomeViewController.h */,
+				D691F5EE1D366FAA004359E1 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D691F5D11D366C94004359E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D691F5D21D366C94004359E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D691F5D31D366C94004359E1 /* Mine(个人中心) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5D41D366C94004359E1 /* Controller */,
+				D691F5D51D366C94004359E1 /* Model */,
+				D691F5D61D366C94004359E1 /* View */,
+			);
+			path = "Mine(个人中心)";
+			sourceTree = "<group>";
+		};
+		D691F5D41D366C94004359E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5F61D366FF9004359E1 /* MineViewController.h */,
+				D691F5F71D366FF9004359E1 /* MineViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D691F5D51D366C94004359E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D691F5D61D366C94004359E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D691F5D71D366CD5004359E1 /* Other(其他) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Other(其他)";
+			sourceTree = "<group>";
+		};
+		D691F5D81D366CDB004359E1 /* Resources(资源) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5A91D366B1E004359E1 /* Assets.xcassets */,
+			);
+			path = "Resources(资源)";
+			sourceTree = "<group>";
+		};
+		D691F5D91D366D2C004359E1 /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				D691F5A01D366B1E004359E1 /* AppDelegate.h */,
+				D691F5DA1D366DAC004359E1 /* RootViewController.h */,
+				D691F5DB1D366DAC004359E1 /* RootViewController.m */,
+				D691F5A11D366B1E004359E1 /* AppDelegate.m */,
+				D691F59E1D366B1E004359E1 /* main.m */,
+			);
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D691F5991D366B1E004359E1 /* SlowlyCartoon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D691F5BC1D366B1E004359E1 /* Build configuration list for PBXNativeTarget "SlowlyCartoon" */;
+			buildPhases = (
+				D2CD862FF39371845B7A2B43 /* [CP] Check Pods Manifest.lock */,
+				D691F5961D366B1E004359E1 /* Sources */,
+				D691F5971D366B1E004359E1 /* Frameworks */,
+				D691F5981D366B1E004359E1 /* Resources */,
+				E94EA09D0D54933F9F6FF469 /* [CP] Embed Pods Frameworks */,
+				2E50CE65111A519DA421FB4D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SlowlyCartoon;
+			productName = SlowlyCartoon;
+			productReference = D691F59A1D366B1E004359E1 /* SlowlyCartoon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D691F5B21D366B1E004359E1 /* SlowlyCartoonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D691F5BF1D366B1E004359E1 /* Build configuration list for PBXNativeTarget "SlowlyCartoonTests" */;
+			buildPhases = (
+				D691F5AF1D366B1E004359E1 /* Sources */,
+				D691F5B01D366B1E004359E1 /* Frameworks */,
+				D691F5B11D366B1E004359E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D691F5B51D366B1E004359E1 /* PBXTargetDependency */,
+			);
+			name = SlowlyCartoonTests;
+			productName = SlowlyCartoonTests;
+			productReference = D691F5B31D366B1E004359E1 /* SlowlyCartoonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D691F5921D366B1E004359E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Slowly Pangpang";
+				TargetAttributes = {
+					D691F5991D366B1E004359E1 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					D691F5B21D366B1E004359E1 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = D691F5991D366B1E004359E1;
+					};
+				};
+			};
+			buildConfigurationList = D691F5951D366B1E004359E1 /* Build configuration list for PBXProject "SlowlyCartoon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D691F5911D366B1E004359E1;
+			productRefGroup = D691F59B1D366B1E004359E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D691F5991D366B1E004359E1 /* SlowlyCartoon */,
+				D691F5B21D366B1E004359E1 /* SlowlyCartoonTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D691F5981D366B1E004359E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D691F5EC1D366F6B004359E1 /* tabbar_room@2x.png in Resources */,
+				D691F5AA1D366B1E004359E1 /* Assets.xcassets in Resources */,
+				D691F5E61D366F6B004359E1 /* tabbar_game@2x.png in Resources */,
+				D691F5E71D366F6B004359E1 /* tabbar_home_sel@2x.png in Resources */,
+				D691F5E51D366F6B004359E1 /* tabbar_game_sel@2x.png in Resources */,
+				D691F5E81D366F6B004359E1 /* tabbar_home@2x.png in Resources */,
+				D691F5E91D366F6B004359E1 /* tabbar_me_sel@2x.png in Resources */,
+				D691F5EB1D366F6B004359E1 /* tabbar_room_sel@2x.png in Resources */,
+				D691F5EA1D366F6B004359E1 /* tabbar_me@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D691F5B11D366B1E004359E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E50CE65111A519DA421FB4D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2CD862FF39371845B7A2B43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E94EA09D0D54933F9F6FF469 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D691F5961D366B1E004359E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */,
+				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,
+				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
+				D691F59F1D366B1E004359E1 /* main.m in Sources */,
+				D691F5DC1D366DAC004359E1 /* RootViewController.m in Sources */,
+				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
+				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D691F5AF1D366B1E004359E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D691F5B81D366B1E004359E1 /* SlowlyCartoonTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D691F5B51D366B1E004359E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D691F5991D366B1E004359E1 /* SlowlyCartoon */;
+			targetProxy = D691F5B41D366B1E004359E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D691F5BA1D366B1E004359E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D691F5BB1D366B1E004359E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D691F5BD1D366B1E004359E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
+				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D691F5BE1D366B1E004359E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
+				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D691F5C01D366B1E004359E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlowlyCartoonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlowlyCartoon.app/SlowlyCartoon";
+			};
+			name = Debug;
+		};
+		D691F5C11D366B1E004359E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SlowlyCartoonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SlowlyCartoon.app/SlowlyCartoon";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D691F5951D366B1E004359E1 /* Build configuration list for PBXProject "SlowlyCartoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D691F5BA1D366B1E004359E1 /* Debug */,
+				D691F5BB1D366B1E004359E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D691F5BC1D366B1E004359E1 /* Build configuration list for PBXNativeTarget "SlowlyCartoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D691F5BD1D366B1E004359E1 /* Debug */,
+				D691F5BE1D366B1E004359E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D691F5BF1D366B1E004359E1 /* Build configuration list for PBXNativeTarget "SlowlyCartoonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D691F5C01D366B1E004359E1 /* Debug */,
+				D691F5C11D366B1E004359E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D691F5921D366B1E004359E1 /* Project object */;
+}

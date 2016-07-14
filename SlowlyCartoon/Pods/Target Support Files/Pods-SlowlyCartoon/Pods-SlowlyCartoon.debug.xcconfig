@@ -1,0 +1,8 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/HyphenateFullSDK"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/AFNetworking" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib" $(inherited) "${PODS_ROOT}/HyphenateFullSDK/HyphenateFullSDK/lib/3rdparty"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/HyphenateFullSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"HyphenateFullSDK_arm64" -l"HyphenateFullSDK_armv7" -l"HyphenateFullSDK_armv7s" -l"HyphenateFullSDK_i386" -l"HyphenateFullSDK_x86_64" -l"c++" -l"crypto" -l"curl" -l"iconv" -l"sqlite3" -l"ssl" -l"stdc++.6.0.9" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreGraphics" -framework "CoreMedia" -framework "ImageIO" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}/Pods
