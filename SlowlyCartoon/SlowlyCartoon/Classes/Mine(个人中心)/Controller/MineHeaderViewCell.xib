@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="KGk-i7-Jjw" customClass="MineHeaderViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-ff-tar">
+                        <rect key="frame" x="143" y="38" width="99" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="99" id="Pa1-zg-ya2"/>
+                            <constraint firstAttribute="height" constant="35" id="She-Wd-6cf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou.png" translatesAutoresizingMaskIntoConstraints="NO" id="AEK-X7-q3F">
+                        <rect key="frame" x="292" y="66" width="20" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="VP8-Xy-9aA"/>
+                            <constraint firstAttribute="width" constant="20" id="YFj-Mh-xXb"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Wc-0oV">
+                        <rect key="frame" x="14" y="16" width="115" height="118"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="115" id="OiP-EZ-GVn"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="AEK-X7-q3F" secondAttribute="trailing" constant="8" id="3a7-cd-uLP"/>
+                    <constraint firstAttribute="bottom" secondItem="ROk-Wc-0oV" secondAttribute="bottom" constant="15" id="8JQ-L0-ccQ"/>
+                    <constraint firstItem="AEK-X7-q3F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="66" id="bFH-WN-kBF"/>
+                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="fTM-Ds-zbu"/>
+                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ie3-Bl-p2q"/>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="kSe-EM-lUx"/>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="leading" secondItem="ROk-Wc-0oV" secondAttribute="trailing" constant="14" id="pg5-ci-tNK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatorImage" destination="ROk-Wc-0oV" id="gTc-02-wOb"/>
+                <outlet property="contentField" destination="s9l-ff-tar" id="1pZ-uM-8Ga"/>
+            </connections>
+            <point key="canvasLocation" x="455" y="285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="avator.png" width="229" height="210"/>
+        <image name="jiantou.png" width="14" height="14"/>
+    </resources>
+</document>

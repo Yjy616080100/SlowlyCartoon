@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MineTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="MineTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ROK-ur-1b5">
+                        <rect key="frame" x="12" y="72" width="296" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="SU5-RR-VRN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的消息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjG-Px-gFW">
+                        <rect key="frame" x="87" y="26" width="190" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ldw-1i-H0u">
+                        <rect key="frame" x="292" y="27" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="AKo-wY-Bgm"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="opinion.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jew-Ci-U1B">
+                        <rect key="frame" x="8" y="6" width="66" height="62"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="62" id="AAH-QP-aap"/>
+                            <constraint firstAttribute="width" constant="66" id="z42-eo-nSL"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ROK-ur-1b5" secondAttribute="bottom" constant="1" id="3hm-JX-HjF"/>
+                    <constraint firstItem="Jew-Ci-U1B" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="EDQ-m5-gnG"/>
+                    <constraint firstItem="Ldw-1i-H0u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="27" id="G7K-lN-vWP"/>
+                    <constraint firstItem="Jew-Ci-U1B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="K4Q-Ch-HsF"/>
+                    <constraint firstItem="mjG-Px-gFW" firstAttribute="leading" secondItem="Jew-Ci-U1B" secondAttribute="trailing" constant="13" id="Pa3-X0-Lio"/>
+                    <constraint firstItem="ROK-ur-1b5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Xxv-5S-orV"/>
+                    <constraint firstItem="ROK-ur-1b5" firstAttribute="top" secondItem="mjG-Px-gFW" secondAttribute="bottom" constant="25" id="ZzP-gh-vu2"/>
+                    <constraint firstItem="mjG-Px-gFW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="av2-d3-8Yr"/>
+                    <constraint firstItem="ROK-ur-1b5" firstAttribute="top" secondItem="Ldw-1i-H0u" secondAttribute="bottom" constant="25" id="nVo-x3-DBS"/>
+                    <constraint firstItem="Ldw-1i-H0u" firstAttribute="leading" secondItem="mjG-Px-gFW" secondAttribute="trailing" constant="15" id="rd9-bZ-iEM"/>
+                    <constraint firstAttribute="trailing" secondItem="ROK-ur-1b5" secondAttribute="trailing" constant="12" id="uB0-aE-DgN"/>
+                    <constraint firstAttribute="trailing" secondItem="Ldw-1i-H0u" secondAttribute="trailing" constant="8" id="y7z-NP-ksj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentField" destination="mjG-Px-gFW" id="ShB-ao-tz6"/>
+                <outlet property="imageV" destination="Jew-Ci-U1B" id="V2D-Vl-Od0"/>
+            </connections>
+            <point key="canvasLocation" x="1132" y="692.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="jiantou.png" width="14" height="14"/>
+        <image name="opinion.png" width="57" height="57"/>
+    </resources>
+</document>
