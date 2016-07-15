@@ -16,6 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    切圆角
+    [self cutRound];
+
+    
+    
+    
+    // Do any additional setup after loading the view.
+}
+//切圆角
+- (void)cutRound{
     _userView.layer.masksToBounds = YES;
     _userView.layer.cornerRadius = 25;
     
@@ -31,13 +41,58 @@
     
     _registerBtn.layer.masksToBounds = YES;
     _registerBtn.layer.cornerRadius = 25;
-    
-    // Do any additional setup after loading the view.
 }
+#pragma mark-  登录
 - (IBAction)LoginBtn:(UIButton *)sender {
     
+    if (_userNameTextField.text.length != 0) {
+        
+        if (_passWordTextField.text.length != 0) {
+            EMError *error = [[EMClient sharedClient] loginWithUsername:_userNameTextField.text password:_passWordTextField.text];
+        
+            if (!error) {
+                NSData * imageData = UIImageJPEGRepresentation(_avatorImagev.image, 1);
+                [[NSUserDefaults standardUserDefaults]setValue:imageData forKey:@"avator"];
+                [[NSUserDefaults standardUserDefaults]setValue:_userNameTextField.text forKey:@"userName"];
+                [[NSUserDefaults standardUserDefaults]setValue:_passWordTextField.text forKey:@"passWord"];
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                NSLog(@"登录成功");
+            }else{
+                UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:@"账号或密码错误！" preferredStyle:(UIAlertControllerStyleAlert)];
+                UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"哦^………………" style:(UIAlertActionStyleCancel) handler:nil];
+                [alertController addAction:confirmAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+                NSLog(@"账号或密码错误！");
+            }
+            
+        }else{
+            UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:@"密码不能为空" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"哦^………………" style:(UIAlertActionStyleCancel) handler:nil];
+            [alertController addAction:confirmAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+            NSLog(@"密码不能为空！");
+        }
+
+      
+        
+    }else{
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:@"用户名不能为空！" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"哦^………………" style:(UIAlertActionStyleCancel) handler:nil];
+        [alertController addAction:confirmAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+        NSLog(@"用户名不能为空！");
+    }
+    
+ 
+    
+    
+    
 }
+
+#pragma mark-  注册（MineStoryBorad 已经拖线）
 - (IBAction)registerBtn:(UIButton *)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning {
