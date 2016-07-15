@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--登录-->
         <scene sceneID="Ozt-pI-fRd">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="ciI-qD-MLg" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="登录" id="ciI-qD-MLg" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uLT-Ak-d36"/>
                         <viewControllerLayoutGuide type="bottom" id="cG4-1E-HXk"/>
@@ -153,12 +153,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGN-4Y-y85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="515"/>
+            <point key="canvasLocation" x="232" y="454"/>
         </scene>
-        <!--Register View Controller-->
+        <!--注册-->
         <scene sceneID="Eg8-G1-lBJ">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" id="ggX-Mz-BLN" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" title="注册" id="ggX-Mz-BLN" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="01E-g1-crw"/>
                         <viewControllerLayoutGuide type="bottom" id="3nZ-ud-lQL"/>
@@ -256,7 +256,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.48544145750000001" green="1" blue="0.90703380369999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.48321504809999999" green="1" blue="0.90430144059999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aOf-4H-rzF" firstAttribute="top" secondItem="1ga-eh-cSU" secondAttribute="bottom" constant="32" id="DTU-fS-PTg"/>
                             <constraint firstItem="UmP-Jg-uke" firstAttribute="leading" secondItem="CHF-rj-Q3D" secondAttribute="leading" constant="77" id="EUj-mX-dru"/>
@@ -286,12 +286,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaQ-72-1Qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="1017"/>
+            <point key="canvasLocation" x="232" y="1371"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--个人详情-->
+        <scene sceneID="83W-cb-iou">
+            <objects>
+                <viewController storyboardIdentifier="MIneDetailViewController" title="个人详情" id="P17-ZS-ny6" customClass="MIneDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="deE-Qk-v55"/>
+                        <viewControllerLayoutGuide type="bottom" id="Odi-v7-J9l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A3r-O4-ibC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.48321504809999999" green="1" blue="0.90430144059999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7W-p6-hSf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="82"/>
+        </scene>
+        <!--设置-->
         <scene sceneID="ELC-ys-c6v">
             <objects>
-                <viewController storyboardIdentifier="SettingViewController" automaticallyAdjustsScrollViewInsets="NO" id="MkE-NM-M0Y" customClass="SettingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" title="设置" automaticallyAdjustsScrollViewInsets="NO" id="MkE-NM-M0Y" customClass="SettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HNB-NR-z36"/>
                         <viewControllerLayoutGuide type="bottom" id="zcf-ze-XU9"/>
@@ -324,12 +343,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0i-q7-Lxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="656" y="584"/>
+            <point key="canvasLocation" x="638" y="488"/>
         </scene>
-        <!--Contact View Controller-->
+        <!--联系我们-->
         <scene sceneID="Ofq-0F-nAA">
             <objects>
-                <viewController storyboardIdentifier="ContactViewController" id="u1t-wo-FjV" customClass="ContactViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactViewController" title="联系我们" automaticallyAdjustsScrollViewInsets="NO" id="u1t-wo-FjV" customClass="ContactViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tVe-2V-xRw"/>
                         <viewControllerLayoutGuide type="bottom" id="oqM-1D-7R2"/>
@@ -338,9 +357,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="znl-E6-LjR">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="znl-E6-LjR">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="u1t-wo-FjV" id="o8h-jZ-LII"/>
                                     <outlet property="delegate" destination="u1t-wo-FjV" id="inf-5B-MMI"/>
@@ -362,12 +381,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQf-U9-85g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="579"/>
+            <point key="canvasLocation" x="1005" y="488"/>
         </scene>
-        <!--About Us View Controller-->
+        <!--关于-->
         <scene sceneID="XgI-PC-iEb">
             <objects>
-                <viewController storyboardIdentifier="AboutUsViewController" id="QRi-bn-xFM" customClass="AboutUsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsViewController" title="关于" id="QRi-bn-xFM" customClass="AboutUsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FC2-Js-7gt"/>
                         <viewControllerLayoutGuide type="bottom" id="rPy-Eo-0hF"/>
@@ -435,7 +454,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xjk-nz-GAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="548"/>
+            <point key="canvasLocation" x="1412" y="488"/>
+        </scene>
+        <!--Opinion View Controller-->
+        <scene sceneID="cog-Cm-DQG">
+            <objects>
+                <viewController storyboardIdentifier="OpinionViewController" id="SiH-eb-lG1" customClass="OpinionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qlN-x3-qTM"/>
+                        <viewControllerLayoutGuide type="bottom" id="47L-E8-Ypq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C3s-VV-gqb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.48321504809999999" green="1" blue="0.90430144059999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TYr-7Y-1Nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692" y="1130"/>
+        </scene>
+        <!--我的消息-->
+        <scene sceneID="4a9-H2-OV5">
+            <objects>
+                <viewController storyboardIdentifier="MineMessageViewController" title="我的消息" id="sAw-ae-0Sa" customClass="MineMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RX6-pX-uwh"/>
+                        <viewControllerLayoutGuide type="bottom" id="vT5-gs-TUa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yZX-iU-Cgs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.48321504809999999" green="1" blue="0.90430144059999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OcW-4e-A7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="1173"/>
         </scene>
     </scenes>
     <resources>

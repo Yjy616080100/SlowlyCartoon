@@ -14,16 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-ff-tar">
-                        <rect key="frame" x="143" y="38" width="99" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="99" id="Pa1-zg-ya2"/>
-                            <constraint firstAttribute="height" constant="35" id="She-Wd-6cf"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou.png" translatesAutoresizingMaskIntoConstraints="NO" id="AEK-X7-q3F">
                         <rect key="frame" x="292" y="66" width="20" height="17"/>
                         <constraints>
@@ -32,27 +22,39 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Wc-0oV">
-                        <rect key="frame" x="14" y="16" width="115" height="118"/>
+                        <rect key="frame" x="14" y="16" width="110" height="110"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="115" id="OiP-EZ-GVn"/>
+                            <constraint firstAttribute="width" constant="110" id="1xN-Sf-Yi2"/>
+                            <constraint firstAttribute="height" constant="110" id="TsA-7X-mf0"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-ff-tar">
+                        <rect key="frame" x="154" y="48" width="144" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="144" id="8Nd-On-6Al"/>
+                            <constraint firstAttribute="height" constant="35" id="dDL-zh-LTO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" red="0.23911634590849581" green="0.16139553368700907" blue="0.95054810209999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.95054810209999996" green="0.29020925780000001" blue="0.12801431360000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="-2" height="-1"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="2zR-Od-LGq"/>
                     <constraint firstAttribute="trailing" secondItem="AEK-X7-q3F" secondAttribute="trailing" constant="8" id="3a7-cd-uLP"/>
-                    <constraint firstAttribute="bottom" secondItem="ROk-Wc-0oV" secondAttribute="bottom" constant="15" id="8JQ-L0-ccQ"/>
+                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="EMD-v4-L2q"/>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="leading" secondItem="ROk-Wc-0oV" secondAttribute="trailing" constant="30" id="JLW-pK-a93"/>
                     <constraint firstItem="AEK-X7-q3F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="66" id="bFH-WN-kBF"/>
-                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="fTM-Ds-zbu"/>
-                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ie3-Bl-p2q"/>
-                    <constraint firstItem="s9l-ff-tar" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="38" id="kSe-EM-lUx"/>
-                    <constraint firstItem="s9l-ff-tar" firstAttribute="leading" secondItem="ROk-Wc-0oV" secondAttribute="trailing" constant="14" id="pg5-ci-tNK"/>
+                    <constraint firstItem="ROk-Wc-0oV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hbL-8c-3aq"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatorImage" destination="ROk-Wc-0oV" id="gTc-02-wOb"/>
                 <outlet property="contentField" destination="s9l-ff-tar" id="1pZ-uM-8Ga"/>
             </connections>
-            <point key="canvasLocation" x="455" y="285"/>
+            <point key="canvasLocation" x="556" y="285"/>
         </tableViewCell>
     </objects>
     <resources>

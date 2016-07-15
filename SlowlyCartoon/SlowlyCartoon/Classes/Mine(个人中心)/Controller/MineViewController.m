@@ -19,6 +19,11 @@
 #import "MineTableViewCell.h"
 
 #import "MineHeaderViewCell.h"
+
+#import "MineMessageViewController.h"
+
+#import "OpinionViewController.h"
+#import "MIneDetailViewController.h"
 //107/255.0 green:1 blue:232/255.0 alpha:1
 
 @interface MineViewController ()
@@ -35,6 +40,12 @@ UITableViewDelegate
 
 //图片
 @property(strong, nonatomic) NSArray * imageArray;
+
+//头像
+@property (strong, nonatomic)UIImage * avator;
+
+//判断是否登录
+@property (strong, nonatomic)NSString * name;
 @end
 
 @implementation MineViewController
@@ -50,6 +61,7 @@ UITableViewDelegate
     
     //    初始化tableView
     _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:(UITableViewStyleGrouped)];
+    
     _tableView.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
 
     //    _tableView.userInteractionEnabled = NO; 用户交互开关
@@ -73,6 +85,23 @@ UITableViewDelegate
     [self.view addSubview:_tableView];
 }
 
+#pragma mark- 刷新数据
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+//    登录成功获取avator
+    NSData * imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
+    
+    if (imageData != nil) {
+        _avator = [UIImage imageWithData:imageData];
+    }
+    
+    _name = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+    
+//    显示tabBar
+    self.tabBarController.tabBar.hidden = NO;
+    
+    [_tableView reloadData];
+}
 
 #pragma mark- 数据数组懒加载 (构造二维数据数组)
 - (void)setUpDataArray{
@@ -115,9 +144,17 @@ UITableViewDelegate
         }
 
         cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
-        cell.contentField.text = _dataArray[indexPath.section][indexPath.row];
-        cell.avatorImage.image = [UIImage imageNamed:_imageArray[indexPath.section][indexPath.row]];
-        return cell;
+//        判断是否登录
+      
+        
+        NSLog(@"userName ====%@",_name);
+        if (_name.length != 0) {
+            cell.contentField.text = _name;
+            cell.avatorImage.image = _avator;
+        }else{
+            cell.contentField.text = _dataArray[indexPath.section][indexPath.row];
+            cell.avatorImage.image = [UIImage imageNamed:_imageArray[indexPath.section][indexPath.row]];
+        }
         
         return cell;
     }
@@ -151,9 +188,22 @@ UITableViewDelegate
             //   登录/注册
             if (indexPath.row == 0) {
                 
-                LoginViewController * loginVC = [SB instantiateViewControllerWithIdentifier:@"LoginViewController"];
-                
-                [self.navigationController pushViewController:loginVC animated:YES];
+                if (_name.length != 0) {
+//                    登录成功之后 
+                    MIneDetailViewController * detailVC = [SB instantiateViewControllerWithIdentifier:@"MIneDetailViewController"];
+                    
+                    [self.navigationController pushViewController:detailVC animated:YES];
+                    
+                    self.tabBarController.tabBar.hidden = YES;
+                }else{
+//          未登录  去登录
+                    LoginViewController * loginVC = [SB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                    
+                    [self.navigationController pushViewController:loginVC animated:YES];
+                    
+                    self.tabBarController.tabBar.hidden = YES;
+                }
+             
             }
             break;
             
@@ -162,12 +212,20 @@ UITableViewDelegate
             
             if (indexPath.row == 0) {
                 //    我的消息
+                MineMessageViewController * messageVC = [SB instantiateViewControllerWithIdentifier:@"MineMessageViewController"];
+                
+                [self.navigationController pushViewController:messageVC animated:YES];
+                
+                self.tabBarController.tabBar.hidden = YES;
+                
                 NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
             }else{
                 //      设置
                 SettingViewController * settingVC = [SB instantiateViewControllerWithIdentifier:@"SettingViewController"];
                 
                 [self.navigationController pushViewController:settingVC animated:YES];
+                
+                self.tabBarController.tabBar.hidden = YES;
                 
                 NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
             }
@@ -178,12 +236,21 @@ UITableViewDelegate
         case 2:
             if (indexPath.row == 0) {
                 //      意见反馈
+                OpinionViewController * opinionVC = [SB instantiateViewControllerWithIdentifier:@"OpinionViewController"];
+                
+                [self.navigationController pushViewController:opinionVC animated:YES];
+                
+                self.tabBarController.tabBar.hidden = YES;
+                
                 NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                
             }else if(indexPath.row == 1){
                 //         联系我们
                 ContactViewController * contactVC = [SB instantiateViewControllerWithIdentifier:@"ContactViewController"];
                 
                 [self.navigationController pushViewController:contactVC animated:YES];
+                
+                self.tabBarController.tabBar.hidden = YES;
                 
                 NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
                 
@@ -192,6 +259,9 @@ UITableViewDelegate
                 AboutUsViewController * aboutVC = [SB instantiateViewControllerWithIdentifier:@"AboutUsViewController"];
                 
                 [self.navigationController pushViewController:aboutVC animated:YES];
+                
+                self.tabBarController.tabBar.hidden = YES;
+                
                 NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
                 
             }

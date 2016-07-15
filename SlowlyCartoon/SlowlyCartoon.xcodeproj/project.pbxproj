@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */; };
 		D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A361D3876A400232F2D /* RegisterViewController.m */; };
+		D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */; };
+		D6284A421D38D6BF00232F2D /* MineSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */; };
+		D6284A461D3919FC00232F2D /* AboutUsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A441D3919FC00232F2D /* AboutUsTableViewCell.m */; };
+		D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */; };
+		D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */; };
+		D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A511D392AE900232F2D /* OpinionViewController.m */; };
+		D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A541D3931A100232F2D /* MIneDetailViewController.m */; };
 		D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CFF2A1D37418400DA832F /* LoginViewController.m */; };
 		D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2C1D37419600DA832F /* Mine.storyboard */; };
 		D68CFF301D3773B200DA832F /* passBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2E1D3773B200DA832F /* passBg.png */; };
@@ -73,6 +80,18 @@
 		95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.debug.xcconfig"; sourceTree = "<group>"; };
 		D6284A351D3876A400232F2D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D6284A361D3876A400232F2D /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		D6284A3E1D38D6BF00232F2D /* MineSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSettingTableViewCell.h; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/MineSettingTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineSettingTableViewCell.m; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/MineSettingTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineSettingTableViewCell.xib; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/MineSettingTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D6284A431D3919FC00232F2D /* AboutUsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsTableViewCell.h; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/AboutUsTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D6284A441D3919FC00232F2D /* AboutUsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsTableViewCell.m; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/AboutUsTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutUsTableViewCell.xib; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/AboutUsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D6284A4D1D3927CE00232F2D /* MineMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineMessageViewController.h; sourceTree = "<group>"; };
+		D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineMessageViewController.m; sourceTree = "<group>"; };
+		D6284A501D392AE900232F2D /* OpinionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionViewController.h; sourceTree = "<group>"; };
+		D6284A511D392AE900232F2D /* OpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionViewController.m; sourceTree = "<group>"; };
+		D6284A531D3931A100232F2D /* MIneDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIneDetailViewController.h; sourceTree = "<group>"; };
+		D6284A541D3931A100232F2D /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
 		D68CFF291D37418400DA832F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D68CFF2A1D37418400DA832F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D68CFF2C1D37419600DA832F /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Mine.storyboard; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/Mine.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -409,6 +428,8 @@
 			children = (
 				D691F5F61D366FF9004359E1 /* MineViewController.h */,
 				D691F5F71D366FF9004359E1 /* MineViewController.m */,
+				D6284A531D3931A100232F2D /* MIneDetailViewController.h */,
+				D6284A541D3931A100232F2D /* MIneDetailViewController.m */,
 				D68CFF291D37418400DA832F /* LoginViewController.h */,
 				D68CFF2A1D37418400DA832F /* LoginViewController.m */,
 				D6284A351D3876A400232F2D /* RegisterViewController.h */,
@@ -419,6 +440,10 @@
 				D68CFF381D3781AC00DA832F /* ContactViewController.m */,
 				D68CFF3A1D37866700DA832F /* AboutUsViewController.h */,
 				D68CFF3B1D37866700DA832F /* AboutUsViewController.m */,
+				D6284A4D1D3927CE00232F2D /* MineMessageViewController.h */,
+				D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */,
+				D6284A501D392AE900232F2D /* OpinionViewController.h */,
+				D6284A511D392AE900232F2D /* OpinionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -440,6 +465,12 @@
 				D68CFF4E1D37AAFF00DA832F /* MineHeaderViewCell.h */,
 				D68CFF4F1D37AAFF00DA832F /* MineHeaderViewCell.m */,
 				D68CFF501D37AAFF00DA832F /* MineHeaderViewCell.xib */,
+				D6284A3E1D38D6BF00232F2D /* MineSettingTableViewCell.h */,
+				D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */,
+				D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */,
+				D6284A431D3919FC00232F2D /* AboutUsTableViewCell.h */,
+				D6284A441D3919FC00232F2D /* AboutUsTableViewCell.m */,
+				D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -600,6 +631,7 @@
 				D68CFF491D37970C00DA832F /* mineMessage.png in Resources */,
 				D6A449C81D37242A0096830F /* tabbar_me@2x.png in Resources */,
 				D68CFF471D37970C00DA832F /* aboutUs.png in Resources */,
+				D6284A421D38D6BF00232F2D /* MineSettingTableViewCell.xib in Resources */,
 				D68CFF331D3779BB00DA832F /* userDefault.png in Resources */,
 				D6A449C91D37242A0096830F /* tabbar_me_sel@2x.png in Resources */,
 				D68CFF311D3773B200DA832F /* userBg.png in Resources */,
@@ -614,6 +646,7 @@
 				D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */,
 				D6A449CA1D37242A0096830F /* tabbar_room@2x.png in Resources */,
 				D6A449CB1D37242A0096830F /* tabbar_room_sel@2x.png in Resources */,
+				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +713,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */,
+				D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */,
 				D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */,
 				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
@@ -692,17 +726,21 @@
 				D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */,
 				D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */,
 				D691F5DC1D366DAC004359E1 /* RootViewController.m in Sources */,
+				D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */,
 				D6A591251D37A98300CE6820 /* firstScrollViewModel.m in Sources */,
 				D6A591161D37250F00CE6820 /* RankListViewController.m in Sources */,
 				D6A591101D3724F200CE6820 /* RecommendViewController.m in Sources */,
 				D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */,
+				D6284A461D3919FC00232F2D /* AboutUsTableViewCell.m in Sources */,
 				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
 				D68CFF401D37956100DA832F /* MineTableViewCell.m in Sources */,
 				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
+				D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */,
 				D6A5911D1D37944500CE6820 /* NetWorkRequest.m in Sources */,
 				D6A5911A1D3793D000CE6820 /* BaseRequest.m in Sources */,
 				D6A591201D37954000CE6820 /* RecommendRequest.m in Sources */,
 				D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */,
+				D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

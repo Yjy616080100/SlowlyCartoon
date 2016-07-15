@@ -24,6 +24,17 @@
     
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setUpAvator];
+}
+- (void)setUpAvator{
+    NSData *imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
+    if (imageData == nil) {
+    }else{
+        _avatorImagev.image = [UIImage imageWithData:imageData];
+    }
+}
 //切圆角
 - (void)cutRound{
     _userView.layer.masksToBounds = YES;
@@ -51,8 +62,7 @@
             EMError *error = [[EMClient sharedClient] loginWithUsername:_userNameTextField.text password:_passWordTextField.text];
         
             if (!error) {
-                NSData * imageData = UIImageJPEGRepresentation(_avatorImagev.image, 1);
-                [[NSUserDefaults standardUserDefaults]setValue:imageData forKey:@"avator"];
+
                 [[NSUserDefaults standardUserDefaults]setValue:_userNameTextField.text forKey:@"userName"];
                 [[NSUserDefaults standardUserDefaults]setValue:_passWordTextField.text forKey:@"passWord"];
                 
