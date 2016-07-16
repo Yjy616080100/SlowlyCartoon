@@ -8,6 +8,7 @@
 
 #import "ContactViewController.h"
 
+#import "MineSettingTableViewCell.h"
 @interface ContactViewController ()
 <
     UITableViewDataSource,
@@ -17,6 +18,8 @@
 
 
 @property (strong, nonatomic) NSArray * dataArray;
+
+@property (strong, nonatomic) NSArray * infoArray;
 @end
 
 @implementation ContactViewController
@@ -26,18 +29,28 @@
     
     //    关闭滑动
     _tableView.scrollEnabled = NO;
+    
+    _tableView.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
     [self setUpDataArray];
     
     //注册cell
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuse"];
+    [_tableView registerNib:[UINib nibWithNibName:@"MineSettingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MineSettingTableViewCell_Identify];
 
 }
 
 
 - (void)setUpDataArray{
-    _dataArray = @[@[@"清理缓存",@"检查更新"],@[@"修改密码",@"退出登录"]];
+    _dataArray = @[@[@"漫漫用户QQ群",@"漫漫粉丝QQ群"],@[@"微博",@"微信公众号"]];
+    
+    _infoArray = @[@[@"203205793",@"203205793"],@[@"527956348@qq.com",@"Eternitydao"]];
 }
 #pragma mark- UITableViewDelegate,UITableViewDataSource
+
+//每个section的高度
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    
+//    return 10;
+//}
 //tableView中的section个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return _dataArray.count;
@@ -53,13 +66,14 @@
 //cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
+    MineSettingTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:MineSettingTableViewCell_Identify];
     
     if (cell ==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"reuse"];
+        cell = [[MineSettingTableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:MineSettingTableViewCell_Identify];
     }
     
-    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+    cell.contentLabel.text = _dataArray[indexPath.section][indexPath.row];
+    cell.detailLbel.text = _infoArray[indexPath.section][indexPath.row];
     return cell;
 }
 //点击事件

@@ -7,6 +7,8 @@
 //
 
 #import "AboutUsViewController.h"
+
+#import "AboutUsTableViewCell.h"
 //241   ,241,241
 @interface AboutUsViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -26,7 +28,7 @@
     [self setUpDataArray];
     
     //注册cell
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuse"];
+    [_tableView registerNib:[UINib nibWithNibName:@"AboutUsTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:AboutUsTableViewCell_Identify];
     
 }
 
@@ -47,13 +49,16 @@
 //cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
+    AboutUsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:AboutUsTableViewCell_Identify];
     
     if (cell ==nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"reuse"];
+        cell = [[AboutUsTableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:AboutUsTableViewCell_Identify];
     }
     
-    cell.textLabel.text = _dataArray[indexPath.row];
+    cell.contentLabel.text = _dataArray[indexPath.row];
+    if (indexPath.row == 2) {
+        cell.datailLabel.text = @"当前版本:V1.0.1";
+    }
     return cell;
 }
 //点击事件

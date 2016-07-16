@@ -1,22 +1,17 @@
 //
-//  MineHeaderViewCell.m
+//  TextCellOfMine.m
 //  SlowlyCartoon
 //
-//  Created by lanou3g on 16/7/14.
+//  Created by lanou3g on 16/7/15.
 //  Copyright © 2016年 Slowly Pangpang. All rights reserved.
 //
 
-#import "MineHeaderViewCell.h"
+#import "TextCellOfMine.h"
 
-@implementation MineHeaderViewCell
+@implementation TextCellOfMine
 
 - (void)awakeFromNib {
     // Initialization code
-    
-//    切头像圆角
-    _avatorImage.layer.masksToBounds =YES;
-    
-    _avatorImage.layer.cornerRadius = 55;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

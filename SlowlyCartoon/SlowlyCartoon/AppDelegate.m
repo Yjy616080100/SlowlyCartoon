@@ -16,6 +16,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //AppKey:注册的AppKey，详细见下面注释。
+    //apnsCertName:推送证书名（不需要加后缀），详细见下面注释。
+    EMOptions *options = [EMOptions optionsWithAppkey:@"eternitydao#slowlycartoon"];
+    options.apnsCertName = @"030932Push";
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
+    
     RootViewController * rootVC = [[RootViewController alloc]init];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = rootVC;

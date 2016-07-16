@@ -19,4 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 @property (strong, nonatomic) IBOutlet UIButton *registerBtn;
 
+
+
 @end
