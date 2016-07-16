@@ -23,7 +23,9 @@
 #import "MineMessageViewController.h"
 
 #import "OpinionViewController.h"
+
 #import "MIneDetailViewController.h"
+
 //107/255.0 green:1 blue:232/255.0 alpha:1
 
 @interface MineViewController ()
@@ -45,7 +47,7 @@ UITableViewDelegate
 @property (strong, nonatomic)UIImage * avator;
 
 //判断是否登录
-@property (strong, nonatomic)NSString * name;
+//@property (strong, nonatomic)NSString * name;
 @end
 
 @implementation MineViewController
@@ -89,13 +91,13 @@ UITableViewDelegate
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    登录成功获取avator
-    NSData * imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
+//    NSData * imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
     
-    if (imageData != nil) {
-        _avator = [UIImage imageWithData:imageData];
-    }
-    
-    _name = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+//    if (imageData != nil) {
+//        _avator = [UIImage imageWithData:imageData];
+//    }
+//    
+//    _name = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
     
 //    显示tabBar
     self.tabBarController.tabBar.hidden = NO;
@@ -147,12 +149,28 @@ UITableViewDelegate
 //        判断是否登录
       
         
-        NSLog(@"userName ====%@",_name);
-        if (_name.length != 0) {
-            cell.contentField.text = _name;
-            cell.avatorImage.image = _avator;
+        NSString * userName = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+        
+        NSData * avatorData = [[NSUserDefaults standardUserDefaults] valueForKey:@"avator"];
+        
+        UIImage * avatorImage = [UIImage imageWithData:avatorData];
+    
+//        如果登陆
+        if (userName.length != 0) {
+            
+            cell.contentField.text = userName;
+            
+//            有头像
+            if (avatorData != nil) {
+                
+                cell.avatorImage.image = avatorImage;
+            }
+          
+//        没有登陆
         }else{
+//            默认头像等
             cell.contentField.text = _dataArray[indexPath.section][indexPath.row];
+            
             cell.avatorImage.image = [UIImage imageNamed:_imageArray[indexPath.section][indexPath.row]];
         }
         
@@ -169,7 +187,9 @@ UITableViewDelegate
     
     
     cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+    
     cell.contentField.text = _dataArray[indexPath.section][indexPath.row];
+    
     cell.imageV.image = [UIImage imageNamed:_imageArray[indexPath.section][indexPath.row]];
     return cell;
 }
@@ -188,7 +208,9 @@ UITableViewDelegate
             //   登录/注册
             if (indexPath.row == 0) {
                 
-                if (_name.length != 0) {
+                NSString * userName = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+                
+                if (userName.length != 0) {
 //                    登录成功之后 
                     MIneDetailViewController * detailVC = [SB instantiateViewControllerWithIdentifier:@"MIneDetailViewController"];
                     

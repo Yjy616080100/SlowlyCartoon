@@ -209,15 +209,17 @@
     
     UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"哦 ………" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
         
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userName"];
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"avator"];
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"passWord"];
+        
+        NSLog(@"本地退出成功");
+        
         EMError *error = [[EMClient sharedClient] logout:YES];
         
         if (!error) {
-            
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userName"];
-            
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"avator"];
-            
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"passWord"];
             
             NSLog(@"退出成功");
         }
