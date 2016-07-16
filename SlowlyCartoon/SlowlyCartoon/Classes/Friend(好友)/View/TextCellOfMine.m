@@ -20,4 +20,18 @@
     // Configure the view for the selected state
 }
 
+- (CGFloat)getHeightByWidth:(CGFloat)width title:(NSString *)title font:(UIFont *)font
+{
+    
+    self.messageLabel.text = title;
+    self.messageLabel.font = font;
+    self.messageLabel.numberOfLines = 0;
+    [self.messageLabel sizeToFit];
+    CGFloat height = self.messageLabel.frame.size.height;
+    
+    return height;
+}
+
+
+
 @end
