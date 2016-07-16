@@ -30,7 +30,11 @@
     //    关闭滑动
     _tableView.scrollEnabled = NO;
     
+    //    关闭用户交互 这里只是展示
+    _tableView.userInteractionEnabled = NO;
+    
     _tableView.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
+    
     [self setUpDataArray];
     
     //注册cell

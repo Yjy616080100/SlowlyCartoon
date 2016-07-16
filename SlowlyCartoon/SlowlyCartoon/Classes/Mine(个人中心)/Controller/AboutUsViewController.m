@@ -9,6 +9,8 @@
 #import "AboutUsViewController.h"
 
 #import "AboutUsTableViewCell.h"
+
+#import "WebViewController.h"
 //241   ,241,241
 @interface AboutUsViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -25,17 +27,26 @@
     self.view.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
     //    关闭滑动
     _tableView.scrollEnabled = NO;
+    
     [self setUpDataArray];
     
     //注册cell
     [_tableView registerNib:[UINib nibWithNibName:@"AboutUsTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:AboutUsTableViewCell_Identify];
     
 }
-
+//视图即将出现
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+//    显示tabBar
+    self.tabBarController.tabBar.hidden = NO;
+}
+//初始化数据数组
 
 - (void)setUpDataArray{
     _dataArray = @[@"去评分",@"软件介绍",@"检查更新"];
 }
+
 #pragma mark- UITableViewDelegate,UITableViewDataSource
 
 //cell个数
@@ -66,14 +77,22 @@
     switch (indexPath.row) {
  
         case 0:
-                 NSLog(@"====%ld",indexPath.row);
+//    去评分
+            [self goToAppraise];
             break;
             
         case 1:
+            
+//    软件介绍
+            
                  NSLog(@"====%ld",indexPath.row);
             break;
             
         case 2:
+//    检查更新
+            
+            [self checkUpdate];
+            
                 NSLog(@"====%ld",indexPath.row);
             break;
         default:
@@ -81,7 +100,35 @@
     }
 }
 
+#pragma mark 检查更新
+- (void)checkUpdate{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:@"当前已是最新版" preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"知道了%……&*" style:(UIAlertActionStyleCancel) handler:nil];
+    
+    [alertController addAction:confirmAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+}
 
+#pragma mark 去评价 Appraise（评价）
+- (void)goToAppraise{
+   
+    UIStoryboard * SB = [UIStoryboard storyboardWithName:@"Mine" bundle:[NSBundle mainBundle]];
+    
+    WebViewController * webViewVC = [SB instantiateViewControllerWithIdentifier:@"WebViewController"];
+
+//    传参 URL
+    
+    webViewVC.URL = @"http://www.apple.com/cn/itunes/charts/free-apps/";
+    
+    [self.navigationController pushViewController:webViewVC animated:YES];
+    
+//    干掉tabBar
+    
+    self.tabBarController.tabBar.hidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

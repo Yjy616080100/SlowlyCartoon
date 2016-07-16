@@ -13,6 +13,9 @@
 #import "itemizeScrollViewModel.h"
 #import "lastCollectionViewModel.h"
 
+#import "OneTableViewCell.h"
+#import "LastCollectionViewCell.h"
+
 @interface RecommendViewController ()
 <
 UIScrollViewDelegate,
@@ -51,30 +54,30 @@ UICollectionViewDataSource
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //添加最底层的UIScrollView
-    [self addUnderlyingScrollView];
-    //添加最上面轮播图
-    [self addTheFirstScrollView];
-    //添加第一个tableView
-    [self addOneTableView];
-    //添加分类展示的ScrollView
-    [self addItemizeScrollView];
-    //添加最后的CollectionView
-    [self addLastCollectionView];
-    
-    
     //请求数据
     [self requestRecommend];
+    
+//    //添加最底层的UIScrollView
+//    [self addUnderlyingScrollView];
+//    //添加最上面轮播图
+//    [self addTheFirstScrollView];
+//    //添加第一个tableView
+//    [self addOneTableView];
+//    //添加分类展示的ScrollView
+//    [self addItemizeScrollView];
+//    //添加最后的CollectionView
+//    [self addLastCollectionView];
+
 }
+
 
 //添加最底层的UIScrollView
 - (void)addUnderlyingScrollView
 {
     self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.recommendScrollView.bounces = YES;
-    self.recommendScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*4);
-    self.recommendScrollView.backgroundColor = [UIColor yellowColor];
+    self.recommendScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*7);
+    self.recommendScrollView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.recommendScrollView];
 
 }
@@ -87,10 +90,17 @@ UICollectionViewDataSource
 {
     self.firstScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     self.firstScrollView.pagingEnabled = YES;
-    self.firstScrollView.contentSize = CGSizeMake(self.view.frame.size.width*4,0);
+    self.firstScrollView.contentSize = CGSizeMake(self.view.frame.size.width*(self.firstArray.count+2),0);
+    NSLog(@"%ld",self.firstArray.count);
+   
+    self.firstScrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
     self.firstScrollView.backgroundColor = [UIColor greenColor];
     self.firstScrollView.delegate = self;
+    self.firstScrollView.showsHorizontalScrollIndicator = NO;
     [self.recommendScrollView addSubview:self.firstScrollView];
+    //添加button
+    [self buttonImage];
+    
     
     
     self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(self.firstScrollView.frame.size.width-80, self.firstScrollView.frame.size.height-40, 60, 30)];
@@ -98,18 +108,47 @@ UICollectionViewDataSource
     self.pageControl.pageIndicatorTintColor = [UIColor blueColor];
     //点击的小按钮的颜色
     self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-    self.pageControl.numberOfPages = 4;
+    self.pageControl.numberOfPages = _firstArray.count;
+    self.pageControl.currentPage = 0;
     //添加点击事件
     [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     [self.recommendScrollView addSubview:self.pageControl];
     
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView //ScrollView的代理方法
+- (void)buttonImage
+{
+    for (int i=0; i<_firstArray.count+2; i++) {
+        UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(self.view.frame.size.width*i, 0, self.view.frame.size.width, self.firstScrollView.frame.size.height);
+        NSInteger index = i -1;
+        if (i == 0) {
+            index = _firstArray.count -1;
+        }else if (i == _firstArray.count +1) {
+            index = 0;
+        }
+        firstScrollViewModel *model=_firstArray[index];
+        NSString *str=[NSString stringWithFormat:@"http://www.comicq.cn%@",model.active_pic_url_2];
+        [button setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:str]]] forState:UIControlStateNormal];
+        //还没有写button的点击方法
+        
+        [self.firstScrollView addSubview:button];
+    }
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView//scrollView代理方法
 {
     CGFloat scrollviewW =  scrollView.frame.size.width;
-    CGFloat x = scrollView.contentOffset.x;
-    int page = (x + scrollviewW / 2) /  scrollviewW;
-    self.pageControl.currentPage = page;
+    if (scrollView == _firstScrollView) {
+        NSInteger index = scrollView.contentOffset.x/scrollviewW;
+        NSInteger pageIndex = index-1;
+        if (index == _firstArray.count+1) {
+          scrollView.contentOffset = CGPointMake(scrollviewW, 0);
+            pageIndex = 0;
+        }else if (index == 0) {
+            scrollView.contentOffset = CGPointMake(scrollviewW *(_firstArray.count), 0);
+            pageIndex = _firstArray.count-1;
+        }
+        _pageControl.currentPage = pageIndex;
+    }
 }
 - (void)changePage:(UIPageControl *)page
 {
@@ -145,8 +184,9 @@ UICollectionViewDataSource
 //添加第一个tableView
 - (void)addOneTableView
 {
-    self.oneTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,self.firstScrollView.frame.size.height, self.recommendScrollView.frame.size.width, 1000) style:UITableViewStyleGrouped];
-    [self.oneTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"oneCell"];
+    self.oneTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,self.firstScrollView.frame.size.height, self.recommendScrollView.frame.size.width, 2520) style:UITableViewStyleGrouped];
+    self.oneTableView.scrollEnabled=NO;
+    [self.oneTableView registerNib:[UINib nibWithNibName:@"OneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:OneTableViewCell_Identify];
     self.oneTableView.delegate = self;
     self.oneTableView.dataSource = self;
     
@@ -154,31 +194,42 @@ UICollectionViewDataSource
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return [self.oneArray[section] count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"oneCell"];
-    cell.textLabel.text = @"1212";
+    OneTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:OneTableViewCell_Identify];
+    oneTableViewModel *model=self.oneArray[indexPath.section][indexPath.row];
+    cell.nameLabel.text = model.comic_name;
+    cell.descLabel.text = model.comic_desc;
+    NSString *str=[NSString stringWithFormat:@"http://www.comicq.cn%@",model.comic_pic_720_520];
+    [cell.imageV setImageWithURL:[NSURL URLWithString:str]];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.oneArray.count;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIImageView *imageV=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 414, 30)];
-    imageV.image = [UIImage imageNamed:@"tabbar_game_sel@2x.png"];
-    
-    return imageV;
+    UIImageView *imageV1=[[UIImageView alloc]init];
+    UIImageView *imageV=[[UIImageView alloc]initWithFrame:CGRectMake(30, 10, 354, 30)];
+    if (section == 0) {
+        [imageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",self.recommendString]]];
+    }else{
+        [imageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",self.hotString]]];
+    }
+    [imageV1 addSubview:imageV];
+    return imageV1;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+    return 50;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
 
 
 
@@ -186,10 +237,36 @@ UICollectionViewDataSource
 - (void)addItemizeScrollView
 {
     self.ItemizeScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.oneTableView.frame), self.recommendScrollView.frame.size.width, 130)];
-    self.ItemizeScrollView.contentSize = CGSizeMake(self.recommendScrollView.frame.size.width*3, 0);
-    self.ItemizeScrollView.backgroundColor = [UIColor grayColor];
+    self.ItemizeScrollView.contentSize = CGSizeMake(self.recommendScrollView.frame.size.width*3-110, 0);
+    self.ItemizeScrollView.backgroundColor = [UIColor whiteColor];
     [self.recommendScrollView addSubview:self.ItemizeScrollView];
+    [self addsmallButton];
 }
+- (void)addsmallButton
+{
+    for (int i=0; i<_itemizeArray.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (i == 0) {
+            button.frame = CGRectMake(i*180+35, 15, 180, self.ItemizeScrollView.frame.size.height - 30);
+        }else{
+            button.frame = CGRectMake(i*215+35, 15, 180, self.ItemizeScrollView.frame.size.height - 30);
+        }
+        NSMutableArray *arr=[NSMutableArray array];
+        for (itemizeScrollViewModel *model in self.itemizeArray) {
+            NSString *str=[NSString stringWithFormat:@"http://www.comicq.cn%@",model.topic_pic_url];
+            [arr addObject:str];
+        }
+        [button setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:arr[i]]]] forState:UIControlStateNormal];
+        [self.ItemizeScrollView addSubview:button];
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -199,37 +276,44 @@ UICollectionViewDataSource
     //创建
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc]init];
     //cell 的size
-    flowLayout.itemSize=CGSizeMake(90, 90);
+    flowLayout.itemSize=CGSizeMake(100, 165);
     //cell 的 最小列间距
-    flowLayout.minimumInteritemSpacing=50;
+    flowLayout.minimumInteritemSpacing=25;
     //cell 的 最小行间距
     flowLayout.minimumLineSpacing=50;
     //cell 的 滚动状态（横着或者竖着滚动视图）
     flowLayout.scrollDirection=UICollectionViewScrollDirectionVertical;
     //cell 的 每个分区边缘的距离
-    flowLayout.sectionInset=UIEdgeInsetsMake(20, 20, 20, 20);
+    flowLayout.sectionInset=UIEdgeInsetsMake(0, 20, 20, 20);
     //设置头高
     flowLayout.headerReferenceSize=CGSizeMake(self.view.frame.size.width, 50);
 
-    self.lastCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.ItemizeScrollView.frame), 414, 1600) collectionViewLayout:flowLayout];
+    self.lastCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.ItemizeScrollView.frame), 414, 2200) collectionViewLayout:flowLayout];
     self.lastCollectionView.delegate = self;
     self.lastCollectionView.dataSource = self;
-    [self.lastCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellCollection"];
-    
-    self.lastCollectionView.backgroundColor=[UIColor blueColor];
+    [self.lastCollectionView registerNib:[UINib nibWithNibName:@"LastCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:LastCollectionViewCell_Identify];
+    self.lastCollectionView.scrollEnabled=NO;
+    self.lastCollectionView.backgroundColor=[UIColor whiteColor];
     [self.recommendScrollView addSubview:self.lastCollectionView];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.lastArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cellCollection" forIndexPath:indexPath];
+    LastCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:LastCollectionViewCell_Identify forIndexPath:indexPath];
+    lastCollectionViewModel *model=self.lastArray[indexPath.row];
     
-    cell.backgroundColor = [UIColor whiteColor];
+    [cell.imageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",model.comic_pic_240_320]]];
+    cell.nameLabel.text = model.comic_name;
+    cell.orderidxLabel.text = [NSString stringWithFormat:@"%@话",model.comic_last_orderidx];
+    
     return cell;
 }
+
+
+
 
 
 
@@ -242,7 +326,7 @@ UICollectionViewDataSource
     self.oneArray = [NSMutableArray array];
     self.itemizeArray = [NSMutableArray array];
     self.lastArray = [NSMutableArray array];
-    
+    __weak typeof(self) weakSelf = self;
     RecommendRequest *request = [[RecommendRequest alloc]init];
     [request recommentRequestWithParameter:nil success:^(NSDictionary *dic) {
         //装轮播图数组
@@ -251,9 +335,9 @@ UICollectionViewDataSource
         for (NSDictionary *dict2 in arr1) {
             firstScrollViewModel *model = [[firstScrollViewModel alloc]init];
             [model setValuesForKeysWithDictionary:dict2];
-            [self.firstArray addObject:model];
+            [weakSelf.firstArray addObject:model];
         }
-        NSLog(@"++++++++++%@",self.firstArray);
+        //NSLog(@"++++++++++%@",self.firstArray);
         
         
         
@@ -262,9 +346,9 @@ UICollectionViewDataSource
         for (NSDictionary *dict3 in arr2) {
             itemizeScrollViewModel *model = [[itemizeScrollViewModel alloc]init];
             [model setValuesForKeysWithDictionary:dict3];
-            [self.itemizeArray addObject:model];
+            [weakSelf.itemizeArray addObject:model];
         }
-        NSLog(@"-------------%@",self.itemizeArray);
+        //NSLog(@"-------------%@",weakSelf.itemizeArray);
         
         
         
@@ -273,9 +357,9 @@ UICollectionViewDataSource
         NSMutableArray *array2=[NSMutableArray array];
         NSDictionary *dict4 = [dict1 objectForKey:@"index_comic_arr"];
         //三个图片的字符串
-        self.recommendString = [dict4 objectForKey:@"recommend_title_pic_url"];
-        self.likeSrting = [dict4 objectForKey:@"like_title_pic_url"];
-        self.hotString = [dict4 objectForKey:@"hot_title_pic_url"];
+        weakSelf.recommendString = [dict4 objectForKey:@"recommend_title_pic_url"];
+        weakSelf.likeSrting = [dict4 objectForKey:@"like_title_pic_url"];
+        weakSelf.hotString = [dict4 objectForKey:@"hot_title_pic_url"];
 
         NSArray *arr3 = [dict4 objectForKey:@"recommend_comic_arr"];
         for (NSDictionary *dict5 in arr3) {
@@ -289,9 +373,9 @@ UICollectionViewDataSource
             [model setValuesForKeysWithDictionary:dict6];
             [array2 addObject:model];
         }
-        [self.oneArray addObject:array1];
-        [self.oneArray addObject:array2];
-        NSLog(@"******************* %@",self.oneArray);
+        [weakSelf.oneArray addObject:array1];
+        [weakSelf.oneArray addObject:array2];
+        //NSLog(@"******************* %@",weakSelf.oneArray);
         
         
         
@@ -300,10 +384,20 @@ UICollectionViewDataSource
         for (NSDictionary *dict7 in array7) {
             lastCollectionViewModel *model = [[lastCollectionViewModel alloc]init];
             [model setValuesForKeysWithDictionary:dict7];
-            [self.lastArray addObject:model];
+            [weakSelf.lastArray addObject:model];
         }
-        NSLog(@"////////////////// %@",self.lastArray);
+        //NSLog(@"////////////////// %@",weakSelf.lastArray);
         
+        //添加最底层的UIScrollView
+        [self addUnderlyingScrollView];
+        //添加最上面轮播图
+        [self addTheFirstScrollView];
+        //添加第一个tableView
+        [self addOneTableView];
+        //添加分类展示的ScrollView
+        [self addItemizeScrollView];
+        //添加最后的CollectionView
+        [self addLastCollectionView];
         
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
