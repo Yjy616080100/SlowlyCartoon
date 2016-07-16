@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
 
+-(CGFloat)getHeightByWidth:(CGFloat)width title:(NSString *)title font:(UIFont *)font;
 
 
 

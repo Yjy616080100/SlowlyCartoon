@@ -20,22 +20,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-IT-PZO">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x6a-kQ-HDQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="498"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="VQp-Zg-eqH" id="DK1-OY-ub6"/>
-                                            <outlet property="delegate" destination="VQp-Zg-eqH" id="Re2-ws-Aym"/>
-                                        </connections>
-                                    </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xv-ga-Pdz">
                                         <rect key="frame" x="0.0" y="498" width="320" height="50"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-Ru-HXL">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-Ru-HXL">
                                                 <rect key="frame" x="45" y="5" width="190" height="35"/>
                                                 <color key="backgroundColor" red="0.55473109549999999" green="0.71188459439999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="VQp-Zg-eqH" id="iqn-ea-6Gp"/>
+                                                </connections>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-bZ-UZ9">
                                                 <rect key="frame" x="5" y="5" width="35" height="35"/>
@@ -86,6 +81,14 @@
                                             <constraint firstItem="OpE-AA-MSK" firstAttribute="width" secondItem="41J-G9-gco" secondAttribute="width" id="y8P-IN-eqw"/>
                                         </constraints>
                                     </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x6a-kQ-HDQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="498"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="VQp-Zg-eqH" id="DK1-OY-ub6"/>
+                                            <outlet property="delegate" destination="VQp-Zg-eqH" id="Re2-ws-Aym"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="x6a-kQ-HDQ" firstAttribute="top" secondItem="cvA-IT-PZO" secondAttribute="top" id="BaS-y3-lj6"/>
@@ -109,13 +112,16 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="MyView" destination="6Xv-ga-Pdz" id="zI6-AX-acE"/>
+                        <outlet property="MyViewBottomConstraint" destination="sTZ-3g-pCW" id="8mk-3N-csg"/>
                         <outlet property="tableView" destination="x6a-kQ-HDQ" id="Dzg-9u-pJO"/>
+                        <outlet property="tableViewBottomConstraint" destination="RkE-YT-Mzy" id="NmQ-HG-b9b"/>
                         <outlet property="textView" destination="jnH-Ru-HXL" id="HYa-24-obz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6X-5R-8VD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579" y="464"/>
+            <point key="canvasLocation" x="720" y="461"/>
         </scene>
     </scenes>
     <resources>

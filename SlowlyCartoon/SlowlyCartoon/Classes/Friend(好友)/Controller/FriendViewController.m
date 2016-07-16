@@ -76,9 +76,15 @@ EMContactManagerDelegate
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cellID"];
     }
+    //cell背景图片
     cell.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing2.jpg"]];
     cell.textLabel.text=_dataArray[indexPath.row];
     cell.textLabel.font=[UIFont systemFontOfSize:22];
+    //取消选中cell的点击颜色
+    UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
+    view.backgroundColor=[UIColor clearColor];
+    cell.selectedBackgroundView =view;
+    
     return cell;
     
 }
