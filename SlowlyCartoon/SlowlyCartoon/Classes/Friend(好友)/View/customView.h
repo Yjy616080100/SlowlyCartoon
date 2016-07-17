@@ -12,8 +12,8 @@
 
 @property(nonatomic,strong)UICollectionView *collectView;
 
-
-
+//检测点击的cell 的下标
+@property(nonatomic)NSInteger index;
 
 
 @end

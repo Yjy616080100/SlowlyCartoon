@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="138" id="KGk-i7-Jjw" customClass="ImageCellOfFriends">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="137"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tianjia.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6N-Zm-EiO">
+                        <rect key="frame" x="10" y="82" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="jpM-or-cU5"/>
+                            <constraint firstAttribute="height" constant="45" id="wN7-Ci-kAd"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ck5-Gc-SF4">
+                        <rect key="frame" x="75" y="7" width="110" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="IsJ-AC-Qkh"/>
+                            <constraint firstAttribute="width" constant="110" id="giO-66-QHm"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="c6N-Zm-EiO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4JV-az-BwP"/>
+                    <constraint firstItem="Ck5-Gc-SF4" firstAttribute="leading" secondItem="c6N-Zm-EiO" secondAttribute="trailing" constant="20" id="EbQ-E1-lSC"/>
+                    <constraint firstAttribute="bottom" secondItem="c6N-Zm-EiO" secondAttribute="bottom" constant="10" id="XJ8-d8-TeW"/>
+                    <constraint firstAttribute="bottom" secondItem="Ck5-Gc-SF4" secondAttribute="bottom" constant="10" id="wLN-YN-mE0"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sendImageOfFriends" destination="Ck5-Gc-SF4" id="iYv-LH-dRu"/>
+            </connections>
+            <point key="canvasLocation" x="412.5" y="321.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="tianjia.png" width="60" height="60"/>
+    </resources>
+</document>

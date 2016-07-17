@@ -10,13 +10,17 @@
 #import "TextCellOfMine.h"
 #import "TextCellOfFriends.h"
 #import "customView.h"
+#import "ImageCellOfMine.h"
+#import "ImageCellOfFriends.h"
 @interface ChatViewController ()
 <
 UITableViewDataSource,
 UITableViewDelegate,
 EMClientDelegate,
 EMChatManagerDelegate,
-UITextViewDelegate
+UITextViewDelegate,
+UINavigationControllerDelegate,
+UIImagePickerControllerDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -39,6 +43,7 @@ UITextViewDelegate
 @property(nonatomic)BOOL VoiceFlag;
 //声明自定义view的属性
 @property(nonatomic,strong)customView *toolView;
+//语音按钮
 @property(nonatomic,strong)UIButton *voiceButton;
 @end
 
@@ -60,8 +65,11 @@ UITextViewDelegate
     self.flag = YES;
     self.VoiceFlag=YES;
     self.toolView=[[customView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200)];
+    //注册观察者 -->监听collectionView 的点击下标
+    [self.toolView addObserver:self forKeyPath:@"index" options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:self.toolView];
-
+    
+    
     
     //1.通知中心监听事件，改变工具条的下约束
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KbWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -73,10 +81,13 @@ UITextViewDelegate
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TextCellOfFriends" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:TextCellOfFriends_Identify];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"ImageCellOfMine" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ImageCellOfMine_identify];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ImageCellOfFriends" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ImageCellOfFriends_identify];
     
     
     
-    //创建一个和某人的单聊会话 (参数1：创建和某人的会话; 参数2：聊天类型 ;参数3：没有此会话则创建)
+    //创建一个和某人的单聊会话
     EMConversation *conversion=[[EMClient sharedClient].chatManager getConversation:self.name type:EMConversationTypeChat createIfNotExist:YES];
     //获取此人的聊天消息 （参数limit--->获取聊天记录的条数；EMMessageSearchDirectionUp：代表向上所搜）
     self.textArray=[conversion loadMoreMessagesContain:nil before:-1 limit:20 from:nil direction:(EMMessageSearchDirectionUp)].mutableCopy;
@@ -86,9 +97,33 @@ UITextViewDelegate
     
     
     
+    //导航栏的左右方法
+    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction)];
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithBarButtonSystemItem:(UIBarButtonSystemItemEdit) target:self action:@selector(rightAcyion)];
+    
+    
    
     
 }
+//左方法
+-(void)leftAction{
+    
+    //移除观察者
+    [self.toolView removeObserver:self forKeyPath:@"index" context:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+//右方法
+-(void)rightAcyion{
+    
+    
+}
+
+
+
+
+
+
+
 
 #pragma mark---------------1.监听系统键盘的弹出和消失------------------------------------
 
@@ -182,6 +217,7 @@ UITextViewDelegate
     //视图消失的时候，移除代理
     [[EMClient sharedClient].chatManager removeDelegate:self];
     
+    
 }
 
 
@@ -235,33 +271,70 @@ UITextViewDelegate
                 cell.selectedBackgroundView =view;
                 return cell;
             }
+            break;
             
         }
         //2.图片类型
         case EMMessageBodyTypeImage:{
             
+            EMImageMessageBody *body =(EMImageMessageBody *)messageBody;
+            NSString *path =body.remotePath ;//在服务器上的路径
+            NSURL *url =[NSURL URLWithString:path];
+            NSData *data=[NSData dataWithContentsOfURL:url];
             
+            if (message.direction ==EMMessageDirectionSend) {
+                
+                ImageCellOfMine *cell =[tableView dequeueReusableCellWithIdentifier:ImageCellOfMine_identify];
+                if (nil ==cell) {
+                    
+                    cell=[[ImageCellOfMine alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:ImageCellOfMine_identify];
+                }
+                cell.sendImageOfMine.image =[UIImage imageWithData:data];
+                cell.backgroundColor=[UIColor clearColor];
+                UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
+                view.backgroundColor=[UIColor clearColor];
+                cell.selectedBackgroundView =view;
+                return cell;
+                
+            }else{
+                
+                ImageCellOfFriends *cell=[tableView dequeueReusableCellWithIdentifier:ImageCellOfFriends_identify];
+                
+                if (nil ==cell) {
+                    
+                    cell=[[ImageCellOfFriends alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:ImageCellOfFriends_identify];
+                    
+                }
+                cell.sendImageOfFriends.image=[UIImage imageWithData:data];
+                cell.backgroundColor=[UIColor clearColor];
+                UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
+                view.backgroundColor=[UIColor clearColor];
+                cell.selectedBackgroundView =view;
+                return cell;
+                
+            }
+            break;
         }
         //3.语音类型
         case EMMessageBodyTypeVoice:{
-            
-            
+            return nil;
+            break;
         }
         //4.位置类型
         case EMMessageBodyTypeLocation:{
-            
-            
+            return nil;
+            break;
         }
         //5.视频类型
         case EMMessageBodyTypeVideo:{
-            
-            
+            return nil;
+            break;
         }
             
         default:{
-            return nil; break;
+            return nil;
+            break;
         }
-           
     }
 }
 //行高
@@ -273,25 +346,30 @@ UITextViewDelegate
 
     switch (messageBody.type) {
             
+            //文本
         case EMMessageBodyTypeText:{
-            //发送方
             if (message.direction ==EMMessageDirectionSend) {
-                
+        
                 return self.cellHeightOfMine +100;
-                break;
             }else{
-                
                 return self.cellHeightOfFriends +120;
             }
+            break;
         }
+            //图片
+        case EMMessageBodyTypeImage:{
             
-            
+            return 138;
+            break;
+        }
+    
         default:{
             return 200; break;
         }
            
     }
 }
+//tableView 的点击事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSLog(@"聊天界面---cell的点击事件--%ld行 ",indexPath.row);
@@ -365,6 +443,137 @@ UITextViewDelegate
 
     }
 }
+//执行观察者
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    
+    switch (self.toolView.index) {
+        //图片
+        case 0:{
+            NSLog(@"-------%ld--发送图片功能",self.toolView.index);
+            [self sendImages];
+            break;
+        }
+        //收藏
+        case 1:{
+            NSLog(@"-------%ld--收藏功能",self.toolView.index);
+            break;
+        }
+        //位置
+        case 2:{
+            NSLog(@"-------%ld--发送位置功能",self.toolView.index);
+            break;
+        }
+        //语音聊天
+        case 3:{
+            NSLog(@"-------%ld--语音聊天功能",self.toolView.index);
+            break;
+        }
+        //发送视频
+        case 4:{
+            NSLog(@"-------%ld--发送视频功能",self.toolView.index);
+            break;
+        }
+        //我的名片
+        case 5:{
+            NSLog(@"-------%ld--我的名片功能",self.toolView.index);
+            break;
+        }
+        //转账
+        case 6:{
+            NSLog(@"-------%ld--转账功能",self.toolView.index);
+            break;
+        }
+        default:{
+            break;
+        }
+    }
+}
+
+
+
+//调用相册，发送图片
+-(void)sendImages{
+    
+    UIImagePickerController *pickerVC = [[UIImagePickerController alloc]init];
+    pickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerVC.delegate =self;
+    [self presentViewController:pickerVC animated:YES completion:nil];
+    
+}
+
+//调用相册的代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+
+    
+    //将图片转化为NSData类型
+    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    //生成消息 ，发送图片数据
+    EMImageMessageBody *imageBody =[[EMImageMessageBody alloc]initWithData:data displayName:@"My Picture"];
+    NSString *from =[[EMClient sharedClient] currentUsername];
+    
+    EMMessage *message=[[EMMessage alloc]initWithConversationID:self.name from:from to:self.name body:imageBody ext:nil];
+    message.chatType =EMChatTypeChat ;
+    
+    __weak typeof(self) weakSelf =self;
+    [[EMClient sharedClient].chatManager asyncSendMessage:message progress:^(int progress) {
+        NSLog(@"--这是发送图片的进度--%d",progress);
+    } completion:^(EMMessage *message, EMError *error) {
+        
+        //加入数组， 刷新UI
+        [weakSelf.textArray addObject:message];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [weakSelf.tableView reloadData];
+            [weakSelf scrollViewToButtom];
+            
+        });
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

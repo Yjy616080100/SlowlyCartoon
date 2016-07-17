@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */; };
-		D627E6951D38D18F00D36EDB /* OneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D627E6931D38D18F00D36EDB /* OneTableViewCell.m */; };
-		D627E6961D38D18F00D36EDB /* OneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D627E6941D38D18F00D36EDB /* OneTableViewCell.xib */; };
-		D627E69A1D390BDF00D36EDB /* LastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D627E6981D390BDF00D36EDB /* LastCollectionViewCell.m */; };
-		D627E69B1D390BDF00D36EDB /* LastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D627E6991D390BDF00D36EDB /* LastCollectionViewCell.xib */; };
 		D6217E181D38E6A200CB6130 /* SingleFriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217E171D38E6A200CB6130 /* SingleFriendManager.m */; };
 		D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6217E1A1D38E77000CB6130 /* Friends.storyboard */; };
 		D6217E1E1D38E80600CB6130 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217E1D1D38E80600CB6130 /* ChatViewController.m */; };
@@ -22,6 +18,10 @@
 		D6217E2B1D38FC8300CB6130 /* beijing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6217E2A1D38FC8300CB6130 /* beijing.jpg */; };
 		D6217E321D39215600CB6130 /* TextCellOfMine.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217E301D39215600CB6130 /* TextCellOfMine.m */; };
 		D6217E331D39215600CB6130 /* TextCellOfMine.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6217E311D39215600CB6130 /* TextCellOfMine.xib */; };
+		D627E6951D38D18F00D36EDB /* OneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D627E6931D38D18F00D36EDB /* OneTableViewCell.m */; };
+		D627E6961D38D18F00D36EDB /* OneTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D627E6941D38D18F00D36EDB /* OneTableViewCell.xib */; };
+		D627E69A1D390BDF00D36EDB /* LastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D627E6981D390BDF00D36EDB /* LastCollectionViewCell.m */; };
+		D627E69B1D390BDF00D36EDB /* LastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D627E6991D390BDF00D36EDB /* LastCollectionViewCell.xib */; };
 		D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A361D3876A400232F2D /* RegisterViewController.m */; };
 		D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */; };
 		D6284A421D38D6BF00232F2D /* MineSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */; };
@@ -30,6 +30,11 @@
 		D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */; };
 		D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A511D392AE900232F2D /* OpinionViewController.m */; };
 		D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A541D3931A100232F2D /* MIneDetailViewController.m */; };
+		D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63A16611D39DB7800C30EFE /* WebViewController.m */; };
+		D64F38151D3B80D500686849 /* ImageCellOfMine.m in Sources */ = {isa = PBXBuildFile; fileRef = D64F38131D3B80D500686849 /* ImageCellOfMine.m */; };
+		D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64F38141D3B80D500686849 /* ImageCellOfMine.xib */; };
+		D64F381A1D3B830A00686849 /* ImageCellOfFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = D64F38181D3B830A00686849 /* ImageCellOfFriends.m */; };
+		D64F381B1D3B830A00686849 /* ImageCellOfFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64F38191D3B830A00686849 /* ImageCellOfFriends.xib */; };
 		D658047F1D39C2B2000650EA /* TextCellOfFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = D658047D1D39C2B2000650EA /* TextCellOfFriends.m */; };
 		D65804801D39C2B2000650EA /* TextCellOfFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = D658047E1D39C2B2000650EA /* TextCellOfFriends.xib */; };
 		D65804831D39D96A000650EA /* chatFriends.png in Resources */ = {isa = PBXBuildFile; fileRef = D65804811D39D96A000650EA /* chatFriends.png */; };
@@ -45,7 +50,6 @@
 		D65804971D3A5C89000650EA /* luyin.png in Resources */ = {isa = PBXBuildFile; fileRef = D65804961D3A5C89000650EA /* luyin.png */; };
 		D658049B1D3A5D3F000650EA /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D65804991D3A5D3F000650EA /* CustomCollectionViewCell.m */; };
 		D658049C1D3A5D3F000650EA /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D658049A1D3A5D3F000650EA /* CustomCollectionViewCell.xib */; };
-		D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63A16611D39DB7800C30EFE /* WebViewController.m */; };
 		D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CFF2A1D37418400DA832F /* LoginViewController.m */; };
 		D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2C1D37419600DA832F /* Mine.storyboard */; };
 		D68CFF301D3773B200DA832F /* passBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2E1D3773B200DA832F /* passBg.png */; };
@@ -108,12 +112,6 @@
 		32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.release.xcconfig"; sourceTree = "<group>"; };
 		8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlowlyCartoon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.debug.xcconfig"; sourceTree = "<group>"; };
-		D627E6921D38D18F00D36EDB /* OneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.h"; sourceTree = SOURCE_ROOT; };
-		D627E6931D38D18F00D36EDB /* OneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.m"; sourceTree = SOURCE_ROOT; };
-		D627E6941D38D18F00D36EDB /* OneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		D627E6971D390BDF00D36EDB /* LastCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastCollectionViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
-		D627E6981D390BDF00D36EDB /* LastCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LastCollectionViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
-		D627E6991D390BDF00D36EDB /* LastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LastCollectionViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		D6217E161D38E6A200CB6130 /* SingleFriendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleFriendManager.h; sourceTree = "<group>"; };
 		D6217E171D38E6A200CB6130 /* SingleFriendManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleFriendManager.m; sourceTree = "<group>"; };
 		D6217E1A1D38E77000CB6130 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
@@ -127,6 +125,12 @@
 		D6217E2F1D39215600CB6130 /* TextCellOfMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCellOfMine.h; sourceTree = "<group>"; };
 		D6217E301D39215600CB6130 /* TextCellOfMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCellOfMine.m; sourceTree = "<group>"; };
 		D6217E311D39215600CB6130 /* TextCellOfMine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCellOfMine.xib; sourceTree = "<group>"; };
+		D627E6921D38D18F00D36EDB /* OneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D627E6931D38D18F00D36EDB /* OneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D627E6941D38D18F00D36EDB /* OneTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OneTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/OneTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D627E6971D390BDF00D36EDB /* LastCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LastCollectionViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D627E6981D390BDF00D36EDB /* LastCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LastCollectionViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D627E6991D390BDF00D36EDB /* LastCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LastCollectionViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/LastCollectionViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		D6284A351D3876A400232F2D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D6284A361D3876A400232F2D /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D6284A3E1D38D6BF00232F2D /* MineSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineSettingTableViewCell.h; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/MineSettingTableViewCell.h"; sourceTree = SOURCE_ROOT; };
@@ -141,6 +145,14 @@
 		D6284A511D392AE900232F2D /* OpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionViewController.m; sourceTree = "<group>"; };
 		D6284A531D3931A100232F2D /* MIneDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIneDetailViewController.h; sourceTree = "<group>"; };
 		D6284A541D3931A100232F2D /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
+		D63A16601D39DB7800C30EFE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D63A16611D39DB7800C30EFE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D64F38121D3B80D500686849 /* ImageCellOfMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCellOfMine.h; sourceTree = "<group>"; };
+		D64F38131D3B80D500686849 /* ImageCellOfMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCellOfMine.m; sourceTree = "<group>"; };
+		D64F38141D3B80D500686849 /* ImageCellOfMine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCellOfMine.xib; sourceTree = "<group>"; };
+		D64F38171D3B830A00686849 /* ImageCellOfFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCellOfFriends.h; sourceTree = "<group>"; };
+		D64F38181D3B830A00686849 /* ImageCellOfFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCellOfFriends.m; sourceTree = "<group>"; };
+		D64F38191D3B830A00686849 /* ImageCellOfFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCellOfFriends.xib; sourceTree = "<group>"; };
 		D658047C1D39C2B2000650EA /* TextCellOfFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextCellOfFriends.h; sourceTree = "<group>"; };
 		D658047D1D39C2B2000650EA /* TextCellOfFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextCellOfFriends.m; sourceTree = "<group>"; };
 		D658047E1D39C2B2000650EA /* TextCellOfFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCellOfFriends.xib; sourceTree = "<group>"; };
@@ -159,8 +171,6 @@
 		D65804981D3A5D3F000650EA /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		D65804991D3A5D3F000650EA /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		D658049A1D3A5D3F000650EA /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
-		D63A16601D39DB7800C30EFE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		D63A16611D39DB7800C30EFE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D68CFF291D37418400DA832F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D68CFF2A1D37418400DA832F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D68CFF2C1D37419600DA832F /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Mine.storyboard; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/Mine.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -292,6 +302,12 @@
 				D658047C1D39C2B2000650EA /* TextCellOfFriends.h */,
 				D658047D1D39C2B2000650EA /* TextCellOfFriends.m */,
 				D658047E1D39C2B2000650EA /* TextCellOfFriends.xib */,
+				D64F38121D3B80D500686849 /* ImageCellOfMine.h */,
+				D64F38131D3B80D500686849 /* ImageCellOfMine.m */,
+				D64F38141D3B80D500686849 /* ImageCellOfMine.xib */,
+				D64F38171D3B830A00686849 /* ImageCellOfFriends.h */,
+				D64F38181D3B830A00686849 /* ImageCellOfFriends.m */,
+				D64F38191D3B830A00686849 /* ImageCellOfFriends.xib */,
 				D65804851D3A1C2D000650EA /* customView.h */,
 				D65804861D3A1C2D000650EA /* customView.m */,
 				D65804981D3A5D3F000650EA /* CustomCollectionViewCell.h */,
@@ -776,12 +792,14 @@
 				D658048F1D3A5631000650EA /* xiaoshipin.png in Resources */,
 				D6A449C61D37242A0096830F /* tabbar_home@2x.png in Resources */,
 				D65804941D3A5631000650EA /* zhuanzhang.png in Resources */,
+				D64F381B1D3B830A00686849 /* ImageCellOfFriends.xib in Resources */,
 				D65804801D39C2B2000650EA /* TextCellOfFriends.xib in Resources */,
 				D68CFF521D37AAFF00DA832F /* MineHeaderViewCell.xib in Resources */,
 				D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */,
 				D6A449CA1D37242A0096830F /* tabbar_room@2x.png in Resources */,
 				D6A449CB1D37242A0096830F /* tabbar_room_sel@2x.png in Resources */,
 				D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */,
+				D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */,
 				D65804921D3A5631000650EA /* mingpian.png in Resources */,
 				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,
 			);
@@ -859,6 +877,7 @@
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
 				D691F59F1D366B1E004359E1 /* main.m in Sources */,
 				D68CFF391D3781AC00DA832F /* ContactViewController.m in Sources */,
+				D64F381A1D3B830A00686849 /* ImageCellOfFriends.m in Sources */,
 				D68CFF361D377B9700DA832F /* SettingViewController.m in Sources */,
 				D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */,
 				D68CFF3C1D37866700DA832F /* AboutUsViewController.m in Sources */,
@@ -881,6 +900,7 @@
 				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
 				D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */,
 				D6A5911D1D37944500CE6820 /* NetWorkRequest.m in Sources */,
+				D64F38151D3B80D500686849 /* ImageCellOfMine.m in Sources */,
 				D6A5911A1D3793D000CE6820 /* BaseRequest.m in Sources */,
 				D6A591201D37954000CE6820 /* RecommendRequest.m in Sources */,
 				D65804871D3A1C2D000650EA /* customView.m in Sources */,

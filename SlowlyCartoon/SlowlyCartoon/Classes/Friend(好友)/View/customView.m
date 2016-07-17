@@ -27,6 +27,7 @@
         _collectView.delegate=self;
         _collectView.pagingEnabled=YES;
         _collectView.backgroundColor=[UIColor whiteColor];
+        _index = 0;
         
         [_collectView registerNib:[UINib nibWithNibName:@"CustomCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:CustomCollectionViewCell_identify];
     }
@@ -98,7 +99,8 @@
 //cell点击
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"--%ld",indexPath.row);
+    self.index = indexPath.row;
+    
 }
 
 

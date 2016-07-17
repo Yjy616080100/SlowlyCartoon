@@ -62,7 +62,7 @@
             <connections>
                 <outlet property="messageLabel" destination="MZ1-fA-lxd" id="ZSi-7w-k7E"/>
             </connections>
-            <point key="canvasLocation" x="263.5" y="280"/>
+            <point key="canvasLocation" x="477.5" y="432"/>
         </tableViewCell>
     </objects>
     <resources>

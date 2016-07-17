@@ -98,7 +98,7 @@ EMContactManagerDelegate
 //登录方法
 -(void)loginAction{
     
-    EMError *error = [[EMClient sharedClient] loginWithUsername:@"00" password:@"00"];
+    EMError *error = [[EMClient sharedClient] loginWithUsername:@"11" password:@"11"];
     if (!error) {
         
         NSLog(@"登录成功");
