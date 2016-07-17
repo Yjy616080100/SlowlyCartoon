@@ -26,10 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
    _tableView.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
    
 //    关闭滑动
     _tableView.scrollEnabled = NO;
+    
     [self setUpDataArray];
     
 //注册cell
@@ -44,22 +46,26 @@
 }
 
 - (void)setUpDataArray{
+    
     _dataArray = @[@[@"清理缓存",@"检查更新"],@[@"修改密码",@"退出登录"]];
 }
 
 #pragma mark- UITableViewDelegate,UITableViewDataSource
 //tableView中的section个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
     return _dataArray.count;
 }
 
 //cell个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return [_dataArray[section] count];
 }
 
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     return 80;
 }
 
@@ -74,9 +80,11 @@
     cell.contentLabel.text = _dataArray[indexPath.section][indexPath.row];
     
     if (indexPath.section == 0 && indexPath.row == 0) {
+        
         cell.detailLbel.text = _cacheSize;
     }
     if (indexPath.section == 0 && indexPath.row == 1) {
+        
         cell.detailLbel.text = @"当前版本:V1.0.1";
     }
 
@@ -89,18 +97,22 @@
             if (indexPath.row == 0) {
 //         清理缓存
                 [self removeCache];
+                
                  NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
             }else{
 //          检查更新
                 
                 [self checkUpdate];
+                
                  NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
             }
             break;
         case 1:
             if (indexPath.row == 0) {
 //         修改密码
+                
                 [self changePassWord];
+                
                  NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
             }else{
 #pragma mark  退出登录
@@ -131,6 +143,7 @@
 
 - (void)removeCache{
     NSString* message = [NSString stringWithFormat:@"缓存大小为%@，是否清除",_cacheSize];
+    
     UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
@@ -143,7 +156,9 @@
         [self clearCache:cacheDir];
     }];
     [alertVC addAction:cancelAction];
+    
     [alertVC addAction:confirmAction];
+    
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 - (void)appearCache{
