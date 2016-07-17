@@ -38,8 +38,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-//    显示tabBar
-    self.tabBarController.tabBar.hidden = NO;
 }
 //初始化数据数组
 
