@@ -191,6 +191,7 @@ UITableViewDelegate
     cell.contentField.text = _dataArray[indexPath.section][indexPath.row];
     
     cell.imageV.image = [UIImage imageNamed:_imageArray[indexPath.section][indexPath.row]];
+    
     return cell;
 }
 
@@ -198,6 +199,9 @@ UITableViewDelegate
 //tableview点击事件
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //    关闭tableViewcel点击状态
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 //    获取当前的 UIStoryboard
     

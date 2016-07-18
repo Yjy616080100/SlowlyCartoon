@@ -30,6 +30,10 @@
 		D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */; };
 		D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A511D392AE900232F2D /* OpinionViewController.m */; };
 		D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A541D3931A100232F2D /* MIneDetailViewController.m */; };
+		D6388A0B1D3C64AB00A5624A /* MineDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6388A091D3C64AB00A5624A /* MineDetailTableViewCell.m */; };
+		D6388A0C1D3C64AB00A5624A /* MineDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6388A0A1D3C64AB00A5624A /* MineDetailTableViewCell.xib */; };
+		D6388A171D3C737E00A5624A /* MineDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6388A151D3C737E00A5624A /* MineDetailHeadCell.m */; };
+		D6388A181D3C737E00A5624A /* MineDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6388A161D3C737E00A5624A /* MineDetailHeadCell.xib */; };
 		D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D63A16611D39DB7800C30EFE /* WebViewController.m */; };
 		D64F38151D3B80D500686849 /* ImageCellOfMine.m in Sources */ = {isa = PBXBuildFile; fileRef = D64F38131D3B80D500686849 /* ImageCellOfMine.m */; };
 		D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */ = {isa = PBXBuildFile; fileRef = D64F38141D3B80D500686849 /* ImageCellOfMine.xib */; };
@@ -154,6 +158,12 @@
 		D6284A511D392AE900232F2D /* OpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionViewController.m; sourceTree = "<group>"; };
 		D6284A531D3931A100232F2D /* MIneDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIneDetailViewController.h; sourceTree = "<group>"; };
 		D6284A541D3931A100232F2D /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
+		D6388A081D3C64AB00A5624A /* MineDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineDetailTableViewCell.h; path = ../Controller/MineDetailTableViewCell.h; sourceTree = "<group>"; };
+		D6388A091D3C64AB00A5624A /* MineDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineDetailTableViewCell.m; path = ../Controller/MineDetailTableViewCell.m; sourceTree = "<group>"; };
+		D6388A0A1D3C64AB00A5624A /* MineDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineDetailTableViewCell.xib; path = ../Controller/MineDetailTableViewCell.xib; sourceTree = "<group>"; };
+		D6388A141D3C737E00A5624A /* MineDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineDetailHeadCell.h; sourceTree = "<group>"; };
+		D6388A151D3C737E00A5624A /* MineDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineDetailHeadCell.m; sourceTree = "<group>"; };
+		D6388A161D3C737E00A5624A /* MineDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineDetailHeadCell.xib; sourceTree = "<group>"; };
 		D63A16601D39DB7800C30EFE /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		D63A16611D39DB7800C30EFE /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		D64F38121D3B80D500686849 /* ImageCellOfMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCellOfMine.h; sourceTree = "<group>"; };
@@ -362,6 +372,39 @@
 				D65804821D39D96A000650EA /* chatMine.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		D6388A0D1D3C64EB00A5624A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6388A0E1D3C64FA00A5624A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D68CFF2C1D37419600DA832F /* Mine.storyboard */,
+				D6388A0A1D3C64AB00A5624A /* MineDetailTableViewCell.xib */,
+				D6388A081D3C64AB00A5624A /* MineDetailTableViewCell.h */,
+				D6388A091D3C64AB00A5624A /* MineDetailTableViewCell.m */,
+				D68CFF3D1D37956100DA832F /* MineTableViewCell.h */,
+				D68CFF3E1D37956100DA832F /* MineTableViewCell.m */,
+				D68CFF3F1D37956100DA832F /* MineTableViewCell.xib */,
+				D68CFF4E1D37AAFF00DA832F /* MineHeaderViewCell.h */,
+				D68CFF4F1D37AAFF00DA832F /* MineHeaderViewCell.m */,
+				D68CFF501D37AAFF00DA832F /* MineHeaderViewCell.xib */,
+				D6284A3E1D38D6BF00232F2D /* MineSettingTableViewCell.h */,
+				D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */,
+				D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */,
+				D6284A431D3919FC00232F2D /* AboutUsTableViewCell.h */,
+				D6284A441D3919FC00232F2D /* AboutUsTableViewCell.m */,
+				D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */,
+				D6388A141D3C737E00A5624A /* MineDetailHeadCell.h */,
+				D6388A151D3C737E00A5624A /* MineDetailHeadCell.m */,
+				D6388A161D3C737E00A5624A /* MineDetailHeadCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D691F5911D366B1E004359E1 = {
@@ -584,8 +627,8 @@
 			isa = PBXGroup;
 			children = (
 				D691F5D41D366C94004359E1 /* Controller */,
-				D691F5D51D366C94004359E1 /* Model */,
-				D691F5D61D366C94004359E1 /* View */,
+				D6388A0D1D3C64EB00A5624A /* Model */,
+				D6388A0E1D3C64FA00A5624A /* View */,
 			);
 			path = "Mine(个人中心)";
 			sourceTree = "<group>";
@@ -615,33 +658,6 @@
 				D63A16611D39DB7800C30EFE /* WebViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		D691F5D51D366C94004359E1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D691F5D61D366C94004359E1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D68CFF2C1D37419600DA832F /* Mine.storyboard */,
-				D68CFF3D1D37956100DA832F /* MineTableViewCell.h */,
-				D68CFF3E1D37956100DA832F /* MineTableViewCell.m */,
-				D68CFF3F1D37956100DA832F /* MineTableViewCell.xib */,
-				D68CFF4E1D37AAFF00DA832F /* MineHeaderViewCell.h */,
-				D68CFF4F1D37AAFF00DA832F /* MineHeaderViewCell.m */,
-				D68CFF501D37AAFF00DA832F /* MineHeaderViewCell.xib */,
-				D6284A3E1D38D6BF00232F2D /* MineSettingTableViewCell.h */,
-				D6284A3F1D38D6BF00232F2D /* MineSettingTableViewCell.m */,
-				D6284A401D38D6BF00232F2D /* MineSettingTableViewCell.xib */,
-				D6284A431D3919FC00232F2D /* AboutUsTableViewCell.h */,
-				D6284A441D3919FC00232F2D /* AboutUsTableViewCell.m */,
-				D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D691F5D71D366CD5004359E1 /* Other(其他) */ = {
@@ -824,7 +840,9 @@
 				D68CFF311D3773B200DA832F /* userBg.png in Resources */,
 				D691F5AA1D366B1E004359E1 /* Assets.xcassets in Resources */,
 				D68CFF4D1D379BC100DA832F /* jiantou.png in Resources */,
+				D6388A0C1D3C64AB00A5624A /* MineDetailTableViewCell.xib in Resources */,
 				D68CFF481D37970C00DA832F /* contact.png in Resources */,
+				D6388A181D3C737E00A5624A /* MineDetailHeadCell.xib in Resources */,
 				D6217E2B1D38FC8300CB6130 /* beijing.jpg in Resources */,
 				D6A449C51D37242A0096830F /* tabbar_game_sel@2x.png in Resources */,
 				D68CFF4B1D37970C00DA832F /* setting.png in Resources */,
@@ -915,6 +933,7 @@
 				D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */,
 				D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */,
 				D658049B1D3A5D3F000650EA /* CustomCollectionViewCell.m in Sources */,
+				D6388A171D3C737E00A5624A /* MineDetailHeadCell.m in Sources */,
 				D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */,
 				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
@@ -944,6 +963,7 @@
 				D6A591161D37250F00CE6820 /* RankListViewController.m in Sources */,
 				D6A591101D3724F200CE6820 /* RecommendViewController.m in Sources */,
 				D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */,
+				D6388A0B1D3C64AB00A5624A /* MineDetailTableViewCell.m in Sources */,
 				D6284A461D3919FC00232F2D /* AboutUsTableViewCell.m in Sources */,
 				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
 				D68CFF401D37956100DA832F /* MineTableViewCell.m in Sources */,
