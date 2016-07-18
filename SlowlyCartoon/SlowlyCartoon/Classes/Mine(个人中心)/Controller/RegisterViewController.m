@@ -36,6 +36,7 @@
 #pragma mark 选择图片
 - (void)selectAvator:(UIGestureRecognizer*)gesture{
     UIImagePickerController * imagePickerController = [[UIImagePickerController alloc]init];
+    
     imagePickerController.delegate = self;
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫请您选择方式" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
@@ -97,63 +98,179 @@
     _confirmBtn.layer.masksToBounds = YES;
     _confirmBtn.layer.cornerRadius = 25;
 }
+
+#pragma mark  确认注册
 - (IBAction)comfirmRegister:(UIButton *)sender {
-    
-//    注册
-    EMError *error = [[EMClient sharedClient] registerWithUsername:_usernNameTextField.text password:_passWordTextfield.text];
-    if (error == nil) {
-        NSLog(@"注册=== 成功");
-//   存入本地
-        NSData * imageData = UIImageJPEGRepresentation(_avatorImageV.image, 1);
-        [[NSUserDefaults standardUserDefaults]setValue:imageData forKey:@"avator"];
-        
-        NSString * log = [NSString stringWithFormat:@"%@,恭喜您注册成功！",_passWordTextfield.text];
-        UIAlertController *  alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:log preferredStyle:(UIAlertControllerStyleAlert)];
-        
-        UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"继续注册" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+
+//    匹配合法用户名(邮箱和手机号匹配)
+    if ([self checkPassword:_usernNameTextField.text]) {
+       
+//        匹配合法密码
+        if ([self checkPassword:_passWordTextfield.text]) {
+            //    注册
+            EMError *error = [[EMClient sharedClient] registerWithUsername:_usernNameTextField.text password:_passWordTextfield.text];
             
-        }];
-        
-        UIAlertAction * backToLoginAction = [UIAlertAction actionWithTitle:@"返回登录" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
+            if (error == nil) {
+                NSLog(@"注册=== 成功");
+                
+                [self successPrompt];
+                
+            }else{
+                NSLog(@"注册=====%@",error);
+
+//         网络错误和用户名已被注册
+                
+                switch (error.code) {
+                    case EMErrorNetworkUnavailable://网络不可用
+                        
+                        [self showAlertWithTitle:@"" message:@"请检查网路" dalayTime:2];
+                        
+                        break;
+                      
+                    case EMErrorUserAlreadyExist://用户名已被注册
+                    
+                        [self showAlertWithTitle:@"" message:@"该用户名已被注册" dalayTime:2];
+                        
+                        break;
+
+                    default:
+                        break;
+                }
+       
+            }
+//            密码不合法
+        }else{
             
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }];
+            [self showAlertWithTitle:@"" message:@"密码必须由6~20位数字或字母构成" dalayTime:2];
+        }
         
+//  用户名不合法
         
-        [alertController addAction:confirmAction];
-        [alertController addAction:backToLoginAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
     }else{
         
-        UIAlertController *  alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:@"该账号已被注册！"preferredStyle:(UIAlertControllerStyleAlert)];
+        [self showAlertWithTitle:@"" message:@"账号由6~20位数字或字母构成" dalayTime:2];
         
-        UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"继续注册" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        
-        UIAlertAction * backToLoginAction = [UIAlertAction actionWithTitle:@"返回登录" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
-//            返回登录界面
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }];
-        
-        
-        [alertController addAction:confirmAction];
-        [alertController addAction:backToLoginAction];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-        
-        
-        
-        NSLog(@"注册=====%@",error);
     }
+
     
 }
 - (IBAction)backToLogin:(UIButton *)sender {
 //    返回登录界面
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark-  注册成功提示
+- (void)successPrompt{
+    //   存入本地
+    NSData * imageData = UIImageJPEGRepresentation(_avatorImageV.image, 1);
+    [[NSUserDefaults standardUserDefaults]setValue:imageData forKey:@"avator"];
+    
+    NSString * log = [NSString stringWithFormat:@"%@,恭喜您注册成功！",_passWordTextfield.text];
+    UIAlertController *  alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:log preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"继续注册" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    UIAlertAction * backToLoginAction = [UIAlertAction actionWithTitle:@"返回登录" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }];
+    
+    
+    [alertController addAction:confirmAction];
+    [alertController addAction:backToLoginAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark- 用户名已被注册失败提示
+- (void)failurePromptWithErrorMessage:(NSString*)errorMessage{
+    
+    UIAlertController *  alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:errorMessage preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction * confirmAction = [UIAlertAction actionWithTitle:@"继续注册" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    UIAlertAction * backToLoginAction = [UIAlertAction actionWithTitle:@"返回登录" style:(UIAlertActionStyleDestructive) handler:^(UIAlertAction * _Nonnull action) {
+        //            返回登录界面
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }];
+    
+    
+    [alertController addAction:confirmAction];
+    [alertController addAction:backToLoginAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+#pragma mark-  邮箱匹配
+
+- (BOOL)checkUserNameEmail:(NSString*)email{
+    
+    //    正则表达式
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    NSPredicate *emailCheck = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailCheck evaluateWithObject:email];
+    
+}
+
+
+#pragma mark 手机号匹配
+- (BOOL) checkUserNamePhoneNumber:(NSString *)mobile
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    
+    return [phoneTest evaluateWithObject:mobile];
+}
+
+#pragma mark 密码格式匹配
+
+- (BOOL) checkPassword:(NSString *)passWord
+{
+    NSString *passWordRegex = @"^[a-zA-Z0-9]{6,20}+$";
+    
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",passWordRegex];
+    
+    return [passWordPredicate evaluateWithObject:passWord];
+}
+
+
+#pragma mark- 自动消失alertView
+
+//初始化UIAlertView
+- (void)showAlertWithTitle:(NSString*)title message:(NSString*)message dalayTime:(CGFloat)delayTime{
+    
+    UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    promptAlert.backgroundColor = [UIColor darkGrayColor];
+    
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:delayTime
+                                     target:self
+                                   selector:@selector(timerFireMethod:)
+                                   userInfo:promptAlert
+                                    repeats:NO];
+    
+    [promptAlert show];
+}
+
+//UIAlertView 自动消失
+- (void)timerFireMethod:(NSTimer*)theTimer
+{
+    UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
+    [promptAlert dismissWithClickedButtonIndex:0 animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

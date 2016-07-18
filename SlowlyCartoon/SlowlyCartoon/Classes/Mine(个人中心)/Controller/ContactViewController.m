@@ -82,6 +82,10 @@
 }
 //点击事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //    关闭tableViewcel点击状态
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
