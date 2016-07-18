@@ -78,6 +78,31 @@
 		D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F11D366FB6004359E1 /* FriendViewController.m */; };
 		D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F41D366FD9004359E1 /* CommunityViewController.m */; };
 		D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D691F5F71D366FF9004359E1 /* MineViewController.m */; };
+		D69A7E9F1D3C7EAC00910C47 /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E811D3C7EAC00910C47 /* EMAudioPlayerUtil.m */; };
+		D69A7EA01D3C7EAC00910C47 /* EMAudioRecorderUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E831D3C7EAC00910C47 /* EMAudioRecorderUtil.m */; };
+		D69A7EA11D3C7EAC00910C47 /* EMCDDeviceManager+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E851D3C7EAC00910C47 /* EMCDDeviceManager+Media.m */; };
+		D69A7EA21D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E871D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.m */; };
+		D69A7EA31D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E891D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m */; };
+		D69A7EA41D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E8B1D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m */; };
+		D69A7EA51D3C7EAC00910C47 /* EMCDDeviceManagerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E8E1D3C7EAC00910C47 /* EMCDDeviceManagerBase.m */; };
+		D69A7EA61D3C7EAC00910C47 /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E921D3C7EAC00910C47 /* amrFileCodec.mm */; };
+		D69A7EA71D3C7EAC00910C47 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E941D3C7EAC00910C47 /* wav.mm */; };
+		D69A7EA81D3C7EAC00910C47 /* EMVoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69A7E961D3C7EAC00910C47 /* EMVoiceConverter.mm */; };
+		D69A7EA91D3C7EAC00910C47 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D69A7E9A1D3C7EAC00910C47 /* libopencore-amrnb.a */; };
+		D69A7EAA1D3C7EAC00910C47 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D69A7E9E1D3C7EAC00910C47 /* libopencore-amrwb.a */; };
+		D69A7EAC1D3CB26700910C47 /* voiceButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EAB1D3CB26700910C47 /* voiceButton.png */; };
+		D69A7EAF1D3CB6CE00910C47 /* s2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EAD1D3CB6CE00910C47 /* s2.png */; };
+		D69A7EB01D3CB6CE00910C47 /* s1.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EAE1D3CB6CE00910C47 /* s1.png */; };
+		D69A7EB61D3CC14500910C47 /* voiceCellOfFriends.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7EB41D3CC14500910C47 /* voiceCellOfFriends.m */; };
+		D69A7EB71D3CC14500910C47 /* voiceCellOfFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EB51D3CC14500910C47 /* voiceCellOfFriends.xib */; };
+		D69A7EBB1D3CC3FB00910C47 /* VoiceCellOfMine.m in Sources */ = {isa = PBXBuildFile; fileRef = D69A7EB91D3CC3FB00910C47 /* VoiceCellOfMine.m */; };
+		D69A7EBC1D3CC3FB00910C47 /* VoiceCellOfMine.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EBA1D3CC3FB00910C47 /* VoiceCellOfMine.xib */; };
+		D69A7EC01D3CC89E00910C47 /* q1.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EBD1D3CC89E00910C47 /* q1.png */; };
+		D69A7EC11D3CC89E00910C47 /* q2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EBE1D3CC89E00910C47 /* q2.png */; };
+		D69A7EC21D3CC89E00910C47 /* q3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EBF1D3CC89E00910C47 /* q3.png */; };
+		D69A7EC61D3CDB2200910C47 /* v1.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EC51D3CDB2200910C47 /* v1.png */; };
+		D69A7EC91D3CDBEB00910C47 /* v2.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EC71D3CDBEB00910C47 /* v2.png */; };
+		D69A7ECA1D3CDBEB00910C47 /* v3.png in Resources */ = {isa = PBXBuildFile; fileRef = D69A7EC81D3CDBEB00910C47 /* v3.png */; };
 		D6A449C41D37242A0096830F /* tabbar_game@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449BC1D37242A0096830F /* tabbar_game@2x.png */; };
 		D6A449C51D37242A0096830F /* tabbar_game_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449BD1D37242A0096830F /* tabbar_game_sel@2x.png */; };
 		D6A449C61D37242A0096830F /* tabbar_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6A449BE1D37242A0096830F /* tabbar_home@2x.png */; };
@@ -217,6 +242,51 @@
 		D691F5F71D366FF9004359E1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		D691F5F91D3670DF004359E1 /* Contants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		D691F5FA1D3670F0004359E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D69A7E7C1D3C7EAC00910C47 /* EMCDDeviceManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerDelegate.h; sourceTree = "<group>"; };
+		D69A7E7D1D3C7EAC00910C47 /* EMCDDeviceManagerProximitySensorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerProximitySensorDelegate.h; sourceTree = "<group>"; };
+		D69A7E7F1D3C7EAC00910C47 /* DemoErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoErrorCode.h; sourceTree = "<group>"; };
+		D69A7E801D3C7EAC00910C47 /* EMAudioPlayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioPlayerUtil.h; sourceTree = "<group>"; };
+		D69A7E811D3C7EAC00910C47 /* EMAudioPlayerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioPlayerUtil.m; sourceTree = "<group>"; };
+		D69A7E821D3C7EAC00910C47 /* EMAudioRecorderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAudioRecorderUtil.h; sourceTree = "<group>"; };
+		D69A7E831D3C7EAC00910C47 /* EMAudioRecorderUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAudioRecorderUtil.m; sourceTree = "<group>"; };
+		D69A7E841D3C7EAC00910C47 /* EMCDDeviceManager+Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Media.h"; sourceTree = "<group>"; };
+		D69A7E851D3C7EAC00910C47 /* EMCDDeviceManager+Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Media.m"; sourceTree = "<group>"; };
+		D69A7E861D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Microphone.h"; sourceTree = "<group>"; };
+		D69A7E871D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Microphone.m"; sourceTree = "<group>"; };
+		D69A7E881D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+ProximitySensor.h"; sourceTree = "<group>"; };
+		D69A7E891D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+ProximitySensor.m"; sourceTree = "<group>"; };
+		D69A7E8A1D3C7EAC00910C47 /* EMCDDeviceManager+Remind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMCDDeviceManager+Remind.h"; sourceTree = "<group>"; };
+		D69A7E8B1D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMCDDeviceManager+Remind.m"; sourceTree = "<group>"; };
+		D69A7E8C1D3C7EAC00910C47 /* EMCDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManager.h; sourceTree = "<group>"; };
+		D69A7E8D1D3C7EAC00910C47 /* EMCDDeviceManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCDDeviceManagerBase.h; sourceTree = "<group>"; };
+		D69A7E8E1D3C7EAC00910C47 /* EMCDDeviceManagerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMCDDeviceManagerBase.m; sourceTree = "<group>"; };
+		D69A7E911D3C7EAC00910C47 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
+		D69A7E921D3C7EAC00910C47 /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
+		D69A7E931D3C7EAC00910C47 /* wav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
+		D69A7E941D3C7EAC00910C47 /* wav.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = wav.mm; sourceTree = "<group>"; };
+		D69A7E951D3C7EAC00910C47 /* EMVoiceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMVoiceConverter.h; sourceTree = "<group>"; };
+		D69A7E961D3C7EAC00910C47 /* EMVoiceConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EMVoiceConverter.mm; sourceTree = "<group>"; };
+		D69A7E981D3C7EAC00910C47 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		D69A7E991D3C7EAC00910C47 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		D69A7E9A1D3C7EAC00910C47 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		D69A7E9C1D3C7EAC00910C47 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		D69A7E9D1D3C7EAC00910C47 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		D69A7E9E1D3C7EAC00910C47 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		D69A7EAB1D3CB26700910C47 /* voiceButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voiceButton.png; sourceTree = "<group>"; };
+		D69A7EAD1D3CB6CE00910C47 /* s2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s2.png; sourceTree = "<group>"; };
+		D69A7EAE1D3CB6CE00910C47 /* s1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = s1.png; sourceTree = "<group>"; };
+		D69A7EB31D3CC14500910C47 /* voiceCellOfFriends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voiceCellOfFriends.h; sourceTree = "<group>"; };
+		D69A7EB41D3CC14500910C47 /* voiceCellOfFriends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = voiceCellOfFriends.m; sourceTree = "<group>"; };
+		D69A7EB51D3CC14500910C47 /* voiceCellOfFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = voiceCellOfFriends.xib; sourceTree = "<group>"; };
+		D69A7EB81D3CC3FB00910C47 /* VoiceCellOfMine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceCellOfMine.h; sourceTree = "<group>"; };
+		D69A7EB91D3CC3FB00910C47 /* VoiceCellOfMine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceCellOfMine.m; sourceTree = "<group>"; };
+		D69A7EBA1D3CC3FB00910C47 /* VoiceCellOfMine.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceCellOfMine.xib; sourceTree = "<group>"; };
+		D69A7EBD1D3CC89E00910C47 /* q1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q1.png; sourceTree = "<group>"; };
+		D69A7EBE1D3CC89E00910C47 /* q2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q2.png; sourceTree = "<group>"; };
+		D69A7EBF1D3CC89E00910C47 /* q3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q3.png; sourceTree = "<group>"; };
+		D69A7EC51D3CDB2200910C47 /* v1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v1.png; sourceTree = "<group>"; };
+		D69A7EC71D3CDBEB00910C47 /* v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v2.png; sourceTree = "<group>"; };
+		D69A7EC81D3CDBEB00910C47 /* v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = v3.png; sourceTree = "<group>"; };
 		D6A449BC1D37242A0096830F /* tabbar_game@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_game@2x.png"; sourceTree = "<group>"; };
 		D6A449BD1D37242A0096830F /* tabbar_game_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_game_sel@2x.png"; sourceTree = "<group>"; };
 		D6A449BE1D37242A0096830F /* tabbar_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home@2x.png"; sourceTree = "<group>"; };
@@ -253,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */,
+				D69A7EAA1D3C7EAC00910C47 /* libopencore-amrwb.a in Frameworks */,
+				D69A7EA91D3C7EAC00910C47 /* libopencore-amrnb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +385,12 @@
 				D65804981D3A5D3F000650EA /* CustomCollectionViewCell.h */,
 				D65804991D3A5D3F000650EA /* CustomCollectionViewCell.m */,
 				D658049A1D3A5D3F000650EA /* CustomCollectionViewCell.xib */,
+				D69A7EB31D3CC14500910C47 /* voiceCellOfFriends.h */,
+				D69A7EB41D3CC14500910C47 /* voiceCellOfFriends.m */,
+				D69A7EB51D3CC14500910C47 /* voiceCellOfFriends.xib */,
+				D69A7EB81D3CC3FB00910C47 /* VoiceCellOfMine.h */,
+				D69A7EB91D3CC3FB00910C47 /* VoiceCellOfMine.m */,
+				D69A7EBA1D3CC3FB00910C47 /* VoiceCellOfMine.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +398,14 @@
 		D6217E1F1D38F1F300CB6130 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D69A7EBD1D3CC89E00910C47 /* q1.png */,
+				D69A7EBE1D3CC89E00910C47 /* q2.png */,
+				D69A7EBF1D3CC89E00910C47 /* q3.png */,
+				D69A7EAD1D3CB6CE00910C47 /* s2.png */,
+				D69A7EAE1D3CB6CE00910C47 /* s1.png */,
+				D69A7EC51D3CDB2200910C47 /* v1.png */,
+				D69A7EC71D3CDBEB00910C47 /* v2.png */,
+				D69A7EC81D3CDBEB00910C47 /* v3.png */,
 				D65804961D3A5C89000650EA /* luyin.png */,
 				D65804881D3A5631000650EA /* xiaoshipin.png */,
 				D65804891D3A5631000650EA /* weizhi.png */,
@@ -335,6 +421,7 @@
 				D6217E281D38FBA000CB6130 /* beijing2.jpg */,
 				D65804811D39D96A000650EA /* chatFriends.png */,
 				D65804821D39D96A000650EA /* chatMine.png */,
+				D69A7EAB1D3CB26700910C47 /* voiceButton.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -470,6 +557,8 @@
 		D691F5CB1D366C94004359E1 /* Friend(好友) */ = {
 			isa = PBXGroup;
 			children = (
+				D69A7E7A1D3C7EAC00910C47 /* DeviceUtil */,
+				D69A7E8F1D3C7EAC00910C47 /* VoiceConvert */,
 				D6217E1F1D38F1F300CB6130 /* Images */,
 				D691F5CC1D366C94004359E1 /* Controller */,
 				D6217E121D38D39A00CB6130 /* Model */,
@@ -634,6 +723,90 @@
 			path = "Main(主要)";
 			sourceTree = "<group>";
 		};
+		D69A7E7A1D3C7EAC00910C47 /* DeviceUtil */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E7B1D3C7EAC00910C47 /* delegates */,
+				D69A7E7E1D3C7EAC00910C47 /* internal */,
+			);
+			path = DeviceUtil;
+			sourceTree = "<group>";
+		};
+		D69A7E7B1D3C7EAC00910C47 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E7C1D3C7EAC00910C47 /* EMCDDeviceManagerDelegate.h */,
+				D69A7E7D1D3C7EAC00910C47 /* EMCDDeviceManagerProximitySensorDelegate.h */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		D69A7E7E1D3C7EAC00910C47 /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E7F1D3C7EAC00910C47 /* DemoErrorCode.h */,
+				D69A7E801D3C7EAC00910C47 /* EMAudioPlayerUtil.h */,
+				D69A7E811D3C7EAC00910C47 /* EMAudioPlayerUtil.m */,
+				D69A7E821D3C7EAC00910C47 /* EMAudioRecorderUtil.h */,
+				D69A7E831D3C7EAC00910C47 /* EMAudioRecorderUtil.m */,
+				D69A7E841D3C7EAC00910C47 /* EMCDDeviceManager+Media.h */,
+				D69A7E851D3C7EAC00910C47 /* EMCDDeviceManager+Media.m */,
+				D69A7E861D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.h */,
+				D69A7E871D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.m */,
+				D69A7E881D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.h */,
+				D69A7E891D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m */,
+				D69A7E8A1D3C7EAC00910C47 /* EMCDDeviceManager+Remind.h */,
+				D69A7E8B1D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m */,
+				D69A7E8C1D3C7EAC00910C47 /* EMCDDeviceManager.h */,
+				D69A7E8D1D3C7EAC00910C47 /* EMCDDeviceManagerBase.h */,
+				D69A7E8E1D3C7EAC00910C47 /* EMCDDeviceManagerBase.m */,
+			);
+			path = internal;
+			sourceTree = "<group>";
+		};
+		D69A7E8F1D3C7EAC00910C47 /* VoiceConvert */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E901D3C7EAC00910C47 /* amrwapper */,
+				D69A7E951D3C7EAC00910C47 /* EMVoiceConverter.h */,
+				D69A7E961D3C7EAC00910C47 /* EMVoiceConverter.mm */,
+				D69A7E971D3C7EAC00910C47 /* opencore-amrnb */,
+				D69A7E9B1D3C7EAC00910C47 /* opencore-amrwb */,
+			);
+			path = VoiceConvert;
+			sourceTree = "<group>";
+		};
+		D69A7E901D3C7EAC00910C47 /* amrwapper */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E911D3C7EAC00910C47 /* amrFileCodec.h */,
+				D69A7E921D3C7EAC00910C47 /* amrFileCodec.mm */,
+				D69A7E931D3C7EAC00910C47 /* wav.h */,
+				D69A7E941D3C7EAC00910C47 /* wav.mm */,
+			);
+			path = amrwapper;
+			sourceTree = "<group>";
+		};
+		D69A7E971D3C7EAC00910C47 /* opencore-amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E981D3C7EAC00910C47 /* interf_dec.h */,
+				D69A7E991D3C7EAC00910C47 /* interf_enc.h */,
+				D69A7E9A1D3C7EAC00910C47 /* libopencore-amrnb.a */,
+			);
+			path = "opencore-amrnb";
+			sourceTree = "<group>";
+		};
+		D69A7E9B1D3C7EAC00910C47 /* opencore-amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				D69A7E9C1D3C7EAC00910C47 /* dec_if.h */,
+				D69A7E9D1D3C7EAC00910C47 /* if_rom.h */,
+				D69A7E9E1D3C7EAC00910C47 /* libopencore-amrwb.a */,
+			);
+			path = "opencore-amrwb";
+			sourceTree = "<group>";
+		};
 		D6A449BB1D37242A0096830F /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,13 +930,17 @@
 			files = (
 				D6A449C41D37242A0096830F /* tabbar_game@2x.png in Resources */,
 				D65804971D3A5C89000650EA /* luyin.png in Resources */,
+				D69A7ECA1D3CDBEB00910C47 /* v3.png in Resources */,
 				D6217E231D38F23B00CB6130 /* biaoqing.png in Resources */,
 				D6217E331D39215600CB6130 /* TextCellOfMine.xib in Resources */,
 				D68CFF301D3773B200DA832F /* passBg.png in Resources */,
+				D69A7EC21D3CC89E00910C47 /* q3.png in Resources */,
 				D68CFF4A1D37970C00DA832F /* opinion.png in Resources */,
+				D69A7EBC1D3CC3FB00910C47 /* VoiceCellOfMine.xib in Resources */,
 				D658049C1D3A5D3F000650EA /* CustomCollectionViewCell.xib in Resources */,
 				D68CFF411D37956100DA832F /* MineTableViewCell.xib in Resources */,
 				D6A449C71D37242A0096830F /* tabbar_home_sel@2x.png in Resources */,
+				D69A7EC11D3CC89E00910C47 /* q2.png in Resources */,
 				D68CFF491D37970C00DA832F /* mineMessage.png in Resources */,
 				D65804951D3A5631000650EA /* tupian.png in Resources */,
 				D65804831D39D96A000650EA /* chatFriends.png in Resources */,
@@ -773,8 +950,10 @@
 				D6A449C81D37242A0096830F /* tabbar_me@2x.png in Resources */,
 				D68CFF471D37970C00DA832F /* aboutUs.png in Resources */,
 				D6217E241D38F23B00CB6130 /* tianjia.png in Resources */,
+				D69A7EC91D3CDBEB00910C47 /* v2.png in Resources */,
 				D6284A421D38D6BF00232F2D /* MineSettingTableViewCell.xib in Resources */,
 				D68CFF331D3779BB00DA832F /* userDefault.png in Resources */,
+				D69A7EB71D3CC14500910C47 /* voiceCellOfFriends.xib in Resources */,
 				D627E6961D38D18F00D36EDB /* OneTableViewCell.xib in Resources */,
 				D6217E251D38F23B00CB6130 /* yuyin2.png in Resources */,
 				D6A449C91D37242A0096830F /* tabbar_me_sel@2x.png in Resources */,
@@ -791,6 +970,7 @@
 				D68CFF541D37AD6000DA832F /* avator.png in Resources */,
 				D658048F1D3A5631000650EA /* xiaoshipin.png in Resources */,
 				D6A449C61D37242A0096830F /* tabbar_home@2x.png in Resources */,
+				D69A7EAC1D3CB26700910C47 /* voiceButton.png in Resources */,
 				D65804941D3A5631000650EA /* zhuanzhang.png in Resources */,
 				D64F381B1D3B830A00686849 /* ImageCellOfFriends.xib in Resources */,
 				D65804801D39C2B2000650EA /* TextCellOfFriends.xib in Resources */,
@@ -798,10 +978,14 @@
 				D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */,
 				D6A449CA1D37242A0096830F /* tabbar_room@2x.png in Resources */,
 				D6A449CB1D37242A0096830F /* tabbar_room_sel@2x.png in Resources */,
+				D69A7EC61D3CDB2200910C47 /* v1.png in Resources */,
 				D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */,
+				D69A7EB01D3CB6CE00910C47 /* s1.png in Resources */,
 				D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */,
 				D65804921D3A5631000650EA /* mingpian.png in Resources */,
 				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,
+				D69A7EAF1D3CB6CE00910C47 /* s2.png in Resources */,
+				D69A7EC01D3CC89E00910C47 /* q1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,8 +1051,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69A7EB61D3CC14500910C47 /* voiceCellOfFriends.m in Sources */,
 				D6217E1E1D38E80600CB6130 /* ChatViewController.m in Sources */,
 				D6217E181D38E6A200CB6130 /* SingleFriendManager.m in Sources */,
+				D69A7EA01D3C7EAC00910C47 /* EMAudioRecorderUtil.m in Sources */,
 				D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */,
 				D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */,
 				D658049B1D3A5D3F000650EA /* CustomCollectionViewCell.m in Sources */,
@@ -877,15 +1063,22 @@
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
 				D691F59F1D366B1E004359E1 /* main.m in Sources */,
 				D68CFF391D3781AC00DA832F /* ContactViewController.m in Sources */,
+				D69A7EA11D3C7EAC00910C47 /* EMCDDeviceManager+Media.m in Sources */,
+				D69A7EA21D3C7EAC00910C47 /* EMCDDeviceManager+Microphone.m in Sources */,
 				D64F381A1D3B830A00686849 /* ImageCellOfFriends.m in Sources */,
 				D68CFF361D377B9700DA832F /* SettingViewController.m in Sources */,
+				D69A7EBB1D3CC3FB00910C47 /* VoiceCellOfMine.m in Sources */,
 				D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */,
 				D68CFF3C1D37866700DA832F /* AboutUsViewController.m in Sources */,
 				D68CFF511D37AAFF00DA832F /* MineHeaderViewCell.m in Sources */,
 				D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */,
 				D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */,
+				D69A7E9F1D3C7EAC00910C47 /* EMAudioPlayerUtil.m in Sources */,
+				D69A7EA61D3C7EAC00910C47 /* amrFileCodec.mm in Sources */,
 				D627E6951D38D18F00D36EDB /* OneTableViewCell.m in Sources */,
 				D6217E321D39215600CB6130 /* TextCellOfMine.m in Sources */,
+				D69A7EA71D3C7EAC00910C47 /* wav.mm in Sources */,
+				D69A7EA41D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m in Sources */,
 				D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */,
 				D691F5DC1D366DAC004359E1 /* RootViewController.m in Sources */,
 				D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */,
@@ -899,12 +1092,15 @@
 				D68CFF401D37956100DA832F /* MineTableViewCell.m in Sources */,
 				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
 				D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */,
+				D69A7EA81D3C7EAC00910C47 /* EMVoiceConverter.mm in Sources */,
 				D6A5911D1D37944500CE6820 /* NetWorkRequest.m in Sources */,
 				D64F38151D3B80D500686849 /* ImageCellOfMine.m in Sources */,
 				D6A5911A1D3793D000CE6820 /* BaseRequest.m in Sources */,
 				D6A591201D37954000CE6820 /* RecommendRequest.m in Sources */,
 				D65804871D3A1C2D000650EA /* customView.m in Sources */,
+				D69A7EA51D3C7EAC00910C47 /* EMCDDeviceManagerBase.m in Sources */,
 				D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */,
+				D69A7EA31D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				D627E69A1D390BDF00D36EDB /* LastCollectionViewCell.m in Sources */,
 				D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */,
 			);
@@ -1017,6 +1213,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SlowlyCartoon/Classes/Friend(好友)/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/SlowlyCartoon/Classes/Friend(好友)/VoiceConvert/opencore-amrwb",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1030,6 +1231,11 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SlowlyCartoon/Classes/Friend(好友)/VoiceConvert/opencore-amrnb",
+					"$(PROJECT_DIR)/SlowlyCartoon/Classes/Friend(好友)/VoiceConvert/opencore-amrwb",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="KGk-i7-Jjw" customClass="VoiceCellOfMine">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biaoqing.png" translatesAutoresizingMaskIntoConstraints="NO" id="6jP-lg-eQ2">
+                        <rect key="frame" x="265" y="7" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="QHl-na-GcD"/>
+                            <constraint firstAttribute="width" constant="45" id="cqa-M2-iYS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viu-sJ-Haj">
+                        <rect key="frame" x="155" y="5" width="100" height="50"/>
+                        <color key="backgroundColor" red="0.4991308666" green="1" blue="0.58914777640000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="28g-XB-plw"/>
+                            <constraint firstAttribute="width" constant="100" id="GO0-mc-JbF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="6qk-15-0cj">
+                        <rect key="frame" x="205" y="10" width="50" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="GxC-fg-orG"/>
+                            <constraint firstAttribute="width" constant="50" id="snH-MU-A8r"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMn-C1-Cq1">
+                        <rect key="frame" x="160" y="15" width="40" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Ji0-86-VLC"/>
+                            <constraint firstAttribute="height" constant="30" id="MIu-Ti-eK4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6jP-lg-eQ2" firstAttribute="leading" secondItem="wMn-C1-Cq1" secondAttribute="trailing" constant="65" id="E0E-di-z2H"/>
+                    <constraint firstItem="viu-sJ-Haj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EyI-QY-YFR"/>
+                    <constraint firstItem="6jP-lg-eQ2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bXb-T6-ngH"/>
+                    <constraint firstItem="6qk-15-0cj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eFd-Zg-Zmt"/>
+                    <constraint firstAttribute="trailing" secondItem="6jP-lg-eQ2" secondAttribute="trailing" constant="10" id="iEr-gR-Y8w"/>
+                    <constraint firstItem="6jP-lg-eQ2" firstAttribute="leading" secondItem="6qk-15-0cj" secondAttribute="trailing" constant="10" id="mXW-bB-F8D"/>
+                    <constraint firstItem="wMn-C1-Cq1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pXl-Hb-cG2"/>
+                    <constraint firstItem="6jP-lg-eQ2" firstAttribute="leading" secondItem="viu-sJ-Haj" secondAttribute="trailing" constant="10" id="spy-zF-cbA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="guestureLabel" destination="viu-sJ-Haj" id="fM7-nF-i9m"/>
+                <outlet property="imageV" destination="6qk-15-0cj" id="KzG-JR-Wj9"/>
+                <outlet property="timeLabel" destination="wMn-C1-Cq1" id="kKM-AM-qpd"/>
+            </connections>
+            <point key="canvasLocation" x="780" y="495"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="biaoqing.png" width="48" height="48"/>
+        <image name="v2.png" width="228" height="228"/>
+    </resources>
+</document>

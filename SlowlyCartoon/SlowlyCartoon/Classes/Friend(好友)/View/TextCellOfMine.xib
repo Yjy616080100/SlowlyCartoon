@@ -18,23 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="411" height="129"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biaoqing.png" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-sd-rmK">
-                                <rect key="frame" x="358" y="74" width="45" height="45"/>
+                                <rect key="frame" x="358" y="42" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="d4P-44-f3s"/>
                                     <constraint firstAttribute="height" constant="45" id="etn-9d-Tff"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatMine.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-xu-vKt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s1.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-xu-vKt">
                                 <rect key="frame" x="148" y="10" width="200" height="109"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="U9x-cq-yaK"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ1-fA-lxd">
-                                <rect key="frame" x="210" y="36" width="78" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="78" id="jTp-88-p7E"/>
-                                </constraints>
+                                <rect key="frame" x="148" y="10" width="191" height="109"/>
+                                <color key="backgroundColor" red="0.4991308666" green="1" blue="0.58914777640000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -42,13 +41,14 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="2Ya-xu-vKt" firstAttribute="top" secondItem="6vt-lM-Oob" secondAttribute="top" constant="10" id="3Yr-Ex-h9j"/>
-                            <constraint firstItem="q0H-sd-rmK" firstAttribute="leading" secondItem="MZ1-fA-lxd" secondAttribute="trailing" constant="70" id="6Je-dK-3Ib"/>
-                            <constraint firstAttribute="bottom" secondItem="MZ1-fA-lxd" secondAttribute="bottom" constant="50" id="8Fj-5d-0Lh"/>
-                            <constraint firstAttribute="bottom" secondItem="q0H-sd-rmK" secondAttribute="bottom" constant="10" id="Ww4-db-7dN"/>
+                            <constraint firstItem="q0H-sd-rmK" firstAttribute="centerY" secondItem="6vt-lM-Oob" secondAttribute="centerY" id="AbW-ge-Lgl"/>
+                            <constraint firstItem="MZ1-fA-lxd" firstAttribute="bottom" secondItem="2Ya-xu-vKt" secondAttribute="bottom" id="GSO-Oa-aee"/>
                             <constraint firstAttribute="bottom" secondItem="2Ya-xu-vKt" secondAttribute="bottom" constant="10" id="ZLK-Tl-k2k"/>
                             <constraint firstItem="q0H-sd-rmK" firstAttribute="leading" secondItem="2Ya-xu-vKt" secondAttribute="trailing" constant="10" id="b0F-9E-h4J"/>
                             <constraint firstAttribute="trailing" secondItem="q0H-sd-rmK" secondAttribute="trailing" constant="8" id="jAI-aq-zAQ"/>
-                            <constraint firstItem="MZ1-fA-lxd" firstAttribute="top" secondItem="6vt-lM-Oob" secondAttribute="top" constant="36" id="nRq-Ol-Yil"/>
+                            <constraint firstItem="MZ1-fA-lxd" firstAttribute="top" secondItem="2Ya-xu-vKt" secondAttribute="top" id="ts2-cw-GwD"/>
+                            <constraint firstItem="MZ1-fA-lxd" firstAttribute="leading" secondItem="2Ya-xu-vKt" secondAttribute="leading" id="xLb-ae-gqS"/>
+                            <constraint firstItem="q0H-sd-rmK" firstAttribute="leading" secondItem="MZ1-fA-lxd" secondAttribute="trailing" constant="19" id="y7m-MQ-xSJ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -67,6 +67,6 @@
     </objects>
     <resources>
         <image name="biaoqing.png" width="48" height="48"/>
-        <image name="chatMine.png" width="128" height="128"/>
+        <image name="s1.png" width="72" height="60"/>
     </resources>
 </document>
