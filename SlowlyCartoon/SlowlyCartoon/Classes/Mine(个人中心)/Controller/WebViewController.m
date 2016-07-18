@@ -24,7 +24,7 @@
     
     _webView.scalesPageToFit = YES;
     
-//添加放大shous
+//添加放大手势
 //    [self addGesure];
     [_webView loadRequest:request];
 }

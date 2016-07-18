@@ -8,6 +8,11 @@
 
 #import "MIneDetailViewController.h"
 
+#import "MineDetailTableViewCell.h"
+
+
+#import "MineDetailHeadCell.h"
+
 @interface MIneDetailViewController ()
 
 <
@@ -35,11 +40,15 @@
     [self setUpDataArray];
 //    注册
     
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuse"];
+    [_tableView registerNib:[UINib nibWithNibName:@"MineDetailTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MineDetailTableViewCell_Identify];
+    
+    [_tableView registerNib:[UINib nibWithNibName:@"MineDetailHeadCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MineDetailHeadCell_Identify];
+    
+//    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuse"];
 }
 //初始化数据
 - (void)setUpDataArray{
-    _dataArray = @[@[@"头像"],@[@"性别",@"昵称",@"出生年月",@"所在城市"],@[@"QQ",@"微信",@"微博",@"邮箱",@"手机"]];
+    _dataArray = @[@[@"头像"],@[@"账户",@"性别",@"出生年月",@"所在城市"],@[@"QQ",@"微信",@"微博",@"邮箱",@"手机"]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -64,9 +73,9 @@
     
     if ( indexPath.section == 0) {
         
-        return 80;
+        return 100;
     }
-    return 56;
+    return 50;
 }
 //返回分区数
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -82,21 +91,52 @@
 
 //返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//  第一分区
+    if ( indexPath.section == 0) {
+        
+        MineDetailHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:MineDetailHeadCell_Identify];
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"reuse"];
+        if (cell == nil) {
+            
+            cell = [[MineDetailHeadCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:MineDetailHeadCell_Identify];
+            
+        }
+        NSData * imageData = [[NSUserDefaults standardUserDefaults] valueForKey:@"avator"];
+        
+        if (imageData != nil) {
+            
+            cell.avatorImage.image = [UIImage imageWithData:imageData];
+        }
+    
+        cell.contentLabel.text = _dataArray[indexPath.section][indexPath.row];
+        return cell;
+    }
+// 其他分区
+    MineDetailTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MineDetailTableViewCell_Identify];
     
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleValue2) reuseIdentifier:@"reuse"];
+        cell = [[MineDetailTableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:MineDetailTableViewCell_Identify];
     }
     
-    cell.textLabel.text = _dataArray[indexPath.section][indexPath.row];
+    cell.comentLabel.text = _dataArray[indexPath.section][indexPath.row];
     
-    cell.detailTextLabel.text = @"wha are 按时大大";
+    NSString * userName = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+    
+    if (indexPath.row == 0 && userName.length != 0 ) {
+        
+        cell.detailLabel.text = userName;
+        
+    }
     
     
     return cell;
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //    关闭tableViewcel点击状态
+    [_tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 /*
 #pragma mark - Navigation

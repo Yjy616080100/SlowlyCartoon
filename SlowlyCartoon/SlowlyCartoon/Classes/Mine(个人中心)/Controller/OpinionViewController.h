@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface OpinionViewController : UIViewController
+//意见输入 textView
 @property (strong, nonatomic) IBOutlet UITextView *textVIew;
+
+//联系方式（邮箱）
 @property (strong, nonatomic) IBOutlet UITextField *textField;
+
 @property (strong, nonatomic) IBOutlet UIButton *sendBtn;
 
 //textView上的Label
