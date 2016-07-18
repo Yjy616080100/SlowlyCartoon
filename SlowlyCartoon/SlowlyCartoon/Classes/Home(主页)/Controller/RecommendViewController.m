@@ -16,6 +16,8 @@
 #import "OneTableViewCell.h"
 #import "LastCollectionViewCell.h"
 
+#import "WebViewViewController.h"
+
 @interface RecommendViewController ()
 <
 UIScrollViewDelegate,
@@ -35,17 +37,20 @@ UICollectionViewDataSource
 
 @property(nonatomic,strong)UIScrollView *ItemizeScrollView;//分类展示的ScrollView
 
-
 @property(nonatomic,strong)UICollectionView *lastCollectionView;//最下面的CollectionView
 
-@property(nonatomic,strong)NSMutableArray *firstArray;
-@property(nonatomic,strong)NSMutableArray *oneArray;
-@property(nonatomic,strong)NSMutableArray *itemizeArray;
-@property(nonatomic,strong)NSMutableArray *lastArray;
 
-@property(nonatomic,strong)NSString *recommendString;
-@property(nonatomic,strong)NSString *likeSrting;
-@property(nonatomic,strong)NSString *hotString;
+@property(nonatomic,strong)NSMutableArray *firstArray;//装顶部轮播图数据的数组
+
+@property(nonatomic,strong)NSMutableArray *oneArray;//装tableVIew数据的数组
+
+@property(nonatomic,strong)NSMutableArray *itemizeArray;//装ScrollView数据的数组
+
+@property(nonatomic,strong)NSMutableArray *lastArray;//装collectionView数据的数组
+
+@property(nonatomic,strong)NSString *recommendString;//接收图片url
+@property(nonatomic,strong)NSString *likeSrting;//接收图片url
+@property(nonatomic,strong)NSString *hotString;//接收图片url
 
 @end
 
@@ -56,25 +61,15 @@ UICollectionViewDataSource
     [super viewDidLoad];
     //请求数据
     [self requestRecommend];
-    
-//    //添加最底层的UIScrollView
-//    [self addUnderlyingScrollView];
-//    //添加最上面轮播图
-//    [self addTheFirstScrollView];
-//    //添加第一个tableView
-//    [self addOneTableView];
-//    //添加分类展示的ScrollView
-//    [self addItemizeScrollView];
-//    //添加最后的CollectionView
-//    [self addLastCollectionView];
-
 }
 
 
 //添加最底层的UIScrollView
 - (void)addUnderlyingScrollView
 {
+    // 初始化
     self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    //
     self.recommendScrollView.bounces = YES;
     self.recommendScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*7);
     self.recommendScrollView.backgroundColor = [UIColor whiteColor];
@@ -88,52 +83,87 @@ UICollectionViewDataSource
 //添加最上面轮播图
 - (void)addTheFirstScrollView
 {
+    //初始化
     self.firstScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+    //设置整夜滑动
     self.firstScrollView.pagingEnabled = YES;
     self.firstScrollView.contentSize = CGSizeMake(self.view.frame.size.width*(self.firstArray.count+2),0);
-    NSLog(@"%ld",self.firstArray.count);
-   
+    
     self.firstScrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
     self.firstScrollView.backgroundColor = [UIColor greenColor];
+    //设置代理
     self.firstScrollView.delegate = self;
     self.firstScrollView.showsHorizontalScrollIndicator = NO;
     [self.recommendScrollView addSubview:self.firstScrollView];
     //添加button
     [self buttonImage];
     
-    
-    
+
     self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(self.firstScrollView.frame.size.width-80, self.firstScrollView.frame.size.height-40, 60, 30)];
     //没有点击的小按钮的颜色
     self.pageControl.pageIndicatorTintColor = [UIColor blueColor];
+    
     //点击的小按钮的颜色
     self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    
+    //设置按钮个数
     self.pageControl.numberOfPages = _firstArray.count;
+    
+    //设置按钮起点
     self.pageControl.currentPage = 0;
+    
     //添加点击事件
     [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     [self.recommendScrollView addSubview:self.pageControl];
     
 }
+//给每一个点击按钮添加图片
 - (void)buttonImage
 {
     for (int i=0; i<_firstArray.count+2; i++) {
         UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
+        
         button.frame = CGRectMake(self.view.frame.size.width*i, 0, self.view.frame.size.width, self.firstScrollView.frame.size.height);
-        NSInteger index = i -1;
+        NSInteger index = i - 1;
         if (i == 0) {
             index = _firstArray.count -1;
         }else if (i == _firstArray.count +1) {
             index = 0;
         }
+        //根据标记从model里面取值
         firstScrollViewModel *model=_firstArray[index];
+        
         NSString *str=[NSString stringWithFormat:@"http://www.comicq.cn%@",model.active_pic_url_2];
         [button setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:str]]] forState:UIControlStateNormal];
-        //还没有写button的点击方法
+        //标记button对应数组里面哪一个数据
         
+        button.tag = 999+index;
+        //button的点击方法
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:(UIControlEventTouchUpInside)];
         [self.firstScrollView addSubview:button];
     }
 }
+//轮播图按钮点击事件
+- (void)buttonAction:(UIButton *)sender
+{
+    //获取点击的model
+    long a = sender.tag-999;
+    firstScrollViewModel *model = [[firstScrollViewModel alloc]init];
+    model = self.firstArray[a];
+    
+    if (model.active_desc_url.length != 0) {
+        //如果有这个URL 跳转到网页
+        WebViewViewController *webVC=[[WebViewViewController alloc]init];
+        webVC.urlString = model.active_desc_url;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }else {
+        //如果没有这个URL 跳转到cell详情页面
+        
+        
+    }
+    
+}
+//通过scrollView代理方法 测定偏移量
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView//scrollView代理方法
 {
     CGFloat scrollviewW =  scrollView.frame.size.width;
@@ -185,17 +215,21 @@ UICollectionViewDataSource
 - (void)addOneTableView
 {
     self.oneTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,self.firstScrollView.frame.size.height, self.recommendScrollView.frame.size.width, 2520) style:UITableViewStyleGrouped];
+    //禁止tableView滑动
     self.oneTableView.scrollEnabled=NO;
+    //注册
     [self.oneTableView registerNib:[UINib nibWithNibName:@"OneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:OneTableViewCell_Identify];
     self.oneTableView.delegate = self;
     self.oneTableView.dataSource = self;
     
     [self.recommendScrollView addSubview:self.oneTableView];
 }
+//行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.oneArray[section] count];
 }
+//给cell赋值
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OneTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:OneTableViewCell_Identify];
@@ -206,10 +240,12 @@ UICollectionViewDataSource
     [cell.imageV setImageWithURL:[NSURL URLWithString:str]];
     return cell;
 }
+//分区数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.oneArray.count;
 }
+// 给tableView 设置分区视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIImageView *imageV1=[[UIImageView alloc]init];
@@ -222,10 +258,12 @@ UICollectionViewDataSource
     [imageV1 addSubview:imageV];
     return imageV1;
 }
+// 设置分区视图高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50;
 }
+// 给cell设置高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 200;
@@ -242,10 +280,13 @@ UICollectionViewDataSource
     [self.recommendScrollView addSubview:self.ItemizeScrollView];
     [self addsmallButton];
 }
+// 给ScrollView 添加button
 - (void)addsmallButton
 {
     for (int i=0; i<_itemizeArray.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        //标记button
+        button.tag = 1999 + i;
         if (i == 0) {
             button.frame = CGRectMake(i*180+35, 15, 180, self.ItemizeScrollView.frame.size.height - 30);
         }else{
@@ -256,7 +297,12 @@ UICollectionViewDataSource
             NSString *str=[NSString stringWithFormat:@"http://www.comicq.cn%@",model.topic_pic_url];
             [arr addObject:str];
         }
+        // 给button添加背景图片
         [button setBackgroundImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:arr[i]]]] forState:UIControlStateNormal];
+        //给button添加点击事件
+        
+        
+        
         [self.ItemizeScrollView addSubview:button];
     }
 }
@@ -289,17 +335,23 @@ UICollectionViewDataSource
     flowLayout.headerReferenceSize=CGSizeMake(self.view.frame.size.width, 50);
 
     self.lastCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.ItemizeScrollView.frame), 414, 2200) collectionViewLayout:flowLayout];
+    //设置代理
     self.lastCollectionView.delegate = self;
     self.lastCollectionView.dataSource = self;
+    //注册
     [self.lastCollectionView registerNib:[UINib nibWithNibName:@"LastCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:LastCollectionViewCell_Identify];
+    //禁止CollectionView 滑动
     self.lastCollectionView.scrollEnabled=NO;
     self.lastCollectionView.backgroundColor=[UIColor whiteColor];
     [self.recommendScrollView addSubview:self.lastCollectionView];
 }
+//设置cell个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.lastArray.count;
 }
+
+//给cell赋值
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LastCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:LastCollectionViewCell_Identify forIndexPath:indexPath];
@@ -311,7 +363,6 @@ UICollectionViewDataSource
     
     return cell;
 }
-
 
 
 

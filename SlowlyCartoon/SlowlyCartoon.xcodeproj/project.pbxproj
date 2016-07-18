@@ -96,6 +96,15 @@
 		D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591271D37A9B400CE6820 /* oneTableViewModel.m */; };
 		D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */; };
 		D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */; };
+		D6B5AA9D1D3C694600977DA2 /* HigtEnerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */; };
+		D6B5AA9E1D3C694600977DA2 /* HigtEnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */; };
+		D6B5AAA11D3C6B0B00977DA2 /* HigtEnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAA01D3C6B0B00977DA2 /* HigtEnerModel.m */; };
+		D6B5AAA41D3C6BE400977DA2 /* HigtEnerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAA31D3C6BE400977DA2 /* HigtEnerRequest.m */; };
+		D6B5AAA81D3C766200977DA2 /* RankListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAA61D3C766200977DA2 /* RankListTableViewCell.m */; };
+		D6B5AAA91D3C766200977DA2 /* RankListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B5AAA71D3C766200977DA2 /* RankListTableViewCell.xib */; };
+		D6B5AAAC1D3C7AD400977DA2 /* RankListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAB1D3C7AD400977DA2 /* RankListRequest.m */; };
+		D6B5AAAF1D3C7CD000977DA2 /* RankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */; };
+		D6B5AAB21D3CC6EC00977DA2 /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +254,22 @@
 		D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = itemizeScrollViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/itemizeScrollViewModel.m"; sourceTree = SOURCE_ROOT; };
 		D6A5912C1D37A9DE00CE6820 /* lastCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lastCollectionViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.h"; sourceTree = SOURCE_ROOT; };
 		D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lastCollectionViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.m"; sourceTree = SOURCE_ROOT; };
+		D6B5AA9A1D3C694600977DA2 /* HigtEnerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HigtEnerTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HigtEnerTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HigtEnerTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D6B5AA9F1D3C6B0B00977DA2 /* HigtEnerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HigtEnerModel.h; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerModel.h"; sourceTree = SOURCE_ROOT; };
+		D6B5AAA01D3C6B0B00977DA2 /* HigtEnerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HigtEnerModel.m; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerModel.m"; sourceTree = SOURCE_ROOT; };
+		D6B5AAA21D3C6BE400977DA2 /* HigtEnerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HigtEnerRequest.h; sourceTree = "<group>"; };
+		D6B5AAA31D3C6BE400977DA2 /* HigtEnerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HigtEnerRequest.m; sourceTree = "<group>"; };
+		D6B5AAA51D3C766200977DA2 /* RankListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankListTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/RankListTableViewCell.h"; sourceTree = SOURCE_ROOT; };
+		D6B5AAA61D3C766200977DA2 /* RankListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/RankListTableViewCell.m"; sourceTree = SOURCE_ROOT; };
+		D6B5AAA71D3C766200977DA2 /* RankListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankListTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/RankListTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D6B5AAAA1D3C7AD400977DA2 /* RankListRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListRequest.h; sourceTree = "<group>"; };
+		D6B5AAAB1D3C7AD400977DA2 /* RankListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListRequest.m; sourceTree = "<group>"; };
+		D6B5AAAD1D3C7CD000977DA2 /* RankListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankListModel.h; path = "SlowlyCartoon/Classes/Home(主页)/RankListModel.h"; sourceTree = SOURCE_ROOT; };
+		D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListModel.m; path = "SlowlyCartoon/Classes/Home(主页)/RankListModel.m"; sourceTree = SOURCE_ROOT; };
+		D6B5AAB01D3CC6EC00977DA2 /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
+		D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -509,6 +534,8 @@
 				D6A5910F1D3724F200CE6820 /* RecommendViewController.m */,
 				D6A591111D37250000CE6820 /* HigtenerViewController.h */,
 				D6A591121D37250100CE6820 /* HigtenerViewController.m */,
+				D6B5AAB01D3CC6EC00977DA2 /* WebViewViewController.h */,
+				D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */,
 				D6A591141D37250F00CE6820 /* RankListViewController.h */,
 				D6A591151D37250F00CE6820 /* RankListViewController.m */,
 			);
@@ -526,6 +553,10 @@
 				D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */,
 				D6A5912C1D37A9DE00CE6820 /* lastCollectionViewModel.h */,
 				D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */,
+				D6B5AA9F1D3C6B0B00977DA2 /* HigtEnerModel.h */,
+				D6B5AAA01D3C6B0B00977DA2 /* HigtEnerModel.m */,
+				D6B5AAAD1D3C7CD000977DA2 /* RankListModel.h */,
+				D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -539,6 +570,12 @@
 				D627E6971D390BDF00D36EDB /* LastCollectionViewCell.h */,
 				D627E6981D390BDF00D36EDB /* LastCollectionViewCell.m */,
 				D627E6991D390BDF00D36EDB /* LastCollectionViewCell.xib */,
+				D6B5AA9A1D3C694600977DA2 /* HigtEnerTableViewCell.h */,
+				D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */,
+				D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */,
+				D6B5AAA51D3C766200977DA2 /* RankListTableViewCell.h */,
+				D6B5AAA61D3C766200977DA2 /* RankListTableViewCell.m */,
+				D6B5AAA71D3C766200977DA2 /* RankListTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -668,6 +705,10 @@
 				D6A5911C1D37944500CE6820 /* NetWorkRequest.m */,
 				D6A5911E1D37954000CE6820 /* RecommendRequest.h */,
 				D6A5911F1D37954000CE6820 /* RecommendRequest.m */,
+				D6B5AAA21D3C6BE400977DA2 /* HigtEnerRequest.h */,
+				D6B5AAA31D3C6BE400977DA2 /* HigtEnerRequest.m */,
+				D6B5AAAA1D3C7AD400977DA2 /* RankListRequest.h */,
+				D6B5AAAB1D3C7AD400977DA2 /* RankListRequest.m */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -758,6 +799,7 @@
 				D6A449C41D37242A0096830F /* tabbar_game@2x.png in Resources */,
 				D65804971D3A5C89000650EA /* luyin.png in Resources */,
 				D6217E231D38F23B00CB6130 /* biaoqing.png in Resources */,
+				D6B5AA9E1D3C694600977DA2 /* HigtEnerTableViewCell.xib in Resources */,
 				D6217E331D39215600CB6130 /* TextCellOfMine.xib in Resources */,
 				D68CFF301D3773B200DA832F /* passBg.png in Resources */,
 				D68CFF4A1D37970C00DA832F /* opinion.png in Resources */,
@@ -797,6 +839,7 @@
 				D68CFF521D37AAFF00DA832F /* MineHeaderViewCell.xib in Resources */,
 				D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */,
 				D6A449CA1D37242A0096830F /* tabbar_room@2x.png in Resources */,
+				D6B5AAA91D3C766200977DA2 /* RankListTableViewCell.xib in Resources */,
 				D6A449CB1D37242A0096830F /* tabbar_room_sel@2x.png in Resources */,
 				D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */,
 				D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */,
@@ -879,11 +922,18 @@
 				D68CFF391D3781AC00DA832F /* ContactViewController.m in Sources */,
 				D64F381A1D3B830A00686849 /* ImageCellOfFriends.m in Sources */,
 				D68CFF361D377B9700DA832F /* SettingViewController.m in Sources */,
+				D6B5AAA41D3C6BE400977DA2 /* HigtEnerRequest.m in Sources */,
+				D6B5AAAF1D3C7CD000977DA2 /* RankListModel.m in Sources */,
+				D6B5AAA81D3C766200977DA2 /* RankListTableViewCell.m in Sources */,
 				D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */,
 				D68CFF3C1D37866700DA832F /* AboutUsViewController.m in Sources */,
+				D6B5AAA11D3C6B0B00977DA2 /* HigtEnerModel.m in Sources */,
+				D6B5AAAC1D3C7AD400977DA2 /* RankListRequest.m in Sources */,
 				D68CFF511D37AAFF00DA832F /* MineHeaderViewCell.m in Sources */,
 				D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */,
 				D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */,
+				D6B5AA9D1D3C694600977DA2 /* HigtEnerTableViewCell.m in Sources */,
+				D6B5AAB21D3CC6EC00977DA2 /* WebViewViewController.m in Sources */,
 				D627E6951D38D18F00D36EDB /* OneTableViewCell.m in Sources */,
 				D6217E321D39215600CB6130 /* TextCellOfMine.m in Sources */,
 				D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */,
