@@ -10,6 +10,7 @@
 #import "RankListTableViewCell.h"
 #import "RankListRequest.h"
 #import "RankListModel.h"
+#import "DetailsViewController.h"
 
 @interface RankListViewController ()
 <
@@ -150,15 +151,28 @@ UITableViewDelegate
     cell.nameLabel.text = model.comic_name;
     cell.painterLabel.text = model.painter_user_nickname;
     cell.orderidxLabel.text = model.comic_last_orderidx;
-    cell.likeLabel.text = model.comic_like_num;
-    cell.commentLabel.text = model.comic_comment_num;
+    cell.likeLabel.text = [NSString stringWithFormat:@"❤️ %@",model.comic_like_num];
+    cell.commentLabel.text = [NSString stringWithFormat:@"✉️ %@",model.comic_comment_num];
     
     // 给图片赋值
     [cell.onluOneImageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",model.comic_pic_240_320]]];
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailsViewController *detaVC=[[DetailsViewController alloc]init];
+    RankListModel *model = [[RankListModel alloc]init];
+    if (self.Detection == 0) {
+        model = self.rankingArray[indexPath.row];
+    }else if (self.Detection == 1) {
+        model = self.latestArray[indexPath.row];
+    }
+    detaVC.onlyID = model.oneID;
+    detaVC.onlyTime = model.comic_update_time;
+    //跳转
+    [self.navigationController pushViewController:detaVC animated:YES];
+}
 
 
 @end

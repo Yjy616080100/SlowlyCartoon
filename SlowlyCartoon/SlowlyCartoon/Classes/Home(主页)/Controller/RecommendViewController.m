@@ -17,6 +17,7 @@
 #import "LastCollectionViewCell.h"
 
 #import "WebViewViewController.h"
+#import "DetailsViewController.h"
 
 @interface RecommendViewController ()
 <
@@ -158,8 +159,10 @@ UICollectionViewDataSource
         [self.navigationController pushViewController:webVC animated:YES];
     }else {
         //如果没有这个URL 跳转到cell详情页面
-        
-        
+        DetailsViewController *detaVC=[[DetailsViewController alloc]init];
+        detaVC.onlyID = model.oneID;
+        //跳转
+        [self.navigationController pushViewController:detaVC animated:YES];
     }
     
 }
@@ -211,6 +214,8 @@ UICollectionViewDataSource
 
 
 
+
+
 //添加第一个tableView
 - (void)addOneTableView
 {
@@ -244,6 +249,17 @@ UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.oneArray.count;
+}
+//点击cell  实现跳转页面和传值
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //穿参数
+    oneTableViewModel *model = self.oneArray[indexPath.section][indexPath.row];
+    DetailsViewController *detaVC = [[DetailsViewController alloc]init];
+    detaVC.onlyID = model.oneID;
+    detaVC.onlyTime = model.comic_update_time;
+    //跳转
+    [self.navigationController pushViewController:detaVC animated:YES];
 }
 // 给tableView 设置分区视图
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -363,7 +379,16 @@ UICollectionViewDataSource
     
     return cell;
 }
-
+//点击cell实现的方法
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    lastCollectionViewModel *model = self.lastArray[indexPath.row];
+    DetailsViewController *detaVC = [[DetailsViewController alloc]init];
+    detaVC.onlyID = model.oneID;
+    detaVC.onlyTime = model.comic_update_time;
+    //跳转
+    [self.navigationController pushViewController:detaVC animated:YES];
+}
 
 
 
