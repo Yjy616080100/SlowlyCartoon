@@ -29,7 +29,6 @@
 		D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6284A451D3919FC00232F2D /* AboutUsTableViewCell.xib */; };
 		D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A4E1D3927CE00232F2D /* MineMessageViewController.m */; };
 		D6284A521D392AE900232F2D /* OpinionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A511D392AE900232F2D /* OpinionViewController.m */; };
-		D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6284A541D3931A100232F2D /* MIneDetailViewController.m */; };
 		D6388A0B1D3C64AB00A5624A /* MineDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6388A091D3C64AB00A5624A /* MineDetailTableViewCell.m */; };
 		D6388A0C1D3C64AB00A5624A /* MineDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6388A0A1D3C64AB00A5624A /* MineDetailTableViewCell.xib */; };
 		D6388A171D3C737E00A5624A /* MineDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6388A151D3C737E00A5624A /* MineDetailHeadCell.m */; };
@@ -109,6 +108,8 @@
 		D6B5AAAC1D3C7AD400977DA2 /* RankListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAB1D3C7AD400977DA2 /* RankListRequest.m */; };
 		D6B5AAAF1D3C7CD000977DA2 /* RankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */; };
 		D6B5AAB21D3CC6EC00977DA2 /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */; };
+		D6F069C61D3DB49700AC0215 /* 李旭科漫画体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6F069C51D3DB48E00AC0215 /* 李旭科漫画体.ttf */; };
+		D6F06A091D3E0E9F00AC0215 /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F06A081D3E0E9F00AC0215 /* MIneDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,7 +158,6 @@
 		D6284A501D392AE900232F2D /* OpinionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionViewController.h; sourceTree = "<group>"; };
 		D6284A511D392AE900232F2D /* OpinionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionViewController.m; sourceTree = "<group>"; };
 		D6284A531D3931A100232F2D /* MIneDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIneDetailViewController.h; sourceTree = "<group>"; };
-		D6284A541D3931A100232F2D /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
 		D6388A081D3C64AB00A5624A /* MineDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineDetailTableViewCell.h; path = ../Controller/MineDetailTableViewCell.h; sourceTree = "<group>"; };
 		D6388A091D3C64AB00A5624A /* MineDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineDetailTableViewCell.m; path = ../Controller/MineDetailTableViewCell.m; sourceTree = "<group>"; };
 		D6388A0A1D3C64AB00A5624A /* MineDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MineDetailTableViewCell.xib; path = ../Controller/MineDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -280,6 +280,8 @@
 		D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListModel.m; path = "SlowlyCartoon/Classes/Home(主页)/RankListModel.m"; sourceTree = SOURCE_ROOT; };
 		D6B5AAB01D3CC6EC00977DA2 /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
 		D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
+		D6F069C51D3DB48E00AC0215 /* 李旭科漫画体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "李旭科漫画体.ttf"; sourceTree = "<group>"; };
+		D6F06A081D3E0E9F00AC0215 /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +412,7 @@
 		D691F5911D366B1E004359E1 = {
 			isa = PBXGroup;
 			children = (
+				D6F069C51D3DB48E00AC0215 /* 李旭科漫画体.ttf */,
 				D6A449BB1D37242A0096830F /* Images */,
 				D691F59C1D366B1E004359E1 /* SlowlyCartoon */,
 				D691F5B61D366B1E004359E1 /* SlowlyCartoonTests */,
@@ -638,8 +641,8 @@
 			children = (
 				D691F5F61D366FF9004359E1 /* MineViewController.h */,
 				D691F5F71D366FF9004359E1 /* MineViewController.m */,
+				D6F06A081D3E0E9F00AC0215 /* MIneDetailViewController.m */,
 				D6284A531D3931A100232F2D /* MIneDetailViewController.h */,
-				D6284A541D3931A100232F2D /* MIneDetailViewController.m */,
 				D68CFF291D37418400DA832F /* LoginViewController.h */,
 				D68CFF2A1D37418400DA832F /* LoginViewController.m */,
 				D6284A351D3876A400232F2D /* RegisterViewController.h */,
@@ -812,6 +815,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F069C61D3DB49700AC0215 /* 李旭科漫画体.ttf in Resources */,
 				D6A449C41D37242A0096830F /* tabbar_game@2x.png in Resources */,
 				D65804971D3A5C89000650EA /* luyin.png in Resources */,
 				D6217E231D38F23B00CB6130 /* biaoqing.png in Resources */,
@@ -931,8 +935,8 @@
 				D6217E1E1D38E80600CB6130 /* ChatViewController.m in Sources */,
 				D6217E181D38E6A200CB6130 /* SingleFriendManager.m in Sources */,
 				D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */,
-				D6284A551D3931A100232F2D /* MIneDetailViewController.m in Sources */,
 				D658049B1D3A5D3F000650EA /* CustomCollectionViewCell.m in Sources */,
+				D6F06A091D3E0E9F00AC0215 /* MIneDetailViewController.m in Sources */,
 				D6388A171D3C737E00A5624A /* MineDetailHeadCell.m in Sources */,
 				D691F5F51D366FD9004359E1 /* CommunityViewController.m in Sources */,
 				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,

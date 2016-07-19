@@ -7,8 +7,9 @@
 //
 
 #import "OpinionViewController.h"
-
-@interface OpinionViewController ()<UITextViewDelegate>
+#import <SKPSMTPMessage.h>
+#import "NSData+Base64Additions.h"
+@interface OpinionViewController ()<UITextViewDelegate,SKPSMTPMessageDelegate>
 
 @end
 
@@ -55,6 +56,11 @@
             [self showAlertWithTitle:@"" message:@"感谢您的评价和关心，我们会尽快联系您!" dalayTime:1.5];
             
             NSLog(@"==============感谢您的评价和关心，我们会尽快联系您!");
+#pragma mark----------------------  发送邮件=====================================
+            
+            
+//            [self sendEmailAction]; // 调用发送邮件的代码
+
             
          }else{
             
@@ -64,7 +70,6 @@
     }else{
         
        [self showAlertWithTitle:@"" message:@"请填写您的意见！" dalayTime:2];
-        
     }
 
 }
@@ -128,6 +133,43 @@
     
     return [emailCheck evaluateWithObject:email];
 
+}
+
+#pragma mark --------------------------发送邮件====================
+
+- (void)sendEmailAction{
+    SKPSMTPMessage *mail = [[SKPSMTPMessage alloc] init];
+
+//    设置基本参数
+    [mail setSubject:@"漫漫"];  // 设置邮件主题
+    [mail setToEmail:@"Eternitydao@163.com"]; // 目标邮箱
+    [mail setFromEmail:@"441050671@qq.com"]; // 发送者邮箱
+    [mail setRelayHost:@"smtp.qq.com"]; // 发送邮件代理服务器
+    [mail setRequiresAuth:YES];
+    [mail setLogin:@"441050671@qq.com"];
+    [mail setPass:@"1010011150.0"];
+    [mail setWantsSecure:YES];  // 需要加密
+    mail.delegate = self;
+    
+//    设置邮件内容
+    NSString *content = [NSString stringWithCString:"测试内容" encoding:NSUTF8StringEncoding];
+    NSDictionary *plainPart = @{kSKPSMTPPartContentTypeKey : @"text/plain", kSKPSMTPPartMessageKey : content, kSKPSMTPPartContentTransferEncodingKey : @"8bit"};
+    
+    NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
+    NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath];
+    NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
+                             @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+    [mail setParts:@[plainPart, vcfPart]]; // 邮件首部字段、邮件内容格式和传输编码
+    [mail send];
+}
+
+-(void)messageSent:(SKPSMTPMessage *)message{
+    
+    NSLog(@"message ==============%@",message);
+}
+-(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
+    
+    NSLog(@"message ==============%@,error=====%@",message,error);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
