@@ -32,7 +32,7 @@
                                                     <outlet property="delegate" destination="VQp-Zg-eqH" id="iqn-ea-6Gp"/>
                                                 </connections>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-bZ-UZ9">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzh-bZ-UZ9" userLabel="录音按钮">
                                                 <rect key="frame" x="5" y="5" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="6o5-6z-EBe"/>
@@ -44,7 +44,7 @@
                                                     <action selector="VoiceButton:" destination="VQp-Zg-eqH" eventType="touchUpInside" id="UxW-Fh-ZwG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpE-AA-MSK">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OpE-AA-MSK" userLabel="添加按钮">
                                                 <rect key="frame" x="240" y="5" width="35" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" backgroundImage="tianjia.png"/>
@@ -62,15 +62,30 @@
                                                     <action selector="SendButton:" destination="VQp-Zg-eqH" eventType="touchUpInside" id="pxD-Mz-me1"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1K8-Ie-QmJ" userLabel="按住说话">
+                                                <rect key="frame" x="45" y="5" width="190" height="35"/>
+                                                <color key="backgroundColor" red="0.49913086655343142" green="1" blue="0.58914777641685001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="按住说话"/>
+                                                <connections>
+                                                    <action selector="TouchDownAction:" destination="VQp-Zg-eqH" eventType="touchDown" id="hEG-vB-Ytw"/>
+                                                    <action selector="TouchUpInsideAction:" destination="VQp-Zg-eqH" eventType="touchUpInside" id="3Dx-aP-Gog"/>
+                                                    <action selector="TouchUpOutSide:" destination="VQp-Zg-eqH" eventType="touchUpOutside" id="OVM-gN-pW2"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="OpE-AA-MSK" firstAttribute="centerY" secondItem="41J-G9-gco" secondAttribute="centerY" id="1uH-EI-Twg"/>
+                                            <constraint firstItem="1K8-Ie-QmJ" firstAttribute="bottom" secondItem="jnH-Ru-HXL" secondAttribute="bottom" id="2DP-jL-wHd"/>
                                             <constraint firstItem="lzh-bZ-UZ9" firstAttribute="leading" secondItem="6Xv-ga-Pdz" secondAttribute="leading" constant="5" id="4Zk-GJ-xhf"/>
                                             <constraint firstItem="OpE-AA-MSK" firstAttribute="height" secondItem="41J-G9-gco" secondAttribute="height" id="5MJ-P6-ube"/>
+                                            <constraint firstItem="1K8-Ie-QmJ" firstAttribute="top" secondItem="jnH-Ru-HXL" secondAttribute="top" id="9Xt-Z0-4UE"/>
                                             <constraint firstItem="41J-G9-gco" firstAttribute="height" secondItem="lzh-bZ-UZ9" secondAttribute="height" id="C0e-fc-2bZ"/>
+                                            <constraint firstItem="1K8-Ie-QmJ" firstAttribute="leading" secondItem="jnH-Ru-HXL" secondAttribute="leading" id="NLg-HJ-KjV"/>
                                             <constraint firstItem="41J-G9-gco" firstAttribute="centerY" secondItem="lzh-bZ-UZ9" secondAttribute="centerY" id="Per-9F-dmf"/>
                                             <constraint firstItem="OpE-AA-MSK" firstAttribute="leading" secondItem="jnH-Ru-HXL" secondAttribute="trailing" constant="5" id="YA7-Bs-GJ7"/>
+                                            <constraint firstItem="1K8-Ie-QmJ" firstAttribute="trailing" secondItem="jnH-Ru-HXL" secondAttribute="trailing" id="cyh-cH-WGg"/>
                                             <constraint firstAttribute="bottom" secondItem="lzh-bZ-UZ9" secondAttribute="bottom" constant="10" id="f7J-qC-cOT"/>
                                             <constraint firstItem="jnH-Ru-HXL" firstAttribute="height" secondItem="lzh-bZ-UZ9" secondAttribute="height" id="gE8-11-bMq"/>
                                             <constraint firstAttribute="trailing" secondItem="41J-G9-gco" secondAttribute="trailing" constant="5" id="sGL-zG-vqu"/>
@@ -117,11 +132,12 @@
                         <outlet property="tableView" destination="x6a-kQ-HDQ" id="Dzg-9u-pJO"/>
                         <outlet property="tableViewBottomConstraint" destination="RkE-YT-Mzy" id="NmQ-HG-b9b"/>
                         <outlet property="textView" destination="jnH-Ru-HXL" id="HYa-24-obz"/>
+                        <outlet property="voiceButton" destination="1K8-Ie-QmJ" id="n1Y-4Z-S5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6X-5R-8VD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="461"/>
+            <point key="canvasLocation" x="488" y="352"/>
         </scene>
     </scenes>
     <resources>

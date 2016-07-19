@@ -12,6 +12,9 @@
 #import "customView.h"
 #import "ImageCellOfMine.h"
 #import "ImageCellOfFriends.h"
+#import "EMCDDeviceManager.h"
+#import "voiceCellOfFriends.h"
+#import "VoiceCellOfMine.h"
 @interface ChatViewController ()
 <
 UITableViewDataSource,
@@ -20,7 +23,9 @@ EMClientDelegate,
 EMChatManagerDelegate,
 UITextViewDelegate,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate
+UIImagePickerControllerDelegate,
+VoiceCellOfMineDelegate,
+voiceCellOfFriendsDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -44,7 +49,8 @@ UIImagePickerControllerDelegate
 //声明自定义view的属性
 @property(nonatomic,strong)customView *toolView;
 //语音按钮
-@property(nonatomic,strong)UIButton *voiceButton;
+@property (strong, nonatomic) IBOutlet UIButton *voiceButton;
+@property(nonatomic)BOOL isVoicing;
 @end
 
 @implementation ChatViewController
@@ -58,8 +64,9 @@ UIImagePickerControllerDelegate
     imageV.image=[UIImage imageNamed:@"beijing2.jpg"];
     [self.tableView setBackgroundView:imageV];
     self.textArray=[NSMutableArray array];
-    
-    
+    self.voiceButton.hidden =YES;
+    self.isVoicing =NO;
+   
     
     //初始化自定义View
     self.flag = YES;
@@ -84,6 +91,10 @@ UIImagePickerControllerDelegate
     [self.tableView registerNib:[UINib nibWithNibName:@"ImageCellOfMine" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ImageCellOfMine_identify];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ImageCellOfFriends" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:ImageCellOfFriends_identify];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"voiceCellOfFriends" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:voiceCellOfFriends_identify];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"VoiceCellOfMine" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:VoiceCellOfMine_identify];
     
     
     
@@ -142,6 +153,7 @@ UIImagePickerControllerDelegate
         self.toolView.frame =CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200);
     }];
     self.flag =YES;
+    [self scrollViewToButtom];
     
 }
 //------->键盘隐藏时触发的方法
@@ -279,6 +291,7 @@ UIImagePickerControllerDelegate
             
             EMImageMessageBody *body =(EMImageMessageBody *)messageBody;
             NSString *path =body.remotePath ;//在服务器上的路径
+            NSLog(@"图片在服务器上的路径--%@",path);
             NSURL *url =[NSURL URLWithString:path];
             NSData *data=[NSData dataWithContentsOfURL:url];
             
@@ -317,7 +330,44 @@ UIImagePickerControllerDelegate
         }
         //3.语音类型
         case EMMessageBodyTypeVoice:{
-            return nil;
+
+            EMVoiceMessageBody *MyBody =(EMVoiceMessageBody *)messageBody;
+
+            if (message.direction == EMMessageDirectionSend) {
+                
+                VoiceCellOfMine *cell =[tableView dequeueReusableCellWithIdentifier:VoiceCellOfMine_identify];
+                if (nil ==cell) {
+                    
+                    cell=[[VoiceCellOfMine alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:VoiceCellOfMine_identify];
+                }
+                cell.backgroundColor=[UIColor clearColor];
+                UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
+                view.backgroundColor=[UIColor clearColor];
+                cell.selectedBackgroundView =view;
+                
+                cell.timeLabel.text =[NSString stringWithFormat:@"%d” ",MyBody.duration];
+                cell.path = MyBody.localPath;
+                cell.dellegate = self;
+                return cell;
+      
+            }else{
+                    
+                voiceCellOfFriends *cell =[tableView dequeueReusableCellWithIdentifier:voiceCellOfFriends_identify];
+                if (nil ==cell) {
+                        
+                cell=[[voiceCellOfFriends alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:voiceCellOfFriends_identify];
+                }
+                cell.backgroundColor=[UIColor clearColor];
+                UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
+                view.backgroundColor=[UIColor clearColor];
+                cell.selectedBackgroundView =view;
+                
+                cell.timeLabel.text =[NSString stringWithFormat:@"%d” ",MyBody.duration];
+                cell.path = MyBody.localPath;
+                cell.dellegate =self;
+                return cell;
+            }
+     
             break;
         }
         //4.位置类型
@@ -337,6 +387,32 @@ UIImagePickerControllerDelegate
         }
     }
 }
+
+-(void)playVoiceOfFriends:(NSString *)path
+                voiceCell:(voiceCellOfFriends *)cell{
+    
+    
+    cell.imageV.animationImages =@[[UIImage imageNamed:@"q1"],[UIImage imageNamed:@"q2"],
+                                   [UIImage imageNamed:@"q3"]];
+    cell.imageV.animationDuration =1;
+    cell.imageV.animationRepeatCount =0;
+    [cell.imageV startAnimating];
+    //调用播放方法
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:path completion:^(NSError *error) {
+        
+        if ( !error) {
+            
+            NSLog(@"语音播放完毕");
+            [cell.imageV stopAnimating];
+            
+        }else{
+            NSLog(@"播放语音失败--%@",error);
+        }
+    }];
+    
+}
+
+
 //行高
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -350,19 +426,25 @@ UIImagePickerControllerDelegate
         case EMMessageBodyTypeText:{
             if (message.direction ==EMMessageDirectionSend) {
         
-                return self.cellHeightOfMine +100;
+                return self.cellHeightOfMine +50;
             }else{
-                return self.cellHeightOfFriends +120;
+                return self.cellHeightOfFriends +70;
             }
             break;
         }
             //图片
         case EMMessageBodyTypeImage:{
             
-            return 138;
+            return 168;
             break;
         }
-    
+            //语音
+        case EMMessageBodyTypeVoice:{
+            
+            return 60;
+            break;
+        }
+
         default:{
             return 200; break;
         }
@@ -372,10 +454,16 @@ UIImagePickerControllerDelegate
 //tableView 的点击事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"聊天界面---cell的点击事件--%ld行 ",indexPath.row);
+    //取消选中状态
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    //取消选中cell的点击效果
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
 }
 
-#pragma mark-------------------5. 发送消息按钮-----------------------------------
+#pragma mark-------------------5. 发送文字消息按钮-----------------------------------
 
 - (IBAction)SendButton:(UIButton *)sender {
     
@@ -412,6 +500,7 @@ UIImagePickerControllerDelegate
 - (IBAction)AddButton:(UIButton *)sender {
     
     //隐藏键盘
+    __weak typeof(self) weakSelf = self;
     self.tableView.keyboardDismissMode =UIScrollViewKeyboardDismissModeOnDrag;
     NSLog(@"添加表情输出");
     
@@ -419,12 +508,12 @@ UIImagePickerControllerDelegate
         
         [UIView animateWithDuration:0.2 animations:^{
             
-            self.MyViewBottomConstraint.constant =200;
-            self.tableViewBottomConstraint.constant =250;
-            self.toolView.frame =CGRectMake(0, self.view.frame.size.height-200, self.view.frame.size.width, 200);
+            weakSelf.MyViewBottomConstraint.constant =200;
+            weakSelf.tableViewBottomConstraint.constant =250;
+            weakSelf.toolView.frame =CGRectMake(0, weakSelf.view.frame.size.height-200, weakSelf.view.frame.size.width, 200);
         } completion:^(BOOL finished) {
             
-            self.flag=NO;
+            weakSelf.flag=NO;
         }];
    
         
@@ -432,13 +521,13 @@ UIImagePickerControllerDelegate
         
         [UIView animateWithDuration:0.2 animations:^{
             
-            self.MyViewBottomConstraint.constant =0;
-            self.tableViewBottomConstraint.constant =50;
-            self.toolView.frame =CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200);
+            weakSelf.MyViewBottomConstraint.constant =0;
+            weakSelf.tableViewBottomConstraint.constant =50;
+            weakSelf.toolView.frame =CGRectMake(0, weakSelf.view.frame.size.height, weakSelf.view.frame.size.width, 200);
             
         } completion:^(BOOL finished) {
             
-            self.flag = YES;
+            weakSelf.flag = YES;
         }];
 
     }
@@ -510,7 +599,7 @@ UIImagePickerControllerDelegate
     //将图片转化为NSData类型
     NSData *data = UIImageJPEGRepresentation(image, 0.5);
     //生成消息 ，发送图片数据
-    EMImageMessageBody *imageBody =[[EMImageMessageBody alloc]initWithData:data displayName:@"My Picture"];
+    EMImageMessageBody *imageBody =[[EMImageMessageBody alloc]initWithData:data displayName:@"图片"];
     NSString *from =[[EMClient sharedClient] currentUsername];
     
     EMMessage *message=[[EMMessage alloc]initWithConversationID:self.name from:from to:self.name body:imageBody ext:nil];
@@ -535,90 +624,141 @@ UIImagePickerControllerDelegate
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma mark-----------------7. 录制语音按钮------------------------------
 
 - (IBAction)VoiceButton:(UIButton *)sender {
     
-
-    if (self.VoiceFlag) {
+    self.VoiceFlag = !self.VoiceFlag;
+    
+    if (self.VoiceFlag ) {
         
-        _voiceButton=[UIButton buttonWithType:(UIButtonTypeCustom)];
-        _voiceButton.frame=self.textView.bounds;
-        [_voiceButton setTitle:@"按住说话" forState:(UIControlStateNormal)];
-        [_voiceButton setTitleColor:[UIColor blueColor] forState:(UIControlStateNormal)];
-        
-        [_voiceButton addTarget:self action:@selector(VoiceButtonAction:) forControlEvents:(UIControlEventTouchDown)];
-        _voiceButton.backgroundColor=[UIColor colorWithRed:224/255.0 green:221/255.0 blue:201/255.0 alpha:1];
-
-        [self.textView addSubview:_voiceButton];
-        self.VoiceFlag = NO;
-        
+        _voiceButton.hidden =YES;
     }else{
-        
-        [_voiceButton removeFromSuperview];
-        self.VoiceFlag = YES;
+        _voiceButton.hidden =NO;
     }
+}
+
+//1.点下按钮 ，开始录音
+- (IBAction)TouchDownAction:(UIButton *)sender {
+    
+    //录音文件以时间命名，不会重复
+//    int x =arc4random() %100000 ;
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    NSString *fileName = [NSString stringWithFormat:@"%d",(int)time];
+    
+    [sender setTitle:@"松开发送" forState:(UIControlStateNormal)];
+    //调用环信自带的录音方法
+    [[EMCDDeviceManager sharedInstance] asyncStartRecordingWithFileName:fileName completion:^(NSError *error) {
+       
+        if (error == nil) {
+            
+            NSLog(@"开始录音成功");
+        }
+    }];
+}
+
+//2.松开手指 ，停止录音
+- (IBAction)TouchUpInsideAction:(UIButton *)sender {
+    
+    __weak typeof(self) weakSelf = self;
+    [[EMCDDeviceManager sharedInstance] asyncStopRecordingWithCompletion:^(NSString *recordPath, NSInteger aDuration, NSError *error) {
+        if (error == nil) {
+            
+            NSLog(@"录音成功--%@",recordPath);
+            [sender setTitle:@"按住说话" forState:(UIControlStateNormal)];
+            //发送语音到服务器
+            [weakSelf sendVoiceMessage:recordPath duration:aDuration];
+        }else{
+            NSLog(@"--录音失败--%@",error);
+        }
+        
+    }];
+}
+//3.取消发送录音
+- (IBAction)TouchUpOutSide:(UIButton *)sender {
+    
+    NSLog(@"---TouchUpOutSide--取消发送录音");
+    [[EMCDDeviceManager sharedInstance] cancelCurrentRecording];
+    [sender setTitle:@"按住说话" forState:(UIControlStateNormal)];
     
 }
 
-//录音按钮的方法
--(void)VoiceButtonAction:(UIButton *)sendButton{
+//自定义发送语音消息
+-(void)sendVoiceMessage:(NSString *)fileNamePath
+               duration:(NSInteger)duration{
     
-    NSLog(@"录音按钮的点击-------");
+    //1. 构造语音消息体
+    EMVoiceMessageBody *body =[[EMVoiceMessageBody alloc]initWithLocalPath:fileNamePath displayName:@"[语音]"];
+    body.duration = (int)duration;
+    NSString *from =[[EMClient sharedClient] currentUsername];
+    EMMessage *message = [[EMMessage alloc]initWithConversationID:self.name from:from to:self.name body:body ext:nil];
+    message.chatType = EMChatTypeChat ;
     
+    //2. 发送
+    __weak typeof(self) weakSelf = self;
+    [[EMClient sharedClient].chatManager asyncSendMessage:message progress:^(int progress) {
+        NSLog(@"--发送语音消息的进度--%d",progress);
+    } completion:^(EMMessage *message, EMError *error) {
+        
+        if (!error) {
+            
+            [weakSelf.textArray addObject:message];
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                [weakSelf.tableView reloadData];
+                [weakSelf scrollViewToButtom];
+            });
+            
+        }else{
+            NSLog(@"--发送语音消息失败--%@",error);
+        }
+    }];
 }
 
 
+//播放语音的代理方法
+- (void)playVoiceOnMineCell:(VoiceCellOfMine*)MineCell{
+   
+    MineCell.imageV.animationImages =@[[UIImage imageNamed:@"w1"],[UIImage imageNamed:@"w2"],[UIImage imageNamed:@"w3"]];
+    MineCell.imageV.animationDuration =1;
+    MineCell.imageV.animationRepeatCount =0;
+    [MineCell.imageV startAnimating];
+    //停止播放
+//    [[EMCDDeviceManager sharedInstance] stopPlaying];
 
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:MineCell.path completion:^(NSError *error) {
+        
+        if ( !error) {
+            NSLog(@"语音播放完毕");
+            [MineCell.imageV stopAnimating];
+            
+        }else{
+            NSLog(@"播放语音失败--%@",error);
+        }
+    }];
+}
 
+- (void)playVoiceOnFriendsCell:(voiceCellOfFriends *)friendsCell{
+    
+    friendsCell.imageV.animationImages =@[[UIImage imageNamed:@"q1"],[UIImage imageNamed:@"q2"],[UIImage imageNamed:@"q3"]];
+    friendsCell.imageV.animationDuration =1;
+    friendsCell.imageV.animationRepeatCount =0;
+    [friendsCell.imageV startAnimating];
 
+    //停止播放
+//    [[EMCDDeviceManager sharedInstance] stopPlaying];
 
-
-
-
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:friendsCell.path completion:^(NSError *error) {
+        
+        if ( !error) {
+            NSLog(@"语音播放完毕");
+            [friendsCell.imageV stopAnimating];
+            
+        }else{
+            NSLog(@"播放语音失败--%@",error);
+        }
+    }];
+}
 
 
 
