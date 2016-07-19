@@ -13,6 +13,10 @@
 - (void)awakeFromNib {
     // Initialization code
     
+    self.guestureLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureAction:)];
+
+    [self.guestureLabel addGestureRecognizer:tapGesture];
     
     
 }
@@ -23,6 +27,14 @@
     // Configure the view for the selected state
 }
 
+
+- (void)tapGestureAction:(UIGestureRecognizer* )sender{
+    
+    if (_dellegate && [_dellegate respondsToSelector:@selector(playVoiceOnMineCell:)]) {
+        
+        [_dellegate playVoiceOnMineCell:self];
+    }
+}
 
 
 

@@ -62,11 +62,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="guestureLabel" destination="viu-sJ-Haj" id="fM7-nF-i9m"/>
+                <outlet property="guestureLabel" destination="viu-sJ-Haj" id="C0B-ah-fSf"/>
                 <outlet property="imageV" destination="6qk-15-0cj" id="KzG-JR-Wj9"/>
                 <outlet property="timeLabel" destination="wMn-C1-Cq1" id="kKM-AM-qpd"/>
             </connections>
-            <point key="canvasLocation" x="780" y="495"/>
+            <point key="canvasLocation" x="986" y="516"/>
         </tableViewCell>
     </objects>
     <resources>

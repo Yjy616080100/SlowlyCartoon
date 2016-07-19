@@ -125,6 +125,11 @@
 		D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A591271D37A9B400CE6820 /* oneTableViewModel.m */; };
 		D6A5912B1D37A9CA00CE6820 /* itemizeScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */; };
 		D6A5912E1D37A9DE00CE6820 /* lastCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */; };
+		D6AA70341D3DCD770022733F /* w1.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70311D3DCD770022733F /* w1.png */; };
+		D6AA70351D3DCD770022733F /* w2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70321D3DCD770022733F /* w2.png */; };
+		D6AA70361D3DCD770022733F /* w3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70331D3DCD770022733F /* w3.png */; };
+		D6AA70421D3E153A0022733F /* qq2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70401D3E153A0022733F /* qq2.png */; };
+		D6AA70431D3E153A0022733F /* qq3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70411D3E153A0022733F /* qq3.png */; };
 		D6B5AA9D1D3C694600977DA2 /* HigtEnerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */; };
 		D6B5AA9E1D3C694600977DA2 /* HigtEnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */; };
 		D6B5AAA11D3C6B0B00977DA2 /* HigtEnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAA01D3C6B0B00977DA2 /* HigtEnerModel.m */; };
@@ -334,6 +339,11 @@
 		D6A5912A1D37A9CA00CE6820 /* itemizeScrollViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = itemizeScrollViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/itemizeScrollViewModel.m"; sourceTree = SOURCE_ROOT; };
 		D6A5912C1D37A9DE00CE6820 /* lastCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lastCollectionViewModel.h; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.h"; sourceTree = SOURCE_ROOT; };
 		D6A5912D1D37A9DE00CE6820 /* lastCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lastCollectionViewModel.m; path = "SlowlyCartoon/Classes/Home(主页)/lastCollectionViewModel.m"; sourceTree = SOURCE_ROOT; };
+		D6AA70311D3DCD770022733F /* w1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w1.png; sourceTree = "<group>"; };
+		D6AA70321D3DCD770022733F /* w2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w2.png; sourceTree = "<group>"; };
+		D6AA70331D3DCD770022733F /* w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w3.png; sourceTree = "<group>"; };
+		D6AA70401D3E153A0022733F /* qq2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq2.png; sourceTree = "<group>"; };
+		D6AA70411D3E153A0022733F /* qq3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq3.png; sourceTree = "<group>"; };
 		D6B5AA9A1D3C694600977DA2 /* HigtEnerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HigtEnerTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HigtEnerTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HigtEnerTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
@@ -433,6 +443,11 @@
 		D6217E1F1D38F1F300CB6130 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D6AA70401D3E153A0022733F /* qq2.png */,
+				D6AA70411D3E153A0022733F /* qq3.png */,
+				D6AA70311D3DCD770022733F /* w1.png */,
+				D6AA70321D3DCD770022733F /* w2.png */,
+				D6AA70331D3DCD770022733F /* w3.png */,
 				D69A7EBD1D3CC89E00910C47 /* q1.png */,
 				D69A7EBE1D3CC89E00910C47 /* q2.png */,
 				D69A7EBF1D3CC89E00910C47 /* q3.png */,
@@ -985,11 +1000,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AA70361D3DCD770022733F /* w3.png in Resources */,
 				D6A449C41D37242A0096830F /* tabbar_game@2x.png in Resources */,
 				D65804971D3A5C89000650EA /* luyin.png in Resources */,
 				D69A7ECA1D3CDBEB00910C47 /* v3.png in Resources */,
 				D6217E231D38F23B00CB6130 /* biaoqing.png in Resources */,
 				D6B5AA9E1D3C694600977DA2 /* HigtEnerTableViewCell.xib in Resources */,
+				D6AA70341D3DCD770022733F /* w1.png in Resources */,
 				D6217E331D39215600CB6130 /* TextCellOfMine.xib in Resources */,
 				D68CFF301D3773B200DA832F /* passBg.png in Resources */,
 				D69A7EC21D3CC89E00910C47 /* q3.png in Resources */,
@@ -1006,6 +1023,7 @@
 				D65804911D3A5631000650EA /* shipin.png in Resources */,
 				D627E69B1D390BDF00D36EDB /* LastCollectionViewCell.xib in Resources */,
 				D6A449C81D37242A0096830F /* tabbar_me@2x.png in Resources */,
+				D6AA70431D3E153A0022733F /* qq3.png in Resources */,
 				D68CFF471D37970C00DA832F /* aboutUs.png in Resources */,
 				D6217E241D38F23B00CB6130 /* tianjia.png in Resources */,
 				D69A7EC91D3CDBEB00910C47 /* v2.png in Resources */,
@@ -1018,6 +1036,7 @@
 				D6217E291D38FBA000CB6130 /* beijing2.jpg in Resources */,
 				D68CFF311D3773B200DA832F /* userBg.png in Resources */,
 				D691F5AA1D366B1E004359E1 /* Assets.xcassets in Resources */,
+				D6AA70351D3DCD770022733F /* w2.png in Resources */,
 				D68CFF4D1D379BC100DA832F /* jiantou.png in Resources */,
 				D6388A0C1D3C64AB00A5624A /* MineDetailTableViewCell.xib in Resources */,
 				D68CFF481D37970C00DA832F /* contact.png in Resources */,
@@ -1042,6 +1061,7 @@
 				D69A7EC61D3CDB2200910C47 /* v1.png in Resources */,
 				D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */,
 				D69A7EB01D3CB6CE00910C47 /* s1.png in Resources */,
+				D6AA70421D3E153A0022733F /* qq2.png in Resources */,
 				D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */,
 				D65804921D3A5631000650EA /* mingpian.png in Resources */,
 				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,

@@ -23,7 +23,9 @@ EMClientDelegate,
 EMChatManagerDelegate,
 UITextViewDelegate,
 UINavigationControllerDelegate,
-UIImagePickerControllerDelegate
+UIImagePickerControllerDelegate,
+VoiceCellOfMineDelegate,
+voiceCellOfFriendsDelegate
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -48,8 +50,7 @@ UIImagePickerControllerDelegate
 @property(nonatomic,strong)customView *toolView;
 //语音按钮
 @property (strong, nonatomic) IBOutlet UIButton *voiceButton;
-//语音在服务器上的路径
-@property(nonatomic,strong)NSString *VoicePath;
+@property(nonatomic)BOOL isVoicing;
 @end
 
 @implementation ChatViewController
@@ -64,7 +65,7 @@ UIImagePickerControllerDelegate
     [self.tableView setBackgroundView:imageV];
     self.textArray=[NSMutableArray array];
     self.voiceButton.hidden =YES;
-    self.VoicePath =[NSString string];
+    self.isVoicing =NO;
    
     
     //初始化自定义View
@@ -331,8 +332,7 @@ UIImagePickerControllerDelegate
         case EMMessageBodyTypeVoice:{
 
             EMVoiceMessageBody *MyBody =(EMVoiceMessageBody *)messageBody;
-            self.VoicePath = MyBody.localPath ;//在本地的路径
-            NSLog(@"bendi-----%@",self.VoicePath);
+
             if (message.direction == EMMessageDirectionSend) {
                 
                 VoiceCellOfMine *cell =[tableView dequeueReusableCellWithIdentifier:VoiceCellOfMine_identify];
@@ -344,14 +344,10 @@ UIImagePickerControllerDelegate
                 UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
                 view.backgroundColor=[UIColor clearColor];
                 cell.selectedBackgroundView =view;
-                cell.tag =1000;
+                
                 cell.timeLabel.text =[NSString stringWithFormat:@"%d” ",MyBody.duration];
-                
-                UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playVoiceOfMine:)];
-                cell.guestureLabel.userInteractionEnabled =YES;
-                [cell.guestureLabel addGestureRecognizer:tap];
-                
-
+                cell.path = MyBody.localPath;
+                cell.dellegate = self;
                 return cell;
       
             }else{
@@ -365,13 +361,10 @@ UIImagePickerControllerDelegate
                 UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
                 view.backgroundColor=[UIColor clearColor];
                 cell.selectedBackgroundView =view;
-                cell.tag =2000;
-                cell.timeLabel.text =[NSString stringWithFormat:@"%d” ",MyBody.duration];
-   
-                UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playVoiceOfFriends:)];
-//                cell.guestureLabel.userInteractionEnabled =YES;
-                [cell.guestureLabel addGestureRecognizer:tap];
                 
+                cell.timeLabel.text =[NSString stringWithFormat:@"%d” ",MyBody.duration];
+                cell.path = MyBody.localPath;
+                cell.dellegate =self;
                 return cell;
             }
      
@@ -395,38 +388,17 @@ UIImagePickerControllerDelegate
     }
 }
 
--(void)playVoiceOfMine:(UITapGestureRecognizer *)sender{
+-(void)playVoiceOfFriends:(NSString *)path
+                voiceCell:(voiceCellOfFriends *)cell{
     
-    NSLog(@"---语音的本地路径--%@",self.VoicePath);
-    VoiceCellOfMine *cell =[self.view viewWithTag:1000];
-    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:self.VoicePath completion:^(NSError *error) {
-       
-        if ( !error) {
-            
-            NSLog(@"语音播放完毕");
-
-            [cell.imageV stopAnimating];
-            
-        }else{
-            NSLog(@"播放语音失败--%@",error);
-        }
-    }];
     
     cell.imageV.animationImages =@[[UIImage imageNamed:@"q1"],[UIImage imageNamed:@"q2"],
-                              [UIImage imageNamed:@"q3"]];
+                                   [UIImage imageNamed:@"q3"]];
     cell.imageV.animationDuration =1;
-    cell.imageV.animationRepeatCount =YES;
+    cell.imageV.animationRepeatCount =0;
     [cell.imageV startAnimating];
-    
-    
-}
-
--(void)playVoiceOfFriends:(UITapGestureRecognizer *)sender{
-    
-    NSLog(@"---语音的本地路径--%@",self.VoicePath);
-    
-    voiceCellOfFriends *cell =[self.view viewWithTag:2000];
-    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:self.VoicePath completion:^(NSError *error) {
+    //调用播放方法
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:path completion:^(NSError *error) {
         
         if ( !error) {
             
@@ -437,14 +409,6 @@ UIImagePickerControllerDelegate
             NSLog(@"播放语音失败--%@",error);
         }
     }];
-    
-    
-    cell.imageV.animationImages =@[[UIImage imageNamed:@"q1"],[UIImage imageNamed:@"q2"],
-                                   [UIImage imageNamed:@"q3"]];
-    cell.imageV.animationDuration =1;
-    cell.imageV.animationRepeatCount =YES;
-    [cell.imageV startAnimating];
-    
     
 }
 
@@ -462,9 +426,9 @@ UIImagePickerControllerDelegate
         case EMMessageBodyTypeText:{
             if (message.direction ==EMMessageDirectionSend) {
         
-                return self.cellHeightOfMine +40;
+                return self.cellHeightOfMine +50;
             }else{
-                return self.cellHeightOfFriends +50;
+                return self.cellHeightOfFriends +70;
             }
             break;
         }
@@ -490,9 +454,13 @@ UIImagePickerControllerDelegate
 //tableView 的点击事件
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"聊天界面---cell的点击事件--%ld行 ",indexPath.row);
     //取消选中状态
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    //取消选中cell的点击效果
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
 }
 
 #pragma mark-------------------5. 发送文字消息按钮-----------------------------------
@@ -748,9 +716,49 @@ UIImagePickerControllerDelegate
 }
 
 
+//播放语音的代理方法
+- (void)playVoiceOnMineCell:(VoiceCellOfMine*)MineCell{
+   
+    MineCell.imageV.animationImages =@[[UIImage imageNamed:@"w1"],[UIImage imageNamed:@"w2"],[UIImage imageNamed:@"w3"]];
+    MineCell.imageV.animationDuration =1;
+    MineCell.imageV.animationRepeatCount =0;
+    [MineCell.imageV startAnimating];
+    //停止播放
+//    [[EMCDDeviceManager sharedInstance] stopPlaying];
 
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:MineCell.path completion:^(NSError *error) {
+        
+        if ( !error) {
+            NSLog(@"语音播放完毕");
+            [MineCell.imageV stopAnimating];
+            
+        }else{
+            NSLog(@"播放语音失败--%@",error);
+        }
+    }];
+}
 
+- (void)playVoiceOnFriendsCell:(voiceCellOfFriends *)friendsCell{
+    
+    friendsCell.imageV.animationImages =@[[UIImage imageNamed:@"q1"],[UIImage imageNamed:@"q2"],[UIImage imageNamed:@"q3"]];
+    friendsCell.imageV.animationDuration =1;
+    friendsCell.imageV.animationRepeatCount =0;
+    [friendsCell.imageV startAnimating];
 
+    //停止播放
+//    [[EMCDDeviceManager sharedInstance] stopPlaying];
+
+    [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:friendsCell.path completion:^(NSError *error) {
+        
+        if ( !error) {
+            NSLog(@"语音播放完毕");
+            [friendsCell.imageV stopAnimating];
+            
+        }else{
+            NSLog(@"播放语音失败--%@",error);
+        }
+    }];
+}
 
 
 

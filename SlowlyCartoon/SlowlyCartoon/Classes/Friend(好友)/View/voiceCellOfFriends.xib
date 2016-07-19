@@ -45,10 +45,6 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nF-FH-tac">
-                        <rect key="frame" x="123" y="-10" width="205" height="80"/>
-                        <color key="backgroundColor" red="1" green="0.1395715313" blue="0.048248786799999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mWz-5m-Y4K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="1NY-qv-e3f"/>
@@ -65,12 +61,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="guestureLabel" destination="gVO-7N-Jz0" id="F1c-Vz-1Ea"/>
+                <outlet property="guestureLabel" destination="gVO-7N-Jz0" id="r1N-D1-Oxt"/>
                 <outlet property="imageV" destination="xnc-vt-MEC" id="iYF-4w-F12"/>
                 <outlet property="timeLabel" destination="mWz-5m-Y4K" id="Nxm-P6-AMm"/>
-                <outlet property="view" destination="4nF-FH-tac" id="Zvq-Np-CW4"/>
             </connections>
-            <point key="canvasLocation" x="428" y="338"/>
+            <point key="canvasLocation" x="382" y="537"/>
         </tableViewCell>
     </objects>
     <resources>
