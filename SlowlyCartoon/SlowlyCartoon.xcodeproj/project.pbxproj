@@ -146,6 +146,7 @@
 		D6B5AAAC1D3C7AD400977DA2 /* RankListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAB1D3C7AD400977DA2 /* RankListRequest.m */; };
 		D6B5AAAF1D3C7CD000977DA2 /* RankListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */; };
 		D6B5AAB21D3CC6EC00977DA2 /* WebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */; };
+		D6BCEBC41D3F1B940037DBD7 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BCEBC31D3F1B940037DBD7 /* LocationViewController.m */; };
 		D6BD5E7F1D3DCFC6007D88C3 /* DetailsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD5E7E1D3DCFC6007D88C3 /* DetailsRequest.m */; };
 		D6BD5E821D3DD862007D88C3 /* DiversityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD5E811D3DD862007D88C3 /* DiversityModel.m */; };
 		D6BD5E851D3DD8ED007D88C3 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BD5E841D3DD8ED007D88C3 /* CommentModel.m */; };
@@ -387,6 +388,8 @@
 		D6B5AAAE1D3C7CD000977DA2 /* RankListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListModel.m; path = "SlowlyCartoon/Classes/Home(主页)/RankListModel.m"; sourceTree = SOURCE_ROOT; };
 		D6B5AAB01D3CC6EC00977DA2 /* WebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewViewController.h; sourceTree = "<group>"; };
 		D6B5AAB11D3CC6EC00977DA2 /* WebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewViewController.m; sourceTree = "<group>"; };
+		D6BCEBC21D3F1B940037DBD7 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		D6BCEBC31D3F1B940037DBD7 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		D6BD5E7D1D3DCFC6007D88C3 /* DetailsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsRequest.h; sourceTree = "<group>"; };
 		D6BD5E7E1D3DCFC6007D88C3 /* DetailsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsRequest.m; sourceTree = "<group>"; };
 		D6BD5E801D3DD862007D88C3 /* DiversityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiversityModel.h; path = "SlowlyCartoon/Classes/Home(主页)/DiversityModel.h"; sourceTree = SOURCE_ROOT; };
@@ -699,6 +702,8 @@
 				D691F5F11D366FB6004359E1 /* FriendViewController.m */,
 				D6217E1C1D38E80600CB6130 /* ChatViewController.h */,
 				D6217E1D1D38E80600CB6130 /* ChatViewController.m */,
+				D6BCEBC21D3F1B940037DBD7 /* LocationViewController.h */,
+				D6BCEBC31D3F1B940037DBD7 /* LocationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1263,6 +1268,7 @@
 				D6284A461D3919FC00232F2D /* AboutUsTableViewCell.m in Sources */,
 				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
 				D68CFF401D37956100DA832F /* MineTableViewCell.m in Sources */,
+				D6BCEBC41D3F1B940037DBD7 /* LocationViewController.m in Sources */,
 				D691F5EF1D366FAA004359E1 /* HomeViewController.m in Sources */,
 				D6284A411D38D6BF00232F2D /* MineSettingTableViewCell.m in Sources */,
 				D69A7EA81D3C7EAC00910C47 /* EMVoiceConverter.mm in Sources */,

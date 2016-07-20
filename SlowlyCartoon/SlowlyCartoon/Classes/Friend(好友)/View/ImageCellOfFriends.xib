@@ -40,7 +40,7 @@
             <connections>
                 <outlet property="sendImageOfFriends" destination="Ck5-Gc-SF4" id="iYv-LH-dRu"/>
             </connections>
-            <point key="canvasLocation" x="411.5" y="347"/>
+            <point key="canvasLocation" x="666.5" y="324"/>
         </tableViewCell>
     </objects>
     <resources>

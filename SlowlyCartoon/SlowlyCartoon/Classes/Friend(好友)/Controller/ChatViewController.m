@@ -15,6 +15,7 @@
 #import "EMCDDeviceManager.h"
 #import "voiceCellOfFriends.h"
 #import "VoiceCellOfMine.h"
+#import "LocationViewController.h"
 @interface ChatViewController ()
 <
 UITableViewDataSource,
@@ -204,6 +205,7 @@ voiceCellOfFriendsDelegate
     //视图显示时，加代理--------->接收聊天消息的代理
     [[EMClient sharedClient].chatManager addDelegate:self delegateQueue:nil];
     [self scrollViewToButtom];
+    
 }
 
 //解析消息---->代理方法 (接收到消息时就调用)
@@ -550,6 +552,7 @@ voiceCellOfFriendsDelegate
         //位置
         case 2:{
             NSLog(@"-------%ld--发送位置功能",self.toolView.index);
+            [self sendLocation];
             break;
         }
         //语音聊天
@@ -578,9 +581,9 @@ voiceCellOfFriendsDelegate
     }
 }
 
+#pragma mark----------------- 调用相册，选取照片------------------------------
 
-
-//调用相册，发送图片
+//调用相册
 -(void)sendImages{
     
     UIImagePickerController *pickerVC = [[UIImagePickerController alloc]init];
@@ -594,10 +597,16 @@ voiceCellOfFriendsDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self sendImageData:image];
+  
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+//发送图片数据的方法
+-(void)sendImageData:(UIImage *)sendImage{
     
     //将图片转化为NSData类型
-    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    NSData *data = UIImageJPEGRepresentation(sendImage, 0.1);
     //生成消息 ，发送图片数据
     EMImageMessageBody *imageBody =[[EMImageMessageBody alloc]initWithData:data displayName:@"图片"];
     NSString *from =[[EMClient sharedClient] currentUsername];
@@ -620,8 +629,33 @@ voiceCellOfFriendsDelegate
         });
     }];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
+
+
+#pragma mark----------------- 调用地图，，发送位置截图------------------------------
+
+//调用地图，，发送位置截图
+-(void)sendLocation{
+    
+    LocationViewController *locationVC =[[LocationViewController alloc]init];
+    [self.navigationController pushViewController:locationVC animated:YES];
+    
+    //block实现
+    __weak typeof(self) weakSelf = self;
+    locationVC.MyBlock = ^ (UIImage *image){
+        
+        [weakSelf sendImageData:image];
+    };
+    
+}
+
+
+
+
+
+
+
 
 
 #pragma mark-----------------7. 录制语音按钮------------------------------
@@ -723,7 +757,7 @@ voiceCellOfFriendsDelegate
     MineCell.imageV.animationDuration =1;
     MineCell.imageV.animationRepeatCount =0;
     [MineCell.imageV startAnimating];
-    //停止播放
+    //停止播放录音
 //    [[EMCDDeviceManager sharedInstance] stopPlaying];
 
     [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:MineCell.path completion:^(NSError *error) {
@@ -745,7 +779,7 @@ voiceCellOfFriendsDelegate
     friendsCell.imageV.animationRepeatCount =0;
     [friendsCell.imageV startAnimating];
 
-    //停止播放
+    //停止播放录音
 //    [[EMCDDeviceManager sharedInstance] stopPlaying];
 
     [[EMCDDeviceManager sharedInstance] asyncPlayingWithPath:friendsCell.path completion:^(NSError *error) {
