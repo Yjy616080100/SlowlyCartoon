@@ -16,6 +16,9 @@
 #import "voiceCellOfFriends.h"
 #import "VoiceCellOfMine.h"
 #import "LocationViewController.h"
+#import "TwoDimensionalCodeView.h"
+#import "SingleFriendManager.h"
+#import <AVFoundation/AVFoundation.h>//扫描需要导入的框架
 @interface ChatViewController ()
 <
 UITableViewDataSource,
@@ -26,7 +29,8 @@ UITextViewDelegate,
 UINavigationControllerDelegate,
 UIImagePickerControllerDelegate,
 VoiceCellOfMineDelegate,
-voiceCellOfFriendsDelegate
+voiceCellOfFriendsDelegate,
+AVCaptureMetadataOutputObjectsDelegate//扫描二维码的代理
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -52,6 +56,14 @@ voiceCellOfFriendsDelegate
 //语音按钮
 @property (strong, nonatomic) IBOutlet UIButton *voiceButton;
 @property(nonatomic)BOOL isVoicing;
+//生成二维码的View
+@property(nonatomic,strong)TwoDimensionalCodeView *codeView;
+//标记是否点击了名片
+@property(nonatomic)BOOL cardFlag;
+//声明会话属性
+@property(nonatomic,strong)AVCaptureSession *session;
+//layer层，用于扫描
+@property(nonatomic,strong)AVCaptureVideoPreviewLayer *layer;
 @end
 
 @implementation ChatViewController
@@ -67,15 +79,25 @@ voiceCellOfFriendsDelegate
     self.textArray=[NSMutableArray array];
     self.voiceButton.hidden =YES;
     self.isVoicing =NO;
+    
    
     
     //初始化自定义View
     self.flag = YES;
     self.VoiceFlag=YES;
     self.toolView=[[customView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 200)];
+    [self.view addSubview:self.toolView];
+    
+
+    //初始化二维码的View
+     NSString *currentUseName = [[EMClient sharedClient] currentUsername];
+    self.cardFlag = NO;
+    self.codeView =[[TwoDimensionalCodeView alloc]initWithFrame:CGRectMake(850, 100, 300, 400)currentUseName:currentUseName];
+    [self.view addSubview:self.codeView];
+    
     //注册观察者 -->监听collectionView 的点击下标
     [self.toolView addObserver:self forKeyPath:@"index" options:NSKeyValueObservingOptionNew context:nil];
-    [self.view addSubview:self.toolView];
+    
     
     
     
@@ -111,8 +133,8 @@ voiceCellOfFriendsDelegate
     
     //导航栏的左右方法
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction)];
-    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithBarButtonSystemItem:(UIBarButtonSystemItemEdit) target:self action:@selector(rightAcyion)];
     
+    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"扫一扫" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightAcyion)];
     
    
     
@@ -124,10 +146,69 @@ voiceCellOfFriendsDelegate
     [self.toolView removeObserver:self forKeyPath:@"index" context:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
-//右方法
+
+#pragma mark---------------扫描二维码并发送添加好友请求------------------------------------
+
+//右方法 -->扫描并发送添加好友请求
 -(void)rightAcyion{
     
+    //1.创建一个会话
+    self.session=[[AVCaptureSession alloc]init];
     
+    //2.给会话添加输入设备
+    
+    //2.1 创建设备 (即将数据输入进来的设备---摄像头)
+    AVCaptureDevice *device=[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    //2.2 通过子类，将设备转换为输入设备
+    AVCaptureDeviceInput *input=[AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+    //2.3 添加设备
+    [self.session addInput:input];
+    
+    
+    //3.添加输出(数据)--->扫描出结果之后要进行数据输出
+    //实例对象--->类对象--->元对象--->根元类对象（本身）
+    AVCaptureMetadataOutput *output=[[AVCaptureMetadataOutput alloc]init];
+    [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    [self.session addOutput:output];
+    
+    
+    //4.设置结果是二维码数据，必须在 addOutput之后进行设置
+    //AVMetadataObjectTypeQRCode :是二维码数据类型
+    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    
+    //5.添加扫描图层(界面)
+    self.layer=[AVCaptureVideoPreviewLayer layerWithSession:self.session];
+    
+    //6.设置layer 显示的位置
+    self.layer.frame=self.view.bounds;
+    [self.view.layer addSublayer:self.layer];
+    
+    //7.开始扫描
+    [self.session startRunning];
+  
+}
+
+//代理的方法---->当扫描到数据的时候就会调用此方法
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
+    
+    //判断参数中数组的数据
+    if (metadataObjects.count>0) {
+       
+        //1.获取扫描结果
+        AVMetadataMachineReadableCodeObject *object=[metadataObjects lastObject];
+        //发送添加好友的请求
+        NSString *FriendsUserName = object.stringValue;
+        [[SingleFriendManager shareSingleFriendManager]addFriendWithName:FriendsUserName];
+        
+        //2.停止扫描
+        [self.session stopRunning];
+        //3.移除图层
+        [self.layer removeFromSuperlayer];
+        
+    }else{
+        NSLog(@"没有扫描到数据");
+    }
+ 
 }
 
 
@@ -544,9 +625,7 @@ voiceCellOfFriendsDelegate
             [self sendImages];
             break;
         }
-        //收藏
         case 1:{
-            NSLog(@"-------%ld--收藏功能",self.toolView.index);
             break;
         }
         //位置
@@ -555,24 +634,21 @@ voiceCellOfFriendsDelegate
             [self sendLocation];
             break;
         }
-        //语音聊天
         case 3:{
-            NSLog(@"-------%ld--语音聊天功能",self.toolView.index);
-            break;
-        }
-        //发送视频
-        case 4:{
-            NSLog(@"-------%ld--发送视频功能",self.toolView.index);
             break;
         }
         //我的名片
-        case 5:{
+        case 4:{
             NSLog(@"-------%ld--我的名片功能",self.toolView.index);
+            [self TwoDimensionalCodeView];
             break;
         }
-        //转账
+        case 5:{
+            break;
+        }
+        //发送视频
         case 6:{
-            NSLog(@"-------%ld--转账功能",self.toolView.index);
+            NSLog(@"-------%ld--发送视频功能",self.toolView.index);
             break;
         }
         default:{
@@ -651,12 +727,32 @@ voiceCellOfFriendsDelegate
 }
 
 
+#pragma mark----------------- 生成高清二维码名片-------------------------------
 
+-(void)TwoDimensionalCodeView{
+    
+    __weak typeof(self) weakSelf = self;
+    if (self.cardFlag == NO) {
 
+        [UIView animateWithDuration:0.2 animations:^{
 
-
-
-
+            weakSelf.codeView.frame =CGRectMake(50, 100, 300, 400);
+        } completion:^(BOOL finished) {
+            
+            weakSelf.cardFlag = YES;
+        }];
+  
+    }else{
+        
+        [UIView animateWithDuration:0.2 animations:^{
+            
+            weakSelf.codeView.frame =CGRectMake(850, 100, 300, 400);
+        } completion:^(BOOL finished) {
+            
+            weakSelf.cardFlag = NO;
+        }];
+    }
+}
 
 #pragma mark-----------------7. 录制语音按钮------------------------------
 

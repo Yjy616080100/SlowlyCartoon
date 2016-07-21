@@ -137,6 +137,7 @@
 		D6AA70361D3DCD770022733F /* w3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70331D3DCD770022733F /* w3.png */; };
 		D6AA70421D3E153A0022733F /* qq2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70401D3E153A0022733F /* qq2.png */; };
 		D6AA70431D3E153A0022733F /* qq3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AA70411D3E153A0022733F /* qq3.png */; };
+		D6ABFDA01D4069FB003D21FE /* TwoDimensionalCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABFD9F1D4069FB003D21FE /* TwoDimensionalCodeView.m */; };
 		D6B5AA9D1D3C694600977DA2 /* HigtEnerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */; };
 		D6B5AA9E1D3C694600977DA2 /* HigtEnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */; };
 		D6B5AAA11D3C6B0B00977DA2 /* HigtEnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5AAA01D3C6B0B00977DA2 /* HigtEnerModel.m */; };
@@ -372,6 +373,8 @@
 		D6AA70331D3DCD770022733F /* w3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w3.png; sourceTree = "<group>"; };
 		D6AA70401D3E153A0022733F /* qq2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq2.png; sourceTree = "<group>"; };
 		D6AA70411D3E153A0022733F /* qq3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq3.png; sourceTree = "<group>"; };
+		D6ABFD9E1D4069FB003D21FE /* TwoDimensionalCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDimensionalCodeView.h; sourceTree = "<group>"; };
+		D6ABFD9F1D4069FB003D21FE /* TwoDimensionalCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDimensionalCodeView.m; sourceTree = "<group>"; };
 		D6B5AA9A1D3C694600977DA2 /* HigtEnerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HigtEnerTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		D6B5AA9B1D3C694600977DA2 /* HigtEnerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HigtEnerTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		D6B5AA9C1D3C694600977DA2 /* HigtEnerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HigtEnerTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/HigtEnerTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
@@ -481,6 +484,8 @@
 				D69A7EB81D3CC3FB00910C47 /* VoiceCellOfMine.h */,
 				D69A7EB91D3CC3FB00910C47 /* VoiceCellOfMine.m */,
 				D69A7EBA1D3CC3FB00910C47 /* VoiceCellOfMine.xib */,
+				D6ABFD9E1D4069FB003D21FE /* TwoDimensionalCodeView.h */,
+				D6ABFD9F1D4069FB003D21FE /* TwoDimensionalCodeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1043,6 +1048,7 @@
 				TargetAttributes = {
 					D691F5991D366B1E004359E1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2B88K93HYM;
 					};
 					D691F5B21D366B1E004359E1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1248,6 +1254,7 @@
 				D6B5AAB21D3CC6EC00977DA2 /* WebViewViewController.m in Sources */,
 				D627E6951D38D18F00D36EDB /* OneTableViewCell.m in Sources */,
 				D6217E321D39215600CB6130 /* TextCellOfMine.m in Sources */,
+				D6ABFDA01D4069FB003D21FE /* TwoDimensionalCodeView.m in Sources */,
 				D69A7EA71D3C7EAC00910C47 /* wav.mm in Sources */,
 				D6BD5E8B1D3E4143007D88C3 /* ImageRequest.m in Sources */,
 				D69A7EA41D3C7EAC00910C47 /* EMCDDeviceManager+Remind.m in Sources */,
@@ -1389,9 +1396,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1400,6 +1409,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1407,9 +1418,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1418,6 +1431,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCO.SlowlyCartoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

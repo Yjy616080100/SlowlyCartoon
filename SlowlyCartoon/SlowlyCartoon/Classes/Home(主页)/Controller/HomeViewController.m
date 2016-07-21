@@ -74,7 +74,11 @@ UIScrollViewDelegate
     self.segControl.selectedSegmentIndex = n;
 }
     
+-(void)viewWillAppear:(BOOL)animated{
     
+    
+    self.tabBarController.tabBar.hidden =NO;
+}
     
     
     

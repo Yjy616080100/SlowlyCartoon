@@ -64,7 +64,6 @@
             break;
         }
         case 1:{
-            cell.imageV.image =[UIImage imageNamed:@"shoucang"]; cell.Label.text=@"收藏";
             break;
         }
         case 2:{
@@ -72,19 +71,17 @@
             break;
         }
         case 3:{
-            cell.imageV.image =[UIImage imageNamed:@"luyin"]; cell.Label.text=@"语音";
             break;
         }
         case 4:{
-            cell.imageV.image =[UIImage imageNamed:@"shipin"]; cell.Label.text=@"视频";
-            break;
-        }
-        case 5:{
             cell.imageV.image =[UIImage imageNamed:@"mingpian"]; cell.Label.text=@"名片";
             break;
         }
+        case 5:{
+            break;
+        }
         case 6:{
-            cell.imageV.image =[UIImage imageNamed:@"zhuanzhang"]; cell.Label.text=@"转账";
+            cell.imageV.image =[UIImage imageNamed:@"shipin"]; cell.Label.text=@"视频";
             break;
         }
             
