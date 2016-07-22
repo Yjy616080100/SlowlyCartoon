@@ -84,7 +84,7 @@
     _label.text = @"欢迎各位给我们提出宝贵意见";
         
     }else{
-        
+ 
         _label.text = @"";
         
     }
@@ -138,29 +138,33 @@
 #pragma mark --------------------------发送邮件====================
 
 - (void)sendEmailAction{
-    SKPSMTPMessage *mail = [[SKPSMTPMessage alloc] init];
-
-//    设置基本参数
-    [mail setSubject:@"漫漫"];  // 设置邮件主题
-    [mail setToEmail:@"Eternitydao@163.com"]; // 目标邮箱
-    [mail setFromEmail:@"441050671@qq.com"]; // 发送者邮箱
-    [mail setRelayHost:@"smtp.qq.com"]; // 发送邮件代理服务器
-    [mail setRequiresAuth:YES];
-    [mail setLogin:@"441050671@qq.com"];
-    [mail setPass:@"1010011150.0"];
-    [mail setWantsSecure:YES];  // 需要加密
-    mail.delegate = self;
+    SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
+    testMsg.fromEmail = @"441050671@qq.com";
+    testMsg.toEmail =@"964949992@qq.com";
+    testMsg.relayHost = @"smtp.qq.com";
+    testMsg.requiresAuth = YES;
+    testMsg.login = @"441050671@qq.com";
+    testMsg.pass = @"1010011150.0";
+    testMsg.subject = [NSString stringWithCString:"测试" encoding:NSUTF8StringEncoding];
+    testMsg.bccEmail = @"bcc@qq.com";
+    testMsg.wantsSecure = YES; // smtp.gmail.com doesn't work without TLS!
     
-//    设置邮件内容
-    NSString *content = [NSString stringWithCString:"测试内容" encoding:NSUTF8StringEncoding];
-    NSDictionary *plainPart = @{kSKPSMTPPartContentTypeKey : @"text/plain", kSKPSMTPPartMessageKey : content, kSKPSMTPPartContentTransferEncodingKey : @"8bit"};
+    // Only do this for self-signed certs!
+    // testMsg.validateSSLChain = NO;
+    testMsg.delegate = self;
+    
+    NSDictionary *plainPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                               [NSString stringWithCString:"测试正文" encoding:NSUTF8StringEncoding],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
     
     NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
     NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath];
+    
     NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
                              @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
-    [mail setParts:@[plainPart, vcfPart]]; // 邮件首部字段、邮件内容格式和传输编码
-    [mail send];
+    
+    testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
+    
+    [testMsg send];
 }
 
 -(void)messageSent:(SKPSMTPMessage *)message{

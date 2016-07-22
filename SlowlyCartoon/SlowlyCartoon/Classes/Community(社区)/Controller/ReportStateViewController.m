@@ -11,7 +11,9 @@
 #import "UIImage+ReSize.h"
 #import "HeaderContent.h"
 @interface ReportStateViewController ()<UITextViewDelegate>
+
 @property (nonatomic,weak)UITextView *reportStateTextView;
+
 @property (nonatomic,weak)UILabel *pLabel;
 @end
 

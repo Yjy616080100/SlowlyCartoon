@@ -51,6 +51,11 @@
     
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:VC];
     
+    nav.navigationBar.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:241/255.0];
+    
+    nav.navigationBar.barTintColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:241/255.0];
+    
+
     VC.tabBarItem.image = [UIImage imageNamed:imageName];
     
     VC.tabBarItem.selectedImage = [UIImage imageNamed:selectedImageName];

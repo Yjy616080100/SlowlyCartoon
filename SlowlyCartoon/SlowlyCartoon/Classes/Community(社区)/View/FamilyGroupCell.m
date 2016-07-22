@@ -169,7 +169,7 @@
         replyLabel.numberOfLines = 0;
         
         NSString *searchText = [familyGroup.replys objectAtIndex:i];
-        //NSString *searchText = @"浮夸：哈哈";
+    
         //把评论的姓名变色，用正则表达式
         NSRange range = [searchText rangeOfString:@"([\u4e00-\u9fa5]|[a-zA-Z0-9])+：" options:NSRegularExpressionSearch];
         if (range.location != NSNotFound) {
