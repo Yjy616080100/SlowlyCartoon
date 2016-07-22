@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5590FAA876DF7B208BEBF227 /* libPods-SlowlyCartoon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */; };
+		D600ADE01D42411A00A36B42 /* SlowlyCartoon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D600ADDE1D42411A00A36B42 /* SlowlyCartoon.xcdatamodeld */; };
+		D600ADE51D42437C00A36B42 /* PersonManager+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D600ADE21D42437C00A36B42 /* PersonManager+CoreDataProperties.m */; };
+		D600ADE61D42437C00A36B42 /* PersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D600ADE41D42437C00A36B42 /* PersonManager.m */; };
+		D600AE0F1D4248AF00A36B42 /* coreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D600AE0E1D4248AF00A36B42 /* coreDataManager.m */; };
 		D6217E181D38E6A200CB6130 /* SingleFriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217E171D38E6A200CB6130 /* SingleFriendManager.m */; };
 		D6217E1B1D38E77000CB6130 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6217E1A1D38E77000CB6130 /* Friends.storyboard */; };
 		D6217E1E1D38E80600CB6130 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6217E1D1D38E80600CB6130 /* ChatViewController.m */; };
@@ -172,6 +176,13 @@
 		32EDB3DEBD10205B15F75EDD /* Pods-SlowlyCartoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.release.xcconfig"; sourceTree = "<group>"; };
 		8CDD0D703CB6689FBA111C7C /* libPods-SlowlyCartoon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SlowlyCartoon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95A19F71A08A3775341A08C7 /* Pods-SlowlyCartoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlowlyCartoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SlowlyCartoon/Pods-SlowlyCartoon.debug.xcconfig"; sourceTree = "<group>"; };
+		D600ADDF1D42411A00A36B42 /* SlowlyCartoon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlowlyCartoon.xcdatamodel; sourceTree = "<group>"; };
+		D600ADE11D42437C00A36B42 /* PersonManager+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersonManager+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D600ADE21D42437C00A36B42 /* PersonManager+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonManager+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D600ADE31D42437C00A36B42 /* PersonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManager.h; sourceTree = "<group>"; };
+		D600ADE41D42437C00A36B42 /* PersonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManager.m; sourceTree = "<group>"; };
+		D600AE0D1D4248AF00A36B42 /* coreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coreDataManager.h; sourceTree = "<group>"; };
+		D600AE0E1D4248AF00A36B42 /* coreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coreDataManager.m; sourceTree = "<group>"; };
 		D6217E161D38E6A200CB6130 /* SingleFriendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleFriendManager.h; sourceTree = "<group>"; };
 		D6217E171D38E6A200CB6130 /* SingleFriendManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleFriendManager.m; sourceTree = "<group>"; };
 		D6217E1A1D38E77000CB6130 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
@@ -448,6 +459,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D600ADDD1D4240BE00A36B42 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				D600AE0D1D4248AF00A36B42 /* coreDataManager.h */,
+				D600AE0E1D4248AF00A36B42 /* coreDataManager.m */,
+				D600ADE11D42437C00A36B42 /* PersonManager+CoreDataProperties.h */,
+				D600ADE21D42437C00A36B42 /* PersonManager+CoreDataProperties.m */,
+				D600ADE31D42437C00A36B42 /* PersonManager.h */,
+				D600ADE41D42437C00A36B42 /* PersonManager.m */,
+				D600ADDE1D42411A00A36B42 /* SlowlyCartoon.xcdatamodeld */,
+			);
+			name = DBManager;
+			sourceTree = "<group>";
+		};
 		D6217E121D38D39A00CB6130 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +608,7 @@
 		D691F59C1D366B1E004359E1 /* SlowlyCartoon */ = {
 			isa = PBXGroup;
 			children = (
+				D600ADDD1D4240BE00A36B42 /* DBManager */,
 				D691F5C21D366C94004359E1 /* Classes */,
 				D691F5D91D366D2C004359E1 /* Main(主要) */,
 				D691F5D81D366CDB004359E1 /* Resources(资源) */,
@@ -1239,6 +1265,7 @@
 				D6B5AAA41D3C6BE400977DA2 /* HigtEnerRequest.m in Sources */,
 				D6B5AAAF1D3C7CD000977DA2 /* RankListModel.m in Sources */,
 				D6B5AAA81D3C766200977DA2 /* RankListTableViewCell.m in Sources */,
+				D600AE0F1D4248AF00A36B42 /* coreDataManager.m in Sources */,
 				D6284A371D3876A400232F2D /* RegisterViewController.m in Sources */,
 				D68CFF3C1D37866700DA832F /* AboutUsViewController.m in Sources */,
 				D6B5AAA11D3C6B0B00977DA2 /* HigtEnerModel.m in Sources */,
@@ -1247,6 +1274,7 @@
 				D63A16621D39DB7800C30EFE /* WebViewController.m in Sources */,
 				D677BF821D3DB776008B11E8 /* DiversityViewController.m in Sources */,
 				D6A591131D37250100CE6820 /* HigtenerViewController.m in Sources */,
+				D600ADE51D42437C00A36B42 /* PersonManager+CoreDataProperties.m in Sources */,
 				D69A7E9F1D3C7EAC00910C47 /* EMAudioPlayerUtil.m in Sources */,
 				D677BF891D3DBA87008B11E8 /* DiversityCollectionViewCell.m in Sources */,
 				D69A7EA61D3C7EAC00910C47 /* amrFileCodec.mm in Sources */,
@@ -1272,6 +1300,7 @@
 				D6A591281D37A9B400CE6820 /* oneTableViewModel.m in Sources */,
 				D6388A0B1D3C64AB00A5624A /* MineDetailTableViewCell.m in Sources */,
 				D6BD5E851D3DD8ED007D88C3 /* CommentModel.m in Sources */,
+				D600ADE61D42437C00A36B42 /* PersonManager.m in Sources */,
 				D6284A461D3919FC00232F2D /* AboutUsTableViewCell.m in Sources */,
 				D691F5F21D366FB6004359E1 /* FriendViewController.m in Sources */,
 				D68CFF401D37956100DA832F /* MineTableViewCell.m in Sources */,
@@ -1290,6 +1319,7 @@
 				D69A7EA31D3C7EAC00910C47 /* EMCDDeviceManager+ProximitySensor.m in Sources */,
 				D627E69A1D390BDF00D36EDB /* LastCollectionViewCell.m in Sources */,
 				D6284A4F1D3927CE00232F2D /* MineMessageViewController.m in Sources */,
+				D600ADE01D42411A00A36B42 /* SlowlyCartoon.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1491,6 +1521,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D600ADDE1D42411A00A36B42 /* SlowlyCartoon.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D600ADDF1D42411A00A36B42 /* SlowlyCartoon.xcdatamodel */,
+			);
+			currentVersion = D600ADDF1D42411A00A36B42 /* SlowlyCartoon.xcdatamodel */;
+			path = SlowlyCartoon.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D691F5921D366B1E004359E1 /* Project object */;
 }
