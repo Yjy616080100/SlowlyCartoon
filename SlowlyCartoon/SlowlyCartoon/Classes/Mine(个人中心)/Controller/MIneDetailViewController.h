@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^updateInfoBlock) (void);
 @interface MIneDetailViewController : UIViewController
 
+
+@property (copy,nonatomic)updateInfoBlock updateBlcok;
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "OpinionViewController.h"
-
-@interface OpinionViewController ()<UITextViewDelegate>
+#import <SKPSMTPMessage.h>
+#import "NSData+Base64Additions.h"
+@interface OpinionViewController ()<UITextViewDelegate,SKPSMTPMessageDelegate>
 
 @end
 
@@ -55,6 +56,11 @@
             [self showAlertWithTitle:@"" message:@"感谢您的评价和关心，我们会尽快联系您!" dalayTime:1.5];
             
             NSLog(@"==============感谢您的评价和关心，我们会尽快联系您!");
+#pragma mark----------------------  发送邮件=====================================
+            
+            
+//            [self sendEmailAction]; // 调用发送邮件的代码
+
             
          }else{
             
@@ -64,7 +70,6 @@
     }else{
         
        [self showAlertWithTitle:@"" message:@"请填写您的意见！" dalayTime:2];
-        
     }
 
 }
@@ -79,7 +84,7 @@
     _label.text = @"欢迎各位给我们提出宝贵意见";
         
     }else{
-        
+ 
         _label.text = @"";
         
     }
@@ -128,6 +133,47 @@
     
     return [emailCheck evaluateWithObject:email];
 
+}
+
+#pragma mark --------------------------发送邮件====================
+
+- (void)sendEmailAction{
+    SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
+    testMsg.fromEmail = @"441050671@qq.com";
+    testMsg.toEmail =@"964949992@qq.com";
+    testMsg.relayHost = @"smtp.qq.com";
+    testMsg.requiresAuth = YES;
+    testMsg.login = @"441050671@qq.com";
+    testMsg.pass = @"1010011150.0";
+    testMsg.subject = [NSString stringWithCString:"测试" encoding:NSUTF8StringEncoding];
+    testMsg.bccEmail = @"bcc@qq.com";
+    testMsg.wantsSecure = YES; // smtp.gmail.com doesn't work without TLS!
+    
+    // Only do this for self-signed certs!
+    // testMsg.validateSSLChain = NO;
+    testMsg.delegate = self;
+    
+    NSDictionary *plainPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+                               [NSString stringWithCString:"测试正文" encoding:NSUTF8StringEncoding],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+    
+    NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
+    NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath];
+    
+    NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
+                             @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+    
+    testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
+    
+    [testMsg send];
+}
+
+-(void)messageSent:(SKPSMTPMessage *)message{
+    
+    NSLog(@"message ==============%@",message);
+}
+-(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
+    
+    NSLog(@"message ==============%@,error=====%@",message,error);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
