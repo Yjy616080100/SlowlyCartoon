@@ -40,7 +40,7 @@
             <connections>
                 <outlet property="sendImageOfMine" destination="doD-T8-XZD" id="Oxh-cC-shg"/>
             </connections>
-            <point key="canvasLocation" x="477.5" y="367"/>
+            <point key="canvasLocation" x="588.5" y="409"/>
         </tableViewCell>
     </objects>
     <resources>

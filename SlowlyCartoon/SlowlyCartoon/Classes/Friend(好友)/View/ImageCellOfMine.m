@@ -11,7 +11,23 @@
 @implementation ImageCellOfMine
 
 - (void)awakeFromNib {
-    // Initialization code
+
+    
+    self.sendImageOfMine.userInteractionEnabled = YES;
+    //双击放大
+    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+    tap.numberOfTapsRequired=2;
+    tap.numberOfTouchesRequired=1;
+    [self.sendImageOfMine addGestureRecognizer:tap];
+    
+    //长按缩小
+    UILongPressGestureRecognizer *longP=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPAction:)];
+    longP.numberOfTapsRequired=0;
+    longP.numberOfTouchesRequired=1;
+    longP.minimumPressDuration=1;//设置长按时间为1S
+    [self.sendImageOfMine addGestureRecognizer:longP];
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,5 +35,18 @@
 
     // Configure the view for the selected state
 }
+
+
+-(void)tapAction:(UITapGestureRecognizer *)sender{
+    
+    self.sendImageOfMine.frame = CGRectMake(0, 0, self.contentView.frame.size.width, 300);
+  
+}
+-(void)longPAction:(UITapGestureRecognizer *)sender{
+    
+    self.sendImageOfMine.bounds = CGRectMake(129, 16, 115, 141);
+    
+}
+
 
 @end
