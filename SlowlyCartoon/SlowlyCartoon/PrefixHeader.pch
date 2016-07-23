@@ -14,7 +14,7 @@
 
 #import <UIImageView+AFNetworking.h>
 
-
+#import "coreDataManager.h"
 
 //环信
 #import <HyphenateFullSDK/EMSDKFull.h>
