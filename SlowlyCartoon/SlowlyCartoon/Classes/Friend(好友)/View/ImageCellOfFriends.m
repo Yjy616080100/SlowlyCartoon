@@ -27,6 +27,8 @@
     longP.minimumPressDuration=1;//设置长按时间为1S
     [self.sendImageOfFriends addGestureRecognizer:longP];
     
+    self.pointCenter = self.sendImageOfFriends.center;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,8 +45,10 @@
 
 -(void)longPAction:(UITapGestureRecognizer *)sender{
     
-    self.sendImageOfFriends.bounds = CGRectMake(75, 13, 118, 144);
-    
+    self.sendImageOfFriends.bounds = CGRectMake(0, 0, 118, 144);
+    self.sendImageOfFriends.center = self.pointCenter ;
+
+
 }
 
 

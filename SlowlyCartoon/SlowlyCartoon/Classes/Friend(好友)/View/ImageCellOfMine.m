@@ -28,6 +28,9 @@
     [self.sendImageOfMine addGestureRecognizer:longP];
     
     
+    self.pointCenter = self.sendImageOfMine.center;
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -44,7 +47,10 @@
 }
 -(void)longPAction:(UITapGestureRecognizer *)sender{
     
-    self.sendImageOfMine.bounds = CGRectMake(129, 16, 115, 141);
+    self.sendImageOfMine.bounds = CGRectMake(0, 0, 115, 141);
+    
+    self.sendImageOfMine.center = CGPointMake(280.5, 85.5);
+
     
 }
 

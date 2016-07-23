@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *sendImageOfFriends;
 
-
+@property(nonatomic)CGPoint pointCenter;
 
 @end

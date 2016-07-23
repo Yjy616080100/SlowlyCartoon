@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *sendImageOfMine;
 
-
+@property(nonatomic)CGPoint pointCenter;
 
 @end
