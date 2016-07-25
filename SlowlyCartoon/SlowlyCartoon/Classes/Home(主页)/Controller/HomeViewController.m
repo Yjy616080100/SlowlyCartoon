@@ -16,9 +16,13 @@ UIScrollViewDelegate
 >
 
 @property(nonatomic,strong)UISegmentedControl *segControl;
+
 @property(nonatomic,strong)UIScrollView *scoView;
+
 @property(nonatomic,strong)RecommendViewController *recomVC;
+
 @property(nonatomic,strong)HigtenerViewController *higtenerVC;
+
 @property(nonatomic,strong)RankListViewController *ranklistVC;
 
 
@@ -34,7 +38,8 @@ UIScrollViewDelegate
     self.segControl = [[UISegmentedControl alloc] initWithItems:@[@"推荐", @"高能",@"排行"]];
     
 //    改变segment的字体
-    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20]} forState:(UIControlStateNormal)];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:Font_20} forState:(UIControlStateNormal)];
+//
     
     self.navigationItem.titleView = self.segControl;
     

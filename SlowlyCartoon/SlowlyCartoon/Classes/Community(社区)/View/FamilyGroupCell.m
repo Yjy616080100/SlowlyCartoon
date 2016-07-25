@@ -8,10 +8,10 @@
 
 #import "FamilyGroupCell.h"
 #import "HeaderContent.h"
-#define nameFont [UIFont systemFontOfSize:12]
-#define textFont [UIFont systemFontOfSize:13]
-#define timeFont [UIFont systemFontOfSize:10]
-#define replyFont [UIFont systemFontOfSize:13]
+#define nameFont [UIFont systemFontOfSize:14]
+#define textFont [UIFont systemFontOfSize:15]
+#define timeFont [UIFont systemFontOfSize:12]
+#define replyFont [UIFont systemFontOfSize:15]
 @interface FamilyGroupCell()
 
 @property (weak,nonatomic)UIImageView *iconView;

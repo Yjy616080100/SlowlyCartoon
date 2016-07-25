@@ -11,6 +11,7 @@
 @interface ImageViewController : UIViewController
 
 @property(nonatomic,strong)NSString *onlyID;
+
 @property(nonatomic,strong)NSString *onlyIdx;
 
 @end

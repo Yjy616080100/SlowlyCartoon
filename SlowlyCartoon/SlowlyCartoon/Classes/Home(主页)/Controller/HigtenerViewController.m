@@ -34,7 +34,7 @@ UITableViewDelegate
     self.higtEnerArray = [NSMutableArray array];
     
     //tableView初始化
-    self.higtEnerTableView= [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-113) style:(UITableViewStylePlain)];
+    self.higtEnerTableView= [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-113) style:(UITableViewStylePlain)];
     
     //设置代理
     self.higtEnerTableView.dataSource = self;
@@ -103,6 +103,16 @@ UITableViewDelegate
     
     HigtEnerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HigtEnerTableViewCell_Identify];
     
+    if ( indexPath.row == 0) {
+        
+        HightEnerModel *model = self.higtEnerArray[indexPath.row + 3];
+        
+        [cell.higtEnerImageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",model.active_pic_url_1]]];
+        
+        cell.HightEnerLabel.text = model.active_name;
+        
+        return cell;
+    }
     HightEnerModel *model = self.higtEnerArray[indexPath.row];
     
     [cell.higtEnerImageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",model.active_pic_url_1]]];

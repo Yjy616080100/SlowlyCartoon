@@ -38,7 +38,7 @@
     
     UILabel *pLabel = [[UILabel alloc]initWithFrame:CGRectMake(padding, 2 * padding, screenWidth, 10)];
     pLabel.text = @"这一刻的想法...";
-    pLabel.font = [UIFont systemFontOfSize:12];
+    pLabel.font = [UIFont systemFontOfSize:14];
     pLabel.textColor = [UIColor colorWithRed:152/255.0 green:152/255.0 blue:152/255.0 alpha:1];
     self.pLabel = pLabel;
     [headView addSubview:pLabel];

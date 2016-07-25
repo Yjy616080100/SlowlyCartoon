@@ -24,12 +24,28 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    
     NSURLRequest *request=[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
+    
     [self.view addSubview:self.webView];
+    
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<主页" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
     [self.webView loadRequest:request];
 }
-
+- (void)leftItemAction:(UIBarButtonItem*)sender{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

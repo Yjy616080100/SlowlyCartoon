@@ -31,7 +31,9 @@ UICollectionViewDataSource
 @property(nonatomic,strong)UIScrollView *recommendScrollView;//最底层的UIScrollView
 
 @property(nonatomic,strong)UIScrollView *firstScrollView;//最上面的轮播图
+
 @property(nonatomic,strong)UIPageControl *pageControl;//轮播图下面的分页按钮
+
 @property(nonatomic,strong)NSTimer *timer;//创建一个定时器用于轮播图
 
 @property(nonatomic,strong)UITableView *oneTableView;//tableView用于展示
@@ -50,7 +52,9 @@ UICollectionViewDataSource
 @property(nonatomic,strong)NSMutableArray *lastArray;//装collectionView数据的数组
 
 @property(nonatomic,strong)NSString *recommendString;//接收图片url
+
 @property(nonatomic,strong)NSString *likeSrting;//接收图片url
+
 @property(nonatomic,strong)NSString *hotString;//接收图片url
 
 @end
@@ -61,14 +65,17 @@ UICollectionViewDataSource
 {
     [super viewDidLoad];
     
-    //请求数据
+   
     //    正在加载
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+  MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-   [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.color = myRedColor;
     
+    hud.detailsLabelFont = Font_16;
+    
+    hud.detailsLabelText = @"加载中……";
 
-    
+ //请求数据
     [self requestRecommend];
     
     _oneTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -118,7 +125,7 @@ UICollectionViewDataSource
     
     self.firstScrollView.contentOffset = CGPointMake(self.view.frame.size.width, 0);
     
-    self.firstScrollView.backgroundColor = [UIColor greenColor];
+    self.firstScrollView.backgroundColor = [UIColor whiteColor];
     //设置代理
     self.firstScrollView.delegate = self;
     
@@ -130,13 +137,13 @@ UICollectionViewDataSource
     [self buttonImage];
     
 
-    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(self.firstScrollView.frame.size.width-80, self.firstScrollView.frame.size.height-40, 60, 30)];
+    self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(self.firstScrollView.frame.size.width - 80, self.firstScrollView.frame.size.height - 30, 60, 30)];
     
     //没有点击的小按钮的颜色
-    self.pageControl.pageIndicatorTintColor = [UIColor blueColor];
+    self.pageControl.pageIndicatorTintColor = myRedColor;
     
     //点击的小按钮的颜色
-    self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     
     //设置按钮个数
     self.pageControl.numberOfPages = _firstArray.count;
@@ -333,6 +340,8 @@ UICollectionViewDataSource
     detaVC.onlyID = model.oneID;
     
     detaVC.onlyTime = model.comic_update_time;
+    
+    detaVC.title = model.comic_name;
     //跳转
     [self.navigationController pushViewController:detaVC animated:YES];
 }
@@ -581,7 +590,7 @@ UICollectionViewDataSource
             oneTableViewModel *model = [[oneTableViewModel alloc]init];
             
             [model setValuesForKeysWithDictionary:dict6];
-            
+           
             [array2 addObject:model];
         }
         [weakSelf.oneArray addObject:array1];
@@ -636,12 +645,19 @@ UICollectionViewDataSource
         
     } failure:^(NSError *error) {
         
+//        干掉正在加载View
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
+//        生成一个网路提示View
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         hud.mode = MBProgressHUDModeText;
         
+        hud.color = myRedColor;
+        
         hud.labelText = @"您的网络不给力!";
+        
+        hud.labelFont = Font_24;
         
         [hud hide: YES afterDelay: 30];
         

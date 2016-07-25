@@ -89,6 +89,10 @@
 		D677BF8A1D3DBA87008B11E8 /* DiversityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D677BF881D3DBA87008B11E8 /* DiversityCollectionViewCell.xib */; };
 		D677BF911D3DBD40008B11E8 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D677BF8F1D3DBD40008B11E8 /* CommentTableViewCell.m */; };
 		D677BF921D3DBD40008B11E8 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D677BF901D3DBD40008B11E8 /* CommentTableViewCell.xib */; };
+		D6874F551D4603F200CEC87A /* heart_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D6874F531D4603F200CEC87A /* heart_selected.png */; };
+		D6874F561D4603F200CEC87A /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = D6874F541D4603F200CEC87A /* heart.png */; };
+		D6874F581D46081300CEC87A /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = D6874F571D46081300CEC87A /* download.png */; };
+		D6874F5A1D462D9700CEC87A /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = D6874F591D462D9700CEC87A /* share.png */; };
 		D68CFF2B1D37418400DA832F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CFF2A1D37418400DA832F /* LoginViewController.m */; };
 		D68CFF2D1D37419600DA832F /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2C1D37419600DA832F /* Mine.storyboard */; };
 		D68CFF301D3773B200DA832F /* passBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D68CFF2E1D3773B200DA832F /* passBg.png */; };
@@ -320,6 +324,10 @@
 		D677BF8E1D3DBD40008B11E8 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentTableViewCell.h; path = "SlowlyCartoon/Classes/Home(主页)/Controller/CommentTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		D677BF8F1D3DBD40008B11E8 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentTableViewCell.m; path = "SlowlyCartoon/Classes/Home(主页)/Controller/CommentTableViewCell.m"; sourceTree = SOURCE_ROOT; };
 		D677BF901D3DBD40008B11E8 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CommentTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/Controller/CommentTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		D6874F531D4603F200CEC87A /* heart_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_selected.png; sourceTree = "<group>"; };
+		D6874F541D4603F200CEC87A /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		D6874F571D46081300CEC87A /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		D6874F591D462D9700CEC87A /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		D68CFF291D37418400DA832F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D68CFF2A1D37418400DA832F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D68CFF2C1D37419600DA832F /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Mine.storyboard; path = "SlowlyCartoon/Classes/Mine(个人中心)/Controller/Mine.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -1093,6 +1101,10 @@
 		D6A449BB1D37242A0096830F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D6874F591D462D9700CEC87A /* share.png */,
+				D6874F571D46081300CEC87A /* download.png */,
+				D6874F531D4603F200CEC87A /* heart_selected.png */,
+				D6874F541D4603F200CEC87A /* heart.png */,
 				D68CFF4C1D379BC100DA832F /* jiantou.png */,
 				D68CFF421D37970C00DA832F /* aboutUs.png */,
 				D68CFF431D37970C00DA832F /* contact.png */,
@@ -1258,9 +1270,11 @@
 				D64F52DB1D4255FE00114B4C /* 范冰冰.png in Resources */,
 				D6284A421D38D6BF00232F2D /* MineSettingTableViewCell.xib in Resources */,
 				D677BF8A1D3DBA87008B11E8 /* DiversityCollectionViewCell.xib in Resources */,
+				D6874F5A1D462D9700CEC87A /* share.png in Resources */,
 				D68CFF331D3779BB00DA832F /* userDefault.png in Resources */,
 				D69A7EB71D3CC14500910C47 /* voiceCellOfFriends.xib in Resources */,
 				D627E6961D38D18F00D36EDB /* OneTableViewCell.xib in Resources */,
+				D6874F581D46081300CEC87A /* download.png in Resources */,
 				D6217E251D38F23B00CB6130 /* yuyin2.png in Resources */,
 				D6A449C91D37242A0096830F /* tabbar_me_sel@2x.png in Resources */,
 				D677BF921D3DBD40008B11E8 /* CommentTableViewCell.xib in Resources */,
@@ -1284,6 +1298,7 @@
 				D658048F1D3A5631000650EA /* xiaoshipin.png in Resources */,
 				D64F52D81D4255FE00114B4C /* picture2.png in Resources */,
 				D6A449C61D37242A0096830F /* tabbar_home@2x.png in Resources */,
+				D6874F561D4603F200CEC87A /* heart.png in Resources */,
 				D69A7EAC1D3CB26700910C47 /* voiceButton.png in Resources */,
 				D65804941D3A5631000650EA /* zhuanzhang.png in Resources */,
 				D64F381B1D3B830A00686849 /* ImageCellOfFriends.xib in Resources */,
@@ -1301,6 +1316,7 @@
 				D69A7EB01D3CB6CE00910C47 /* s1.png in Resources */,
 				D6AA70421D3E153A0022733F /* qq2.png in Resources */,
 				D64F52BF1D4250BA00114B4C /* FamilyGroup.plist in Resources */,
+				D6874F551D4603F200CEC87A /* heart_selected.png in Resources */,
 				D64F38161D3B80D500686849 /* ImageCellOfMine.xib in Resources */,
 				D65804921D3A5631000650EA /* mingpian.png in Resources */,
 				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,

@@ -23,7 +23,7 @@
     
     self.layer.masksToBounds = YES;
     
-    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:22];
+    _nameLabel.font = Font_22;
 }
 
 @end

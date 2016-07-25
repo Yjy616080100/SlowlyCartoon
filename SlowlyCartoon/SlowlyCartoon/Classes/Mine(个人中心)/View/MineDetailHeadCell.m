@@ -17,7 +17,7 @@
     
     _avatorImage.layer.masksToBounds = YES;
     
-    _contentLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:21];
+    _contentLabel.font = Font_22;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

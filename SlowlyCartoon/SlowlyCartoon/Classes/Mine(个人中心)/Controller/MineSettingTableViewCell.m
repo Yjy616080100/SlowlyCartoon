@@ -13,9 +13,9 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    _contentLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20];
+    _contentLabel.font = Font_20;
     
-    _detailLbel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    _detailLbel.font = Font_18;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -13,7 +13,10 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    _HightEnerLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    _HightEnerLabel.font = Font_20;
+    
+    _HightEnerLabel.textColor = myRedColor;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

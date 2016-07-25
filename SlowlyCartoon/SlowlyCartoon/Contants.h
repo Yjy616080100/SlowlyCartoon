@@ -39,6 +39,28 @@
 
 #define myGreenColor [UIColor colorWithRed:107/255.0 green:1 blue:232/255.0 alpha:1]
 
+#define myWhiteColor [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1]
+
 #define myRedColor [UIColor colorWithRed:255/255.0 green:60/255.0 blue:14/255.0 alpha:1]
+
+//font
+
+#define Font_12 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:12]
+
+#define Font_14 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14]
+
+#define Font_16 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:16]
+
+#define Font_18 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:18]
+
+#define Font_20 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20]
+
+#define Font_22 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:22]
+
+#define Font_24 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:24]
+
+#define Font_26 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:26]
+
+#define Font_28 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:28]
 
 #endif /* Contants_h */

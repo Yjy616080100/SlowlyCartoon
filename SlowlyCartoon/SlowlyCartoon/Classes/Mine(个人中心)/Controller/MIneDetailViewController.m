@@ -182,7 +182,7 @@
     
    
     
-    appearanceLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:18];
+    appearanceLabel.font = Font_18;
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     

@@ -20,11 +20,11 @@
 
     // Configure the view for the selected state
     
-    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:16];
+    _nameLabel.font = Font_16;
     
-    _descLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:16];
+    _descLabel.font = Font_16;
     
-    _Label.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:16];
+    _Label.font = Font_16;
     
     _Label.textColor = myRedColor;
 }

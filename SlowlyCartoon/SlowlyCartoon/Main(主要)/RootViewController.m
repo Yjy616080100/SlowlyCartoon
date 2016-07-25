@@ -25,9 +25,14 @@
     
     [self setUpViewControllers];
 //    
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14]} forState:(UIControlStateNormal)];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:Font_14} forState:(UIControlStateNormal)];
     
     self.tabBar.tintColor = myRedColor;
+    
+    self.tabBar.backgroundColor = myWhiteColor;
+    
+//    干掉半透明
+    self.tabBarController.tabBar.translucent = NO;
 }
 
 #pragma MARK- 初始化 Controllers
@@ -61,9 +66,9 @@
     
     nav.navigationBar.tintColor = [UIColor whiteColor];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:28]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:Font_28}];
     
-
+    nav.navigationBar.alpha = 1;
     
     VC.tabBarItem.image = [UIImage imageNamed:imageName];
     

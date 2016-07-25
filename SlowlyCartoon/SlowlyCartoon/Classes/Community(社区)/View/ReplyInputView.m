@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIView *tapView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, MAXFLOAT)];
-        //NSLog(@"%f,%f,%f,%f",self.tableView.frame.size.width,self.tableView.frame.size.height,screenWidth,screenHeight);
+
         tapView.backgroundColor = [UIColor clearColor];
         
         tapView.userInteractionEnabled = YES;
@@ -84,9 +84,11 @@
     
     UILabel *lblPlaceholder = [[UILabel alloc] initWithFrame:CGRectMake(15.0f, padding+2, 50, (replyTextHeight-2*padding-4))];
     
-    lblPlaceholder.font = [UIFont systemFontOfSize:15.0f];
+    lblPlaceholder.font = Font_12;
     
-    lblPlaceholder.text = @"评论...";
+    lblPlaceholder.text = @"# 好友评论";
+    
+    
     lblPlaceholder.textColor = [UIColor lightGrayColor];
     
     lblPlaceholder.backgroundColor = [UIColor clearColor];
@@ -154,9 +156,12 @@
 -(void)sendButtonPressed
 {
     if ([self.sendTextView.text isEqualToString:@""]) {  //用户没有输入评价内容
+        
         return;
     }
+    
     self.replyBlock(self.sendTextView.text,self.replyTag);
+    
     [self disappear];
 }
 

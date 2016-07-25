@@ -45,6 +45,9 @@ UITableViewDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = myRedColor
+    ;
     //数组初始化
     self.rankingArray = [NSMutableArray array];
     

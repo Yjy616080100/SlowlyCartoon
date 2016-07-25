@@ -18,7 +18,7 @@
     
     _avatorImage.layer.cornerRadius = 55;
     
-    _contentField.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:50];
+    _contentField.font = Font_28;
     
     _contentField.textColor = myRedColor;
 }

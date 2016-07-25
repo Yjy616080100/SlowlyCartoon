@@ -7,15 +7,23 @@
 //
 
 #import "DetailsViewController.h"
+
 #import "DiversityViewController.h"
+
 #import "CommentViewController.h"
+
 #import "DetailsRequest.h"
+
 #import "DiversityModel.h"
+
 #import "CommentModel.h"
+
+#import "ImageViewController.h"
 
 @interface DetailsViewController ()
 <
-UIScrollViewDelegate
+    UIScrollViewDelegate,
+    DiversityViewControllerDelegate
 >
 
 //  模糊图片
@@ -45,6 +53,8 @@ UIScrollViewDelegate
 @property(nonatomic,strong)NSDictionary *dataDuct;
 //创建一个数组接收评论数据
 @property (nonatomic,strong)NSMutableArray *comArray;
+
+@property (nonatomic,assign) BOOL isHidden;
 @end
 
 @implementation DetailsViewController
@@ -52,7 +62,14 @@ UIScrollViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //    正在加载
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hud.color = myRedColor;
+    
+    hud.detailsLabelFont = Font_16;
+    
+    hud.detailsLabelText = @"加载中……";
     
     self.view.backgroundColor= [UIColor whiteColor];
     
@@ -61,27 +78,44 @@ UIScrollViewDelegate
     self.comArray = [NSMutableArray array];
     
     
+//leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<主页" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
     //请求数据
     [self request];
-    //隐藏导航栏
-//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+
 
 }
-
+- (void)leftItemAction:(UIBarButtonItem * )sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)viewWillAppear:(BOOL)animated{
     
-    //隐藏tabbar
-    self.tabBarController.tabBar.hidden = YES;
+
     
-    [super viewWillAppear:animated];
+}
+//隐藏navBar
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    _isHidden = !_isHidden;
+    
+    [self.navigationController setNavigationBarHidden:_isHidden animated:YES];
+    
+    [self.tabBarController.tabBar setHidden:_isHidden];
+    
+}
+- (void)viewDidDisappear:(BOOL)animated{
+
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    //隐藏tabbar
-    self.tabBarController.tabBar.hidden = NO;
-    
-    [super viewDidDisappear:animated];
-}
 //请求数据
 - (void)request
 {
@@ -113,11 +147,15 @@ UIScrollViewDelegate
             [self addSegment];
             // 添加滑动
             [self addScrollView];
-            // 设置代理
-            self.scrollView.delegate = self;
+            
             // 添加控制器
             [self addController];
-        
+            
+            // 设置代理
+            self.scrollView.delegate = self;
+            
+            self.diversityVC.delegate = self;
+
         
         
 });
@@ -156,16 +194,18 @@ UIScrollViewDelegate
     // 添加模糊图片
 -(void)addFuzzyImageView{
     self.fuzzyImageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height *0.25)];
+    
     self.fuzzyImageV.contentMode = UIViewContentModeScaleAspectFit;
     
     [self.fuzzyImageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",[self.dataDuct objectForKey:@"comic_pic_516_306"]]]];
-    //    self.fuzzyImageV.backgroundColor = [UIColor redColor];
     
     [self.view addSubview:self.fuzzyImageV];
     
     // 设置成模糊色
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.fuzzyImageV.frame.size.width, self.fuzzyImageV.frame.size.height)];
+    
     toolbar.barStyle = UIBarStyleBlackTranslucent;
+    
     [self.fuzzyImageV addSubview:toolbar];
     
 }
@@ -174,9 +214,13 @@ UIScrollViewDelegate
 -(void)addUpView{
     
     self.upView = [[UIView alloc] init];
+    
     self.upView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height *0.25);
+    
     self.upView.backgroundColor = [UIColor clearColor];
+    
     [self.upView bringSubviewToFront:self.fuzzyImageV];
+    
     [self.view addSubview:self.upView];
 }
 
@@ -206,7 +250,7 @@ UIScrollViewDelegate
 // 添加漫画名字
 -(void)addComicNameLabel{
     
-    self.comicNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.smallImageV.frame), CGRectGetMaxY(self.smallImageV.frame) + 5, self.smallImageV.frame.size.width + 10, self.smallImageV.frame.size.height *0.2)];
+    self.comicNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.smallImageV.frame), CGRectGetMaxY(self.smallImageV.frame) + 5, self.smallImageV.frame.size.width + 50, self.smallImageV.frame.size.height *0.2)];
     
     NSString * name = [self.dataDuct objectForKey:@"comic_name"];
     
@@ -214,8 +258,9 @@ UIScrollViewDelegate
     
     self.comicNameLabel.textColor = [UIColor whiteColor];
     
-    self.comicNameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    self.comicNameLabel.font = Font_16;
     
+    self.comicNameLabel.textAlignment = NSTextAlignmentLeft;
     
     [self.upView addSubview:self.comicNameLabel];
     
@@ -230,11 +275,11 @@ UIScrollViewDelegate
     
     self.authorNameLabel.text = [NSString stringWithFormat:@"作者：%@",authorName];
     
-    self.authorNameLabel.textAlignment = NSTextAlignmentCenter;
+    self.authorNameLabel.textAlignment = NSTextAlignmentLeft;
     
     self.authorNameLabel.textColor = [UIColor whiteColor];
     
-    self.authorNameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    self.authorNameLabel.font = Font_16;
     
     [self.upView addSubview:self.authorNameLabel];
     
@@ -245,29 +290,34 @@ UIScrollViewDelegate
     
     self.praiseButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.praiseButton.frame = CGRectMake(CGRectGetMaxX(self.authorNameLabel.frame) + 70, CGRectGetMinY(self.smallImageV.frame) + 10, self.smallImageV.frame.size.width*2/3, self.smallImageV.frame.size.height*2/6);
+    self.praiseButton.frame = CGRectMake(CGRectGetMaxX(self.authorNameLabel.frame) - 10, CGRectGetMinY(self.smallImageV.frame), self.smallImageV.frame.size.width*2/3, self.smallImageV.frame.size.height*2/6);
     
     //    self.praiseButton.backgroundColor = [UIColor yellowColor];
     
-    [self.praiseButton setTitle:@"♡  赞" forState:(UIControlStateNormal)];
+//    [self.praiseButton setTitle:@"♡  赞" forState:(UIControlStateNormal)];
+//    
+//    [self.praiseButton setImage:[UIImage imageNamed:@"heart.png"] forState:(UIControlStateNormal)];
+//    
+//    [self.praiseButton setImage:[UIImage imageNamed:@"heart_selected.png"] forState:(UIControlStateSelected)];
 
     [self.praiseButton setTintColor:[UIColor redColor]];
     
     [self.upView addSubview:self.praiseButton];
     
-    [self.praiseButton addTarget:self action:@selector(praiseButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.praiseButton addTarget:self action:@selector(praiseButtonAction:) forControlEvents:(UIControlEventTouchDown)];
     
 }
 // 添加观看人数
 -(void)addLookerLabel{
     
-    self.lookerLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.authorNameLabel.frame)+80, CGRectGetMinY(self.authorNameLabel.frame), self.authorNameLabel.frame.size.width, self.authorNameLabel.frame.size.height)];
+    self.lookerLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.praiseButton.frame) - 20, CGRectGetMinY(self.smallImageV.frame) + CGRectGetMaxY(self.praiseButton.frame), self.authorNameLabel.frame.size.width, self.authorNameLabel.frame.size.height)];
     
-    self.lookerLabel.text = [self.dataDuct objectForKey:@"score"];
+    self.lookerLabel.text = [NSString stringWithFormat:@"%@已观看",[self.dataDuct objectForKey:@"score"]];
     
-    //    self.lookerLabel.backgroundColor = [UIColor redColor];
-    self.lookerLabel.textColor = [UIColor whiteColor];
-    self.lookerLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.lookerLabel.textColor = myRedColor;
+
+    self.lookerLabel.font = Font_22;
+    
     [self.upView addSubview:self.lookerLabel];
     
     
@@ -281,10 +331,17 @@ UIScrollViewDelegate
 
 // 添加SegmentControl
 -(void)addSegment{
-    self.segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"目录",@"评论"]];
+    
+    self.segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"目   录",@"评   论"]];
+    
+    [self.segmentControl setTintColor:myRedColor];
+    
     self.segmentControl.frame = CGRectMake(CGRectGetMinX(self.upView.frame), CGRectGetMaxY(self.upView.frame), self.upView.frame.size.width, self.view.frame.size.height*0.05);
+    
     [self.segmentControl addTarget:self action:@selector(segmentControlAction:) forControlEvents:(UIControlEventValueChanged)];
+    
     self.segmentControl.selectedSegmentIndex = 0;
+    
     [self.view addSubview:self.segmentControl];
     
 }
@@ -292,10 +349,15 @@ UIScrollViewDelegate
 -(void)addScrollView{
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.segmentControl.frame), self.view.frame.size.width, self.view.frame.size.height*0.70)];
+    
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width*2, 0);
+    
     self.scrollView.backgroundColor = [UIColor redColor];
+    
     self.scrollView.pagingEnabled = YES;
+    
     self.scrollView.bounces = NO;
+    
     [self.view addSubview:self.scrollView];
     
 }
@@ -305,6 +367,7 @@ UIScrollViewDelegate
     self.commentVC = [CommentViewController new];
     
     self.diversityVC.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    
     self.commentVC.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
     
@@ -318,17 +381,23 @@ UIScrollViewDelegate
     NSArray *array = [self.dataDuct objectForKey:@"comic_order_arr"];
     
     for (NSDictionary *dic in array) {
+        
         DiversityModel *model = [[DiversityModel alloc]init];
+        
         [model setValuesForKeysWithDictionary:dic];
+        
         [self.diversityVC.diversityArray addObject:model];
     }
+    
     [self.scrollView addSubview:self.diversityVC.view];
+    
     [self.scrollView addSubview:self.commentVC.view];
     
 }
 
 // segmentControl 点击事件
 -(void)segmentControlAction:(UISegmentedControl *)sender{
+    
     [self.scrollView setContentOffset:CGPointMake(sender.selectedSegmentIndex * self.scrollView.frame.size.width, 0) animated:NO];
 }
 
@@ -336,15 +405,39 @@ UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger n = scrollView.contentOffset.x / scrollView.frame.size.width;
+    
     self.segmentControl.selectedSegmentIndex = n;
 }
 
+//DiversityViewController的代理方法(push 传值)
+- (void)DiversityViewControllerPushAction:(NSString*)string{
+    
+    ImageViewController* imageVC = [ImageViewController new];
+    
+    
+    imageVC.onlyIdx = string;
+    
+    imageVC.onlyID = self.onlyID;
+     
+    [self.navigationController pushViewController:imageVC animated:YES];
+}
 
+//DiversityViewController的代理方法 隐藏
+- (void)DiversityViewControllerNavHideen{
 
+    _isHidden = !_isHidden;
+    
+    [self.navigationController setNavigationBarHidden:_isHidden animated:YES];
+    
+    [self.tabBarController.tabBar setHidden:_isHidden];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 

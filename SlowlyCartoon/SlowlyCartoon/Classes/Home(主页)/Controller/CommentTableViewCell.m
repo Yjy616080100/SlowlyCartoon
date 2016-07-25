@@ -15,11 +15,11 @@
     
     self.userInteractionEnabled = NO;
     
-    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20];
+    _nameLabel.font = Font_22;
     
-    _timeLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:10];
+    _timeLabel.font = Font_12;
     
-    _msgLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14];
+    _msgLabel.font = Font_14;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

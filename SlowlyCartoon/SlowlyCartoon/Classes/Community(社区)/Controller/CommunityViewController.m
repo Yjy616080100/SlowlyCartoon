@@ -50,7 +50,7 @@
     
     
     
-    _familyTableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 64, Win_W, Win_H) style:(UITableViewStylePlain)];
+    _familyTableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 64, Win_W, Win_H - 112) style:(UITableViewStylePlain)];
     
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -120,7 +120,7 @@
     
     nameLabel.text = @"Slowly Pangpang";
     
-    nameLabel.font = [UIFont systemFontOfSize:13];
+    nameLabel.font = [UIFont systemFontOfSize:16];
     
     nameLabel.textColor = [UIColor whiteColor];
     
@@ -243,7 +243,7 @@
         
         [replyButton setTitleColor:[UIColor whiteColor] forState:0];
         
-        replyButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
+        replyButton.titleLabel.font = [UIFont systemFontOfSize:14];
         
         [replyButton addTarget:self action:@selector(replyMessage:) forControlEvents:UIControlEventTouchUpInside];
         

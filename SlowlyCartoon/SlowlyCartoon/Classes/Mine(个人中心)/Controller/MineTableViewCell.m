@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    _contentField.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20];
+    _contentField.font = Font_20;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
