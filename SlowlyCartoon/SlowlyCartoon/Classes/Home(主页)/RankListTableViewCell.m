@@ -12,6 +12,16 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    
+    _painterLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    
+    _orderidxLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    
+    _likeLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14];
+    
+    _commentLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

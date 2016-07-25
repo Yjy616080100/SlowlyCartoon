@@ -60,15 +60,22 @@ UICollectionViewDataSource
 }
 // 漫画简介
 -(void)addBriefIntroduceLabel{
+    
     self.briefIntroduceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height*0.1)];
     
     
-    self.briefIntroduceLabel.text = self.briefIntroduceString;
+    self.briefIntroduceLabel.text = @"漫漫漫画是为6000万漫画迷倾心打造一款APP。这里有最新最热门的巨星养成计划，薄荷之夏，斗破苍穹，盗墓笔记，班长大人，勇敢的女孩，花千骨，爱情公寓，暴走邻居，穿越西元3000年后，斗罗大陆漫画书等最好看的漫画书连载";
+    
     NSLog(@"%@",self.briefIntroduceString);
     
     
-    self.briefIntroduceLabel.textColor = [UIColor grayColor];
+    self.briefIntroduceLabel.textColor = myRedColor;
+    
     self.briefIntroduceLabel.backgroundColor = [UIColor whiteColor];
+    
+    self.briefIntroduceLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:18];
+    
+    self.briefIntroduceLabel.numberOfLines = 0;
     
     [self.view addSubview:self.briefIntroduceLabel];
 }
@@ -89,12 +96,14 @@ UICollectionViewDataSource
     //  设置
     
     self.setCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.briefIntroduceLabel.frame), self.view.frame.size.width, self.view.frame.size.height*0.5) collectionViewLayout:flowLayout];
+    
     self.setCollectionView.delegate = self;
+    
     self.setCollectionView.dataSource = self;
     //注册
     [self.setCollectionView registerNib:[UINib nibWithNibName:@"DiversityCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:DiversityCollectionViewCell_Identify];
     
-    self.setCollectionView.backgroundColor = [UIColor grayColor];
+    self.setCollectionView.backgroundColor = [UIColor lightGrayColor];
     
     [self.view addSubview:self.setCollectionView];
     

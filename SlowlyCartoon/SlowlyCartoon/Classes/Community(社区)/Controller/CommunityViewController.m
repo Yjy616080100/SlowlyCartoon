@@ -16,6 +16,9 @@
 
 #import "ReplyInputView.h"
 
+#define Win_W [UIScreen mainScreen].bounds.size.width
+
+#define Win_H [UIScreen mainScreen].bounds.size.height
 @interface CommunityViewController ()
 <
     UITableViewDataSource,
@@ -44,7 +47,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _familyTableView =[[UITableView alloc]initWithFrame:self.view.bounds style:(UITableViewStylePlain)];
+    
+    
+    
+    _familyTableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 64, Win_W, Win_H) style:(UITableViewStylePlain)];
+    
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:_familyTableView];
     
@@ -70,6 +79,22 @@
 #define headIconWidth 50
 #define headIconHeight 50
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor clearColor];
+    
+    [super viewWillAppear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
+    
+    [super viewDidDisappear:animated];
+}
 #pragma mark - 这些进入应用就应该全部保存起来，直接问服务器拿数据，保存，类似username,之后可以直接取，图片可以放入沙盒暂存
 
 -(void)addHeaderView

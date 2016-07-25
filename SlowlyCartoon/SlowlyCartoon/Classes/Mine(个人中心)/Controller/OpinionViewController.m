@@ -7,9 +7,8 @@
 //
 
 #import "OpinionViewController.h"
-#import <SKPSMTPMessage.h>
-#import "NSData+Base64Additions.h"
-@interface OpinionViewController ()<UITextViewDelegate,SKPSMTPMessageDelegate>
+
+@interface OpinionViewController ()<UITextViewDelegate>
 
 @end
 
@@ -137,44 +136,44 @@
 
 #pragma mark --------------------------发送邮件====================
 
-- (void)sendEmailAction{
-    SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
-    testMsg.fromEmail = @"441050671@qq.com";
-    testMsg.toEmail =@"964949992@qq.com";
-    testMsg.relayHost = @"smtp.qq.com";
-    testMsg.requiresAuth = YES;
-    testMsg.login = @"441050671@qq.com";
-    testMsg.pass = @"1010011150.0";
-    testMsg.subject = [NSString stringWithCString:"测试" encoding:NSUTF8StringEncoding];
-    testMsg.bccEmail = @"bcc@qq.com";
-    testMsg.wantsSecure = YES; // smtp.gmail.com doesn't work without TLS!
-    
-    // Only do this for self-signed certs!
-    // testMsg.validateSSLChain = NO;
-    testMsg.delegate = self;
-    
-    NSDictionary *plainPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
-                               [NSString stringWithCString:"测试正文" encoding:NSUTF8StringEncoding],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
-    
-    NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
-    NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath];
-    
-    NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
-                             @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
-    
-    testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
-    
-    [testMsg send];
-}
+//- (void)sendEmailAction{
+//    SKPSMTPMessage *testMsg = [[SKPSMTPMessage alloc] init];
+//    testMsg.fromEmail = @"441050671@qq.com";
+//    testMsg.toEmail =@"964949992@qq.com";
+//    testMsg.relayHost = @"smtp.qq.com";
+//    testMsg.requiresAuth = YES;
+//    testMsg.login = @"441050671@qq.com";
+//    testMsg.pass = @"1010011150.0";
+//    testMsg.subject = [NSString stringWithCString:"测试" encoding:NSUTF8StringEncoding];
+//    testMsg.bccEmail = @"bcc@qq.com";
+//    testMsg.wantsSecure = YES; // smtp.gmail.com doesn't work without TLS!
+//    
+//    // Only do this for self-signed certs!
+//    // testMsg.validateSSLChain = NO;
+//    testMsg.delegate = self;
+//    
+//    NSDictionary *plainPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey,
+//                               [NSString stringWithCString:"测试正文" encoding:NSUTF8StringEncoding],kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
+//    
+//    NSString *vcfPath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"vcf"];
+//    NSData *vcfData = [NSData dataWithContentsOfFile:vcfPath];
+//    
+//    NSDictionary *vcfPart = [NSDictionary dictionaryWithObjectsAndKeys:@"text/directory;\r\n\tx-unix-mode=0644;\r\n\tname=\"test.vcf\"",kSKPSMTPPartContentTypeKey,
+//                             @"attachment;\r\n\tfilename=\"test.vcf\"",kSKPSMTPPartContentDispositionKey,[vcfData encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+//    
+//    testMsg.parts = [NSArray arrayWithObjects:plainPart,vcfPart,nil];
+//    
+//    [testMsg send];
+//}
 
--(void)messageSent:(SKPSMTPMessage *)message{
-    
-    NSLog(@"message ==============%@",message);
-}
--(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
-    
-    NSLog(@"message ==============%@,error=====%@",message,error);
-}
+//-(void)messageSent:(SKPSMTPMessage *)message{
+//    
+//    NSLog(@"message ==============%@",message);
+//}
+//-(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
+//    
+//    NSLog(@"message ==============%@,error=====%@",message,error);
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

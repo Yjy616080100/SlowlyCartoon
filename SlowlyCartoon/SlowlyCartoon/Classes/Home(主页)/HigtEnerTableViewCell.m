@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    _HightEnerLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

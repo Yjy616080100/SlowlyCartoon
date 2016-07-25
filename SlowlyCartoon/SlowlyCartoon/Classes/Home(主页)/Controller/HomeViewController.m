@@ -28,37 +28,74 @@ UIScrollViewDelegate
 
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.segControl = [[UISegmentedControl alloc] initWithItems:@[@"推荐", @"高能",@"排行"]];
+    
+//    改变segment的字体
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20]} forState:(UIControlStateNormal)];
+    
     self.navigationItem.titleView = self.segControl;
+    
     [self.segControl addTarget:self action:@selector(segmentedControlAction:) forControlEvents:UIControlEventValueChanged];
+    
     self.segControl.selectedSegmentIndex = 0;
     
     // 创建scrollView
     self.scoView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    
     [self.view addSubview:self.scoView];
+    
     // 设置scrollView的内容
     self.scoView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 3, 0);
+    
     self.scoView.pagingEnabled = YES;
+    
     self.scoView.bounces = NO;
     
     // 创建控制器
     self.recomVC = [RecommendViewController new];
+    
     self.higtenerVC = [HigtenerViewController new];
+    
     self.ranklistVC = [RankListViewController new];
     // 添加为self的子控制器
     [self addChildViewController:self.recomVC];
+    
     [self addChildViewController:self.higtenerVC];
+    
     [self addChildViewController:self.ranklistVC];
+    
     self.recomVC.view.frame = CGRectMake(0, 0, self.scoView.frame.size.width, CGRectGetHeight(self.scoView.frame));
+    
     self.higtenerVC.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, self.scoView.frame.size.width, CGRectGetHeight(self.scoView.frame));
+    
     self.ranklistVC.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width*2, 0, self.scoView.frame.size.width, CGRectGetHeight(self.scoView.frame));
+    
     [self.scoView addSubview:self.higtenerVC.view];
+    
     [self.scoView addSubview:self.recomVC.view];
+    
     [self.scoView addSubview:self.ranklistVC.view];
-    self.higtenerVC.view.backgroundColor=[UIColor redColor];
-    self.recomVC.view.backgroundColor = [UIColor blueColor];
-    self.ranklistVC.view.backgroundColor=[UIColor greenColor];
+    
+    self.higtenerVC.view.backgroundColor = [UIColor whiteColor];
+    
+    self.recomVC.view.backgroundColor = [UIColor whiteColor];
+    
+    self.ranklistVC.view.backgroundColor = [UIColor whiteColor];
+ 
+//    关闭自动适应
+    self.higtenerVC.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.recomVC.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.ranklistVC.automaticallyAdjustsScrollViewInsets = NO;
+    
+
+    
+    
+    
     // 设置scrollView的代理
     self.scoView.delegate = self;
     
@@ -71,6 +108,7 @@ UIScrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger n = scrollView.contentOffset.x / scrollView.frame.size.width;
+    
     self.segControl.selectedSegmentIndex = n;
 }
     

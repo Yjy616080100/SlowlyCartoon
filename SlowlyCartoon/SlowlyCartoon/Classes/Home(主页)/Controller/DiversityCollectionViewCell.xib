@@ -13,11 +13,17 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="96" height="70"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PT-ax-xDz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beijing.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wfu-I2-0Yv">
                         <rect key="frame" x="0.0" y="0.0" width="96" height="70"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PT-ax-xDz">
+                        <rect key="frame" x="0.0" y="0.0" width="96" height="70"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.95054810209999996" green="0.29020925780000001" blue="0.12801431360000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="shadowColor" red="0.95054810209999996" green="0.29020925780000001" blue="0.12801431360000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="-1" height="-1"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -25,14 +31,22 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="2PT-ax-xDz" secondAttribute="trailing" id="0uA-gM-Cdw"/>
                 <constraint firstItem="2PT-ax-xDz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8xn-SY-37t"/>
+                <constraint firstAttribute="trailing" secondItem="wfu-I2-0Yv" secondAttribute="trailing" id="HbW-MD-oUf"/>
+                <constraint firstItem="wfu-I2-0Yv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ksa-nl-um1"/>
                 <constraint firstItem="2PT-ax-xDz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z6J-2i-x6P"/>
+                <constraint firstItem="wfu-I2-0Yv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="e44-5c-eUk"/>
+                <constraint firstAttribute="bottom" secondItem="wfu-I2-0Yv" secondAttribute="bottom" id="k9h-2E-nbu"/>
                 <constraint firstAttribute="bottom" secondItem="2PT-ax-xDz" secondAttribute="bottom" id="tzF-xP-bPu"/>
             </constraints>
             <size key="customSize" width="96" height="70"/>
             <connections>
+                <outlet property="BGImageV" destination="wfu-I2-0Yv" id="Ees-oW-mdL"/>
                 <outlet property="nameLabel" destination="2PT-ax-xDz" id="6Po-4N-Tq3"/>
             </connections>
             <point key="canvasLocation" x="363" y="385"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="beijing.jpg" width="480" height="800"/>
+    </resources>
 </document>

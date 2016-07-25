@@ -10,6 +10,7 @@
 
 #define DiversityCollectionViewCell_Identify @"DiversityCollectionViewCell_Identify"
 @interface DiversityCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *BGImageV;
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @end

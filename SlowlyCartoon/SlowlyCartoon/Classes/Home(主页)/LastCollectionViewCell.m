@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14];
+    
+    _orderidxLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:10];
+    
+    _orderidxLabel.textColor = myRedColor;
 }
 
 @end

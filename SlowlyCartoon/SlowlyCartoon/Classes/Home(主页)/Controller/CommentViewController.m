@@ -36,6 +36,7 @@ UITableViewDelegate
     self.commentTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
    
     self.commentTableView.delegate = self;
+    
     self.commentTableView.dataSource = self;
     
     [self.commentTableView registerNib:[UINib nibWithNibName:@"CommentTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CommentTableViewCell_Identify];
@@ -52,17 +53,23 @@ UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentTableViewCell_Identify];
+    
     CommentModel *model = self.commentArray[indexPath.row];
     
     [cell.ImageV setImageWithURL:[NSURL URLWithString:model.user_pic]];
+    
     cell.nameLabel.text = model.user_nickname;
+    
     cell.timeLabel.text = model.order_comment_time;
+    
     cell.msgLabel.text = model.order_comment_msg;
+    
     return cell;
 }
+#define cellHeight 150
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 150;
+    return cellHeight;
 }
 
 

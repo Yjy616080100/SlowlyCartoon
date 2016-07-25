@@ -12,6 +12,14 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.userInteractionEnabled = NO;
+    
+    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:20];
+    
+    _timeLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:10];
+    
+    _msgLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

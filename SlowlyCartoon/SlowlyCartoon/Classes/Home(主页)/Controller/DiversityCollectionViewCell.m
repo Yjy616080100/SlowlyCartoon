@@ -12,6 +12,18 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+//    _BGImageV.layer.cornerRadius = 5;
+//    
+//    _BGImageV.layer.masksToBounds = YES;
+//    
+//    self.contentView.backgroundColor = [UIColor clearColor];
+    
+    self.layer.cornerRadius = 10;
+    
+    self.layer.masksToBounds = YES;
+    
+    _nameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:22];
 }
 
 @end

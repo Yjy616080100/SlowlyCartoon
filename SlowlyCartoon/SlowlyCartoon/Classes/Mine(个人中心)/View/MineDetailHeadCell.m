@@ -16,6 +16,8 @@
     _avatorImage.layer.cornerRadius = 40;
     
     _avatorImage.layer.masksToBounds = YES;
+    
+    _contentLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:21];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -146,6 +146,7 @@
     
     if (indexPath.section == 1 && indexPath.row == 0 && userName.length != 0 ) {
         
+       
         cell.detailLabel.text = userName;
         
     }
@@ -172,7 +173,16 @@
 - (void)alertAddInfoViewWithMessage:(NSString*)message placeholder:(NSString*)placeholder indexPath:(NSIndexPath*)indexPath{
     
 //   调用之前 把updateInfo置为nil
+    
     _updateInfo = nil;
+    
+    
+    
+    UILabel * appearanceLabel = [UILabel appearanceWhenContainedIn:UIAlertController.class, nil];
+    
+   
+    
+    appearanceLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:18];
     
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     

@@ -53,19 +53,26 @@ UITableViewDelegate
 -(void)MakeRequest{
     
     __weak typeof(self)weakSelf = self;
+    
     HigtEnerRequest *request = [[HigtEnerRequest alloc] init];
+    
     [request higtEnerRequestWithParameter:nil success:^(NSDictionary *dic) {
       
         NSDictionary *dict1 = dic[@"data"];
+        
         NSArray *array = dict1[@"active_arr"];
         
         for (NSDictionary *dict2 in array) {
+            
             HightEnerModel *model = [HightEnerModel new];
+            
             [model setValuesForKeysWithDictionary:dict2];
+            
             [weakSelf.higtEnerArray addObject:model];
             
             //回到主线程刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 [weakSelf.higtEnerTableView reloadData];
             });
         }
@@ -79,17 +86,21 @@ UITableViewDelegate
 }
 
 //设置cell高度
+#define cellHeight 200
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    
+    return cellHeight;
 }
 
 //设置cell个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     return self.higtEnerArray.count;
 }
 
 //给cell赋值
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     HigtEnerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:HigtEnerTableViewCell_Identify];
     
     HightEnerModel *model = self.higtEnerArray[indexPath.row];
@@ -98,14 +109,19 @@ UITableViewDelegate
     
     cell.HightEnerLabel.text = model.active_name;
     
-    
     return cell;
 }
 //cell的点击方法
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    //关闭cell的点击效果
+    
+    [self.higtEnerTableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     HightEnerModel *model = self.higtEnerArray[indexPath.row];
+    
     WebViewViewController *webVC=[[WebViewViewController alloc]init];
+    
     webVC.urlString = model.active_desc_url;
     //跳转页面
     [self.navigationController pushViewController:webVC animated:YES];

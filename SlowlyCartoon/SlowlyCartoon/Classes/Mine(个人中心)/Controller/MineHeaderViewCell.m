@@ -17,6 +17,10 @@
     _avatorImage.layer.masksToBounds =YES;
     
     _avatorImage.layer.cornerRadius = 55;
+    
+    _contentField.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:50];
+    
+    _contentField.textColor = myRedColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

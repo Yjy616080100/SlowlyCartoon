@@ -35,7 +35,10 @@
 
 
 
+//color
 
+#define myGreenColor [UIColor colorWithRed:107/255.0 green:1 blue:232/255.0 alpha:1]
 
+#define myRedColor [UIColor colorWithRed:255/255.0 green:60/255.0 blue:14/255.0 alpha:1]
 
 #endif /* Contants_h */

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,8 +18,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou.png" translatesAutoresizingMaskIntoConstraints="NO" id="AEK-X7-q3F">
                         <rect key="frame" x="292" y="66" width="20" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="VP8-Xy-9aA"/>
-                            <constraint firstAttribute="width" constant="20" id="YFj-Mh-xXb"/>
+                            <constraint firstAttribute="width" constant="20" id="iBW-JX-Z1l"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Wc-0oV">
@@ -29,25 +29,24 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9l-ff-tar">
-                        <rect key="frame" x="154" y="48" width="144" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="144" id="8Nd-On-6Al"/>
-                            <constraint firstAttribute="height" constant="35" id="dDL-zh-LTO"/>
-                        </constraints>
+                        <rect key="frame" x="149" y="43" width="144" height="63"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                        <color key="textColor" red="0.23911634590849581" green="0.16139553368700907" blue="0.95054810209999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" red="0.95054810209999996" green="0.29020925780000001" blue="0.12801431360000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <size key="shadowOffset" width="-2" height="-1"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="s9l-ff-tar" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="48" id="2zR-Od-LGq"/>
-                    <constraint firstAttribute="trailing" secondItem="AEK-X7-q3F" secondAttribute="trailing" constant="8" id="3a7-cd-uLP"/>
                     <constraint firstItem="ROk-Wc-0oV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="EMD-v4-L2q"/>
-                    <constraint firstItem="s9l-ff-tar" firstAttribute="leading" secondItem="ROk-Wc-0oV" secondAttribute="trailing" constant="30" id="JLW-pK-a93"/>
-                    <constraint firstItem="AEK-X7-q3F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="66" id="bFH-WN-kBF"/>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="leading" secondItem="ROk-Wc-0oV" secondAttribute="trailing" constant="25" id="OUQ-ip-rna"/>
+                    <constraint firstItem="AEK-X7-q3F" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="XEd-JK-BSG"/>
+                    <constraint firstItem="AEK-X7-q3F" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bjX-Z7-Qd5"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="s9l-ff-tar" secondAttribute="trailing" constant="19" id="ckr-lg-ahv"/>
                     <constraint firstItem="ROk-Wc-0oV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="hbL-8c-3aq"/>
+                    <constraint firstItem="AEK-X7-q3F" firstAttribute="centerY" secondItem="s9l-ff-tar" secondAttribute="centerY" id="vMU-2J-ph8"/>
+                    <constraint firstItem="s9l-ff-tar" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="35" id="wcN-KS-3s1"/>
+                    <constraint firstItem="AEK-X7-q3F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="58" id="xkN-Nb-LBY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

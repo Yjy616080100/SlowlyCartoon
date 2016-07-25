@@ -52,9 +52,12 @@ UIScrollViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor= [UIColor cyanColor];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    self.view.backgroundColor= [UIColor whiteColor];
     
     self.dataDuct = [NSDictionary dictionary];
+    
     self.comArray = [NSMutableArray array];
     
     
@@ -62,8 +65,22 @@ UIScrollViewDelegate
     [self request];
     //隐藏导航栏
 //    [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
     //隐藏tabbar
     self.tabBarController.tabBar.hidden = YES;
+    
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    //隐藏tabbar
+    self.tabBarController.tabBar.hidden = NO;
+    
+    [super viewDidDisappear:animated];
 }
 //请求数据
 - (void)request
@@ -75,6 +92,8 @@ UIScrollViewDelegate
         weakSelf.dataDuct =[NSDictionary dictionaryWithDictionary:[[[dic objectForKey:@"data"] objectForKey:@"comic_info"] objectForKey:@"comic_data"]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             
             // 添加模糊图片
             [self addFuzzyImageView];
@@ -131,7 +150,7 @@ UIScrollViewDelegate
     } failure:^(NSError *error) {
         NSLog(@"error = %@",error);
     }];
-    
+
     
 }
     // 添加模糊图片
@@ -167,24 +186,37 @@ UIScrollViewDelegate
     
     
     self.smallImageV = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.upView.frame)+150, CGRectGetMinX(self.upView.frame)+20, self.upView.frame.size.width *1/4, self.upView.frame.size.height*0.6)];
+    
     [self.smallImageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",[self.dataDuct objectForKey:@"comic_pic_300_300"]]]];
     
     self.smallImageV.layer.masksToBounds=YES;
+    
     //设置为图片宽度的一半出来为圆形
     self.smallImageV.layer.cornerRadius=self.smallImageV.frame.size.width/2;
+    
     self.smallImageV.layer.cornerRadius= self.smallImageV.frame.size.height/2;
+    
     self.smallImageV.layer.borderWidth=3.0f;
+    
     self.smallImageV.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
     [self.upView addSubview:self.smallImageV];
     
 }
 // 添加漫画名字
 -(void)addComicNameLabel{
     
-    self.comicNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.smallImageV.frame), CGRectGetMaxY(self.smallImageV.frame) + 5, self.smallImageV.frame.size.width, self.smallImageV.frame.size.height *0.2)];
-    self.comicNameLabel.text = [self.dataDuct objectForKey:@"comic_name"];
+    self.comicNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.smallImageV.frame), CGRectGetMaxY(self.smallImageV.frame) + 5, self.smallImageV.frame.size.width + 10, self.smallImageV.frame.size.height *0.2)];
+    
+    NSString * name = [self.dataDuct objectForKey:@"comic_name"];
+    
+    self.comicNameLabel.text = [NSString stringWithFormat:@"作品：%@",name];
+    
     self.comicNameLabel.textColor = [UIColor whiteColor];
-    self.comicNameLabel.font = [UIFont boldSystemFontOfSize:18];
+    
+    self.comicNameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    
+    
     [self.upView addSubview:self.comicNameLabel];
     
     
@@ -194,10 +226,16 @@ UIScrollViewDelegate
     
     self.authorNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.comicNameLabel.frame), CGRectGetMaxY(self.comicNameLabel.frame) + 5, self.comicNameLabel.frame.size.width, self.comicNameLabel.frame.size.height)];
     
-    self.authorNameLabel.text = [self.dataDuct objectForKey:@"painter_user_nickname"];
+    NSString * authorName = [self.dataDuct objectForKey:@"painter_user_nickname"];
+    
+    self.authorNameLabel.text = [NSString stringWithFormat:@"作者：%@",authorName];
+    
     self.authorNameLabel.textAlignment = NSTextAlignmentCenter;
+    
     self.authorNameLabel.textColor = [UIColor whiteColor];
-    self.authorNameLabel.font = [UIFont boldSystemFontOfSize:18];
+    
+    self.authorNameLabel.font = [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:17];
+    
     [self.upView addSubview:self.authorNameLabel];
     
     
@@ -206,11 +244,15 @@ UIScrollViewDelegate
 -(void)addPraiseButton{
     
     self.praiseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     self.praiseButton.frame = CGRectMake(CGRectGetMaxX(self.authorNameLabel.frame) + 70, CGRectGetMinY(self.smallImageV.frame) + 10, self.smallImageV.frame.size.width*2/3, self.smallImageV.frame.size.height*2/6);
+    
     //    self.praiseButton.backgroundColor = [UIColor yellowColor];
+    
     [self.praiseButton setTitle:@"♡  赞" forState:(UIControlStateNormal)];
 
     [self.praiseButton setTintColor:[UIColor redColor]];
+    
     [self.upView addSubview:self.praiseButton];
     
     [self.praiseButton addTarget:self action:@selector(praiseButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];

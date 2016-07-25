@@ -119,12 +119,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.48544145746213341" green="1" blue="0.90703380374590636" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.48544145750000001" green="1" blue="0.90703380369999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gcY-va-WBL" firstAttribute="leading" secondItem="xbg-FM-f1Q" secondAttribute="leading" constant="28" id="0vn-al-Cge"/>
+                            <constraint firstItem="1l2-aU-hTJ" firstAttribute="top" secondItem="uLT-Ak-d36" secondAttribute="bottom" constant="32" id="3yk-Kp-Hek"/>
                             <constraint firstItem="od8-GC-9Xk" firstAttribute="top" secondItem="gcY-va-WBL" secondAttribute="bottom" constant="35" id="7Cr-JQ-OhQ"/>
                             <constraint firstAttribute="trailing" secondItem="1l2-aU-hTJ" secondAttribute="trailing" constant="77" id="93a-DI-dQp"/>
-                            <constraint firstItem="cG4-1E-HXk" firstAttribute="top" secondItem="kkm-pJ-0eB" secondAttribute="bottom" constant="56" id="BAx-rv-hps"/>
                             <constraint firstItem="K66-rl-91w" firstAttribute="leading" secondItem="xbg-FM-f1Q" secondAttribute="leading" constant="28" id="WHC-QT-95w"/>
                             <constraint firstItem="K66-rl-91w" firstAttribute="top" secondItem="1l2-aU-hTJ" secondAttribute="bottom" constant="41" id="YwZ-YZ-OjA"/>
                             <constraint firstItem="eCY-Xe-L6C" firstAttribute="leading" secondItem="xbg-FM-f1Q" secondAttribute="leading" constant="28" id="d8x-s7-cgw"/>
@@ -134,8 +134,8 @@
                             <constraint firstAttribute="trailing" secondItem="K66-rl-91w" secondAttribute="trailing" constant="28" id="fOH-ce-Dgi"/>
                             <constraint firstItem="1l2-aU-hTJ" firstAttribute="leading" secondItem="xbg-FM-f1Q" secondAttribute="leading" constant="77" id="j3O-vn-F6t"/>
                             <constraint firstItem="eCY-Xe-L6C" firstAttribute="top" secondItem="gcY-va-WBL" secondAttribute="bottom" constant="35" id="mjF-ee-VxC"/>
+                            <constraint firstItem="cG4-1E-HXk" firstAttribute="top" secondItem="kkm-pJ-0eB" secondAttribute="bottom" constant="56" id="rGR-Ix-inl"/>
                             <constraint firstItem="kkm-pJ-0eB" firstAttribute="leading" secondItem="xbg-FM-f1Q" secondAttribute="leading" constant="111" id="u4y-2I-fde"/>
-                            <constraint firstItem="1l2-aU-hTJ" firstAttribute="top" secondItem="uLT-Ak-d36" secondAttribute="bottom" constant="32" id="vzw-cj-W9Y"/>
                             <constraint firstItem="gcY-va-WBL" firstAttribute="top" secondItem="K66-rl-91w" secondAttribute="bottom" constant="17" id="xMz-O2-s9f"/>
                         </constraints>
                     </view>

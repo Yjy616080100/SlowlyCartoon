@@ -24,6 +24,10 @@
     // Do any additional setup after loading the view.
     
     [self setUpViewControllers];
+//    
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:14]} forState:(UIControlStateNormal)];
+    
+    self.tabBar.tintColor = myRedColor;
 }
 
 #pragma MARK- 初始化 Controllers
@@ -51,11 +55,16 @@
     
     UINavigationController * nav = [[UINavigationController alloc]initWithRootViewController:VC];
     
-    nav.navigationBar.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:241/255.0];
+    nav.navigationBar.backgroundColor = myRedColor;
     
-    nav.navigationBar.barTintColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:241/255.0];
+    nav.navigationBar.barTintColor = myRedColor;
+    
+    nav.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:@"Li-Xuke-Comic-Font" size:28]}];
     
 
+    
     VC.tabBarItem.image = [UIImage imageNamed:imageName];
     
     VC.tabBarItem.selectedImage = [UIImage imageNamed:selectedImageName];
