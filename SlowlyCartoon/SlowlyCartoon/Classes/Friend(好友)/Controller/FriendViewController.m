@@ -9,6 +9,7 @@
 #import "FriendViewController.h"
 #import "SingleFriendManager.h"
 #import "ChatViewController.h"
+#import "MyFriendsCell.h"
 typedef void(^valueBlock) (void);//命名block
 @interface FriendViewController ()
 <
@@ -45,8 +46,8 @@ EMContactManagerDelegate
     self.tableView.delegate=self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
     UIImageView *imageV=[[UIImageView alloc]initWithFrame:self.tableView.bounds];
-    imageV.image=[UIImage imageNamed:@"beijing.jpg"];
-    [self.tableView setBackgroundView:imageV];
+    imageV.image=[UIImage imageNamed:@"imagesback1.jpg"];
+//    [self.tableView setBackgroundView:imageV];
     [self.view addSubview:self.tableView];
     
     //从数据库中请求所有好友-->给dataArray赋值
@@ -55,6 +56,10 @@ EMContactManagerDelegate
     
     //设置代理-->当别人添加我时调用代理方法进行提示
     [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
+    
+    //注册XIB
+    [self.tableView registerNib:[UINib nibWithNibName:@"MyFriendsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MyFriendsCell_identify];
     
 }
 
@@ -72,14 +77,15 @@ EMContactManagerDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
+    MyFriendsCell *cell=[tableView dequeueReusableCellWithIdentifier:MyFriendsCell_identify forIndexPath:indexPath];
     if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cellID"];
+        cell=[[MyFriendsCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:MyFriendsCell_identify];
     }
     //cell背景图片
-    cell.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"beijing2.jpg"]];
-    cell.textLabel.text=_dataArray[indexPath.row];
-    cell.textLabel.font=[UIFont systemFontOfSize:22];
+    cell.nameLabel.text=_dataArray[indexPath.row];
+    cell.nameLabel.font=[UIFont systemFontOfSize:22];
+    cell.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"backView1.jpg"]];
+    cell.imageV.image =[UIImage imageNamed:@"biaoqing.png"];
     //取消选中cell的点击颜色
     UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
     view.backgroundColor=[UIColor clearColor];
@@ -91,7 +97,7 @@ EMContactManagerDelegate
 //行高
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 80;
+    return 100;
 }
 #pragma mark------------------------2.登录应用方法------------------------
 
