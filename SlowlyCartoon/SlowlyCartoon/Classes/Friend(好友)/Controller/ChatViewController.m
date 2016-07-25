@@ -74,7 +74,7 @@ AVCaptureMetadataOutputObjectsDelegate//扫描二维码的代理
     self.title =[NSString stringWithFormat:@"正在和%@聊天",self.name];
     self.tabBarController.tabBar.hidden=YES;
     UIImageView *imageV=[[UIImageView alloc]initWithFrame:self.tableView.bounds];
-    imageV.image=[UIImage imageNamed:@"beijing2.jpg"];
+    imageV.image=[UIImage imageNamed:@"xxxx.jpg"];
     [self.tableView setBackgroundView:imageV];
     self.textArray=[NSMutableArray array];
     self.voiceButton.hidden =YES;

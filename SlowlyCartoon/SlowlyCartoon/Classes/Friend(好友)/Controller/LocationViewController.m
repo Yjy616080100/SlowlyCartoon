@@ -56,7 +56,7 @@
     self.imageV=[[UIImageView alloc]initWithFrame:self.mapView.frame];
     [self.view addSubview:self.imageV];
     
-    
+
 }
 
 -(void)leftAction{
@@ -125,6 +125,7 @@
     MKCoordinateRegion region=MKCoordinateRegionMake(userLocation.location.coordinate, span);
     //3.设置用户位置中心
     [self.mapView setRegion:region animated:YES];
+    
     
 }
 

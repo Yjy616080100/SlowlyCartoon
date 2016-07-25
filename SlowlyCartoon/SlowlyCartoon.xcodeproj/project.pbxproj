@@ -186,6 +186,11 @@
 		D6BD5E961D3E4422007D88C3 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6BD5E941D3E4422007D88C3 /* ImageTableViewCell.xib */; };
 		D6F069C61D3DB49700AC0215 /* 李旭科漫画体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6F069C51D3DB48E00AC0215 /* 李旭科漫画体.ttf */; };
 		D6F06A091D3E0E9F00AC0215 /* MIneDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F06A081D3E0E9F00AC0215 /* MIneDetailViewController.m */; };
+		D6F6585A1D45A172004451FF /* backView1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6F658591D45A172004451FF /* backView1.jpg */; };
+		D6F6585C1D45A233004451FF /* imagesback1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6F6585B1D45A233004451FF /* imagesback1.jpg */; };
+		D6F6585E1D45A3AB004451FF /* xxxx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6F6585D1D45A3AB004451FF /* xxxx.jpg */; };
+		D6F658621D45A680004451FF /* MyFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F658601D45A680004451FF /* MyFriendsCell.m */; };
+		D6F658631D45A680004451FF /* MyFriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F658611D45A680004451FF /* MyFriendsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -481,6 +486,12 @@
 		D6BD5E941D3E4422007D88C3 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageTableViewCell.xib; path = "SlowlyCartoon/Classes/Home(主页)/ImageTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		D6F069C51D3DB48E00AC0215 /* 李旭科漫画体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "李旭科漫画体.ttf"; sourceTree = "<group>"; };
 		D6F06A081D3E0E9F00AC0215 /* MIneDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIneDetailViewController.m; sourceTree = "<group>"; };
+		D6F658591D45A172004451FF /* backView1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backView1.jpg; sourceTree = "<group>"; };
+		D6F6585B1D45A233004451FF /* imagesback1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imagesback1.jpg; sourceTree = "<group>"; };
+		D6F6585D1D45A3AB004451FF /* xxxx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xxxx.jpg; sourceTree = "<group>"; };
+		D6F6585F1D45A680004451FF /* MyFriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFriendsCell.h; sourceTree = "<group>"; };
+		D6F658601D45A680004451FF /* MyFriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFriendsCell.m; sourceTree = "<group>"; };
+		D6F658611D45A680004451FF /* MyFriendsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFriendsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +584,9 @@
 				D69A7EBA1D3CC3FB00910C47 /* VoiceCellOfMine.xib */,
 				D6ABFD9E1D4069FB003D21FE /* TwoDimensionalCodeView.h */,
 				D6ABFD9F1D4069FB003D21FE /* TwoDimensionalCodeView.m */,
+				D6F6585F1D45A680004451FF /* MyFriendsCell.h */,
+				D6F658601D45A680004451FF /* MyFriendsCell.m */,
+				D6F658611D45A680004451FF /* MyFriendsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +594,9 @@
 		D6217E1F1D38F1F300CB6130 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D6F6585D1D45A3AB004451FF /* xxxx.jpg */,
+				D6F6585B1D45A233004451FF /* imagesback1.jpg */,
+				D6F658591D45A172004451FF /* backView1.jpg */,
 				D6AA70401D3E153A0022733F /* qq2.png */,
 				D6AA70411D3E153A0022733F /* qq3.png */,
 				D6AA70311D3DCD770022733F /* w1.png */,
@@ -1237,6 +1254,7 @@
 				D68CFF301D3773B200DA832F /* passBg.png in Resources */,
 				D69A7EC21D3CC89E00910C47 /* q3.png in Resources */,
 				D64F52D31D4255FE00114B4C /* buttonSend@2x.png in Resources */,
+				D6F6585A1D45A172004451FF /* backView1.jpg in Resources */,
 				D68CFF4A1D37970C00DA832F /* opinion.png in Resources */,
 				D69A7EBC1D3CC3FB00910C47 /* VoiceCellOfMine.xib in Resources */,
 				D658049C1D3A5D3F000650EA /* CustomCollectionViewCell.xib in Resources */,
@@ -1250,6 +1268,7 @@
 				D65804911D3A5631000650EA /* shipin.png in Resources */,
 				D64F52DE1D4255FE00114B4C /* reply.png in Resources */,
 				D627E69B1D390BDF00D36EDB /* LastCollectionViewCell.xib in Resources */,
+				D6F6585E1D45A3AB004451FF /* xxxx.jpg in Resources */,
 				D6A449C81D37242A0096830F /* tabbar_me@2x.png in Resources */,
 				D6AA70431D3E153A0022733F /* qq3.png in Resources */,
 				D68CFF471D37970C00DA832F /* aboutUs.png in Resources */,
@@ -1262,6 +1281,7 @@
 				D69A7EB71D3CC14500910C47 /* voiceCellOfFriends.xib in Resources */,
 				D627E6961D38D18F00D36EDB /* OneTableViewCell.xib in Resources */,
 				D6217E251D38F23B00CB6130 /* yuyin2.png in Resources */,
+				D6F6585C1D45A233004451FF /* imagesback1.jpg in Resources */,
 				D6A449C91D37242A0096830F /* tabbar_me_sel@2x.png in Resources */,
 				D677BF921D3DBD40008B11E8 /* CommentTableViewCell.xib in Resources */,
 				D6217E291D38FBA000CB6130 /* beijing2.jpg in Resources */,
@@ -1306,6 +1326,7 @@
 				D6284A471D3919FC00232F2D /* AboutUsTableViewCell.xib in Resources */,
 				D69A7EAF1D3CB6CE00910C47 /* s2.png in Resources */,
 				D69A7EC01D3CC89E00910C47 /* q1.png in Resources */,
+				D6F658631D45A680004451FF /* MyFriendsCell.xib in Resources */,
 				D64F52C11D42519D00114B4C /* Community.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1388,6 +1409,7 @@
 				D691F5F81D366FF9004359E1 /* MineViewController.m in Sources */,
 				D691F5A21D366B1E004359E1 /* AppDelegate.m in Sources */,
 				D64F52AE1D424FB100114B4C /* FamilyGroupCell.m in Sources */,
+				D6F658621D45A680004451FF /* MyFriendsCell.m in Sources */,
 				D691F59F1D366B1E004359E1 /* main.m in Sources */,
 				D64F52BB1D42502F00114B4C /* ShowImageViewController.m in Sources */,
 				D68CFF391D3781AC00DA832F /* ContactViewController.m in Sources */,
