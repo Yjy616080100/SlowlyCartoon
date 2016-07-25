@@ -761,8 +761,8 @@
 			isa = PBXGroup;
 			children = (
 				D691F5C31D366C94004359E1 /* BaseClasses */,
-				D691F5C71D366C94004359E1 /* Community(社区) */,
 				D691F5CB1D366C94004359E1 /* Friend(好友) */,
+				D691F5C71D366C94004359E1 /* Community(社区) */,
 				D691F5CF1D366C94004359E1 /* Home(主页) */,
 				D691F5D31D366C94004359E1 /* Mine(个人中心) */,
 			);
