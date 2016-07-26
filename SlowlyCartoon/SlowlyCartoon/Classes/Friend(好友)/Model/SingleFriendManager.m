@@ -27,20 +27,20 @@ static SingleFriendManager *singleManager = nil;
 -(NSArray *)requestAllFrineds{
     
     EMError *error = nil;
-    NSArray *userlist = [[EMClient sharedClient].contactManager getContactsFromServerWithError:&error];
+    NSArray *friendList = [[EMClient sharedClient].contactManager getContactsFromServerWithError:&error];
     
     if (!error) {
-        NSLog(@"成功获取好友--\n%@",userlist);
+        NSLog(@"成功获取好友--\n%@",friendList);
     }
     
-    return userlist;
+    return friendList;
 }
 
 //添加好友 (用户A添加用户B)
 -(void)addFriendWithName:(NSString *)useName{
     
     //参数1：好友用户名    参数2：邀请信息
-    EMError *error = [[EMClient sharedClient].contactManager addContact:useName message:@"我是你克强哥"];
+    EMError *error = [[EMClient sharedClient].contactManager addContact:useName message:@"shabi"];
     if (!error) {
         NSLog(@"添加好友请求已发送--\n");
     }

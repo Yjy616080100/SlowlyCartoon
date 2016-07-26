@@ -166,6 +166,10 @@
     NSData * imageData = UIImageJPEGRepresentation(_avatorImageV.image, 1);
     [[NSUserDefaults standardUserDefaults]setValue:imageData forKey:@"avator"];
     
+//注册成功之后把userName和avator存入数据库
+    
+    [[CoreDataManager shareCoreDataManager]addObjectContextWithUserName:_usernNameTextField.text avator:imageData gender:@"未填写" bornYear:@"未填写" cityName:@"未填写" qqNumber:@"未填写" weChatNumber:@"未填写" weBoNumber:@"未填写" mailboxNumber:@"未填写" phoneNumber:@"未填写" dbName:dataBaseName];
+    
     NSString * log = [NSString stringWithFormat:@"%@,恭喜您注册成功！",_passWordTextfield.text];
     UIAlertController *  alertController = [UIAlertController alertControllerWithTitle:@"漫漫提示您" message:log preferredStyle:(UIAlertControllerStyleAlert)];
     
@@ -269,6 +273,7 @@
 - (void)timerFireMethod:(NSTimer*)theTimer
 {
     UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
+    
     [promptAlert dismissWithClickedButtonIndex:0 animated:YES];
     
 }

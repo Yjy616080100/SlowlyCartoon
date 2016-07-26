@@ -12,10 +12,15 @@
 
 @interface RankListTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *onluOneImageV;
+
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *painterLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *orderidxLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *likeLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *commentLabel;
 
 @end

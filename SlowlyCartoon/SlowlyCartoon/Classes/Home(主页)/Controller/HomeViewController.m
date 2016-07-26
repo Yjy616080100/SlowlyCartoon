@@ -35,6 +35,8 @@ UIScrollViewDelegate
     
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.segControl = [[UISegmentedControl alloc] initWithItems:@[@"推荐", @"高能",@"排行"]];
     
 //    改变segment的字体

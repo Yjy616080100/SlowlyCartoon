@@ -27,6 +27,10 @@
     _Label.font = Font_16;
     
     _Label.textColor = myRedColor;
+    
+    self.contentView.layer.cornerRadius = 10;
+    
+    self.contentView.layer.masksToBounds = YES;
 }
 
 @end

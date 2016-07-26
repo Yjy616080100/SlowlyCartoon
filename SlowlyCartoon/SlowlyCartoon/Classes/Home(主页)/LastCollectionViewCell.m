@@ -17,6 +17,10 @@
     _orderidxLabel.font = Font_12;
     
     _orderidxLabel.textColor = myRedColor;
+    
+    self.contentView.layer.cornerRadius = 5;
+    
+    self.contentView.layer.masksToBounds = YES;
 }
 
 @end

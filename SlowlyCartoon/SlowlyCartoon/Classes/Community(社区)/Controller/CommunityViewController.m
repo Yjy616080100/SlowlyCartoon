@@ -35,7 +35,6 @@
 
 @property (strong, nonatomic) UITableView *familyTableView;
 
-//用于view的移动，使评论框落在cell下面，没想到别的方法
 @property (nonatomic,assign)float replyViewDraw;
 
 //工具栏的高约束，用于当输入文字过多时改变工具栏的约束
@@ -82,16 +81,16 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor clearColor];
+//    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
+//    
+//    self.navigationController.navigationBar.tintColor = [UIColor clearColor];
     
     [super viewWillAppear:animated];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
+//    self.navigationController.navigationBar.backgroundColor = [UIColor orangeColor];
     
     [super viewDidDisappear:animated];
 }
@@ -390,5 +389,8 @@
         
     }
 }
-
+- (void)dealloc{
+//    移除通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

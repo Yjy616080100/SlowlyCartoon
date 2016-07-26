@@ -13,15 +13,27 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    _nameLabel.font = Font_18;
+    _nameLabel.font = Font_22;
     
-    _painterLabel.font = Font_18;
+    _painterLabel.font = Font_20;
     
-    _orderidxLabel.font = Font_18;
+    _orderidxLabel.font = Font_20;
     
-    _likeLabel.font = Font_14;
+    _likeLabel.font = Font_16;
     
-    _commentLabel.font = Font_14;
+    _commentLabel.font = Font_16;
+    
+    self.contentView.backgroundColor = myWhiteColor;
+    
+    self.contentView.layer.cornerRadius = 10;
+    
+    self.contentView.layer.masksToBounds = YES;
+    
+    _onluOneImageV.layer.cornerRadius = 10;
+    
+    _onluOneImageV.layer.masksToBounds = YES;
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

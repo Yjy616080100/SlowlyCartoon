@@ -21,11 +21,11 @@
 
 @interface RecommendViewController ()
 <
-UIScrollViewDelegate,
-UITableViewDataSource,
-UITableViewDelegate,
-UICollectionViewDelegateFlowLayout,
-UICollectionViewDataSource
+    UIScrollViewDelegate,
+    UITableViewDataSource,
+    UITableViewDelegate,
+    UICollectionViewDelegateFlowLayout,
+    UICollectionViewDataSource
 >
 
 @property(nonatomic,strong)UIScrollView *recommendScrollView;//最底层的UIScrollView
@@ -65,6 +65,7 @@ UICollectionViewDataSource
 {
     [super viewDidLoad];
     
+      self.automaticallyAdjustsScrollViewInsets = NO;
    
     //    正在加载
   MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -77,12 +78,6 @@ UICollectionViewDataSource
 
  //请求数据
     [self requestRecommend];
-    
-    _oneTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        // 进入刷新状态后会自动调用这个block
-         [self requestRecommend];
-    }];
    
 }
 
@@ -97,7 +92,9 @@ UICollectionViewDataSource
 - (void)addUnderlyingScrollView
 {
     // 初始化
-    self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 69, self.view.frame.size.width, self.view.frame.size.height)];
+    
+  
     //
     self.recommendScrollView.bounces = YES;
     
@@ -113,8 +110,7 @@ UICollectionViewDataSource
 
 
 //添加最上面轮播图
-- (void)addTheFirstScrollView
-{
+- (void)addTheFirstScrollView{
     //初始化
     self.firstScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     
@@ -155,6 +151,7 @@ UICollectionViewDataSource
     [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     [self.recommendScrollView addSubview:self.pageControl];
+    
     
 }
 //给每一个点击按钮添加图片
@@ -240,7 +237,9 @@ UICollectionViewDataSource
           scrollView.contentOffset = CGPointMake(scrollviewW, 0);
             pageIndex = 0;
         }else if (index == 0) {
+            
             scrollView.contentOffset = CGPointMake(scrollviewW *(_firstArray.count), 0);
+            
             pageIndex = _firstArray.count-1;
         }
         _pageControl.currentPage = pageIndex;
@@ -287,7 +286,6 @@ UICollectionViewDataSource
     
     //禁止tableView滑动
     self.oneTableView.scrollEnabled = NO;
-    
  
     //注册
     [self.oneTableView registerNib:[UINib nibWithNibName:@"OneTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:OneTableViewCell_Identify];
@@ -349,17 +347,21 @@ UICollectionViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
-    UIImageView *imageV1=[[UIImageView alloc]init];
+    UIImageView *imageV1 = [[UIImageView alloc]init];
     
-    UIImageView *imageV=[[UIImageView alloc]initWithFrame:CGRectMake(30, 10, 354, 30)];
+    UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(30, 10, 354, 30)];
     
     if (section == 0) {
         
         [imageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",self.recommendString]]];
         
+        NSLog(@"===================%@",self.recommendString);
+        
     }else{
         
         [imageV setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.comicq.cn%@",self.hotString]]];
+         NSLog(@"=-----------------%@",self.hotString);
+      
     }
     
     [imageV1 addSubview:imageV];
@@ -395,6 +397,8 @@ UICollectionViewDataSource
     self.ItemizeScrollView.contentSize = CGSizeMake(self.recommendScrollView.frame.size.width*3-110, 0);
     
     self.ItemizeScrollView.backgroundColor = [UIColor whiteColor];
+    
+
     
     [self.recommendScrollView addSubview:self.ItemizeScrollView];
     
@@ -494,20 +498,25 @@ UICollectionViewDataSource
     
     return cell;
 }
-//点击cell实现的方法
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
-{
+
+
+#pragma mark - collectionViewCell点击方法
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     lastCollectionViewModel *model = self.lastArray[indexPath.row];
+    
     DetailsViewController *detaVC = [[DetailsViewController alloc]init];
+    
     detaVC.onlyID = model.oneID;
+    
     detaVC.onlyTime = model.comic_update_time;
+    
+    detaVC.title = model.comic_name;
+    
     //跳转
+    
     [self.navigationController pushViewController:detaVC animated:YES];
 }
-
-
-
-
 
 
 
@@ -635,8 +644,6 @@ UICollectionViewDataSource
             
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             
-            [_oneTableView.header endRefreshing];
-            
             [_oneTableView reloadData];
             
             
@@ -659,7 +666,7 @@ UICollectionViewDataSource
         
         hud.labelFont = Font_24;
         
-        [hud hide: YES afterDelay: 30];
+        [hud hide: YES afterDelay: 10];
         
         NSLog(@"%@",error);
     }];

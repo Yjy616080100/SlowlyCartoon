@@ -13,7 +13,7 @@
 #import "DetailsViewController.h"
 
 
-#define rankListUpBtn_H 50
+#define rankListUpBtn_H 40
 
 #define Win_W [UIScreen mainScreen].bounds.size.width
 
@@ -45,6 +45,14 @@ UITableViewDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //    正在加载
+    MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    hud.color = myRedColor;
+    
+    hud.detailsLabelFont = Font_16;
+    
+    hud.detailsLabelText = @"加载中……";
     
     self.view.backgroundColor = myRedColor
     ;
@@ -55,13 +63,44 @@ UITableViewDelegate
  
     //解析数据
     [self rankingRequest];
-
-    // 添加下面的button按钮
-    [self addRankListUpBtn];
     
+    
+
     // 添加tableView
     [self addTableView];
     
+   MJRefreshGifHeader * header  = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+       
+        [self rankingRequest];
+        
+    }];
+    
+    header.stateLabel.font = Font_20;
+    
+    header.lastUpdatedTimeLabel.font = Font_18;
+    
+    NSArray * idleImages = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
+    
+    NSArray * pullingImages = @[[UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"]];
+    
+    NSArray * refreshingImages = @[[UIImage imageNamed:@"5"],[UIImage imageNamed:@"6"],[UIImage imageNamed:@"7"],
+                                   [UIImage imageNamed:@"8"],[UIImage imageNamed:@"9"],[UIImage imageNamed:@"10"]];
+    
+//   普通状态下的动画图片
+    
+    
+    [header setImages:idleImages forState:MJRefreshStateIdle];
+    
+// 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+    [header setImages:pullingImages forState:MJRefreshStatePulling];
+    
+// 设置正在刷新状态的动画图片
+    [header setImages:refreshingImages duration:0.34f forState:MJRefreshStateRefreshing];
+    
+    self.rankListTableView.mj_header = header;
+    
+//    // 添加下面的button按钮
+//    [self addRankListUpBtn];
   
  
     //设置最开始的检测状态
@@ -69,23 +108,7 @@ UITableViewDelegate
     
    
 }
-// 点击按钮刷新tableView 同时改变检测状态
--(void)rankListUpBtnAction:(UIButton *)btn{
-    
-    if (self.Detection == 0) {
-        
-        //改变检测状态
-        self.Detection = 1;
-        
-        [self.rankListTableView reloadData];
-        
-    }else if (self.Detection == 1) {
-        
-        self.Detection = 0;
-        
-        [self.rankListTableView reloadData];
-    }
-}
+
 //解析数据
 - (void)rankingRequest
 {
@@ -119,6 +142,10 @@ UITableViewDelegate
         }
         //回到主线程刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                [weakSelf.rankListTableView.mj_header endRefreshing];
             
                 [weakSelf.rankListTableView reloadData];
             });
@@ -130,24 +157,63 @@ UITableViewDelegate
 }
 
 //点击按钮初始化设置
--(void)addRankListUpBtn{
+-(UIView *)addRankListUpBtn{
     
     self.rankListUpBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
     self.rankListUpBtn.frame = CGRectMake(0, 0, Win_W, rankListUpBtn_H );
     
-    self.rankListUpBtn.backgroundColor = [UIColor cyanColor];
+    self.rankListUpBtn.backgroundColor = myRedColor;
+    
+    if (_Detection) {
+        
+         [self.rankListUpBtn setImage:[UIImage imageNamed:@"recommend.png"] forState:(UIControlStateNormal)];
+        
+    }else{
+        
+         [self.rankListUpBtn setImage:[UIImage imageNamed:@"hot.png"] forState:(UIControlStateNormal)];
+        
+    }
+    
+   
+    
+    self.rankListUpBtn.tintColor = [UIColor whiteColor];
+    
+    self.rankListUpBtn.titleLabel.font = Font_24;
     
     [self.rankListUpBtn addTarget:self action:@selector(rankListUpBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
-    [self.view addSubview:self.rankListUpBtn];
-    
+    return self.rankListUpBtn;
 }
 
+
+// 点击按钮刷新tableView 同时改变检测状态
+-(void)rankListUpBtnAction:(UIButton *)btn{
+    
+    if (_Detection) {
+        
+        //改变检测状态
+        _Detection = !_Detection;
+        
+        
+        
+        [self.rankListTableView reloadData];
+        
+    }else{
+        
+        _Detection = !_Detection;
+        
+         [self.rankListUpBtn setImage:[UIImage imageNamed:@"hot.png"] forState:(UIControlStateNormal)];
+        
+        [self.rankListTableView reloadData];
+    }
+}
 //tableView初始化设置
+
+
 -(void)addTableView{
     
-    self.rankListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,rankListUpBtn_H, Win_W, Win_H - rankListUpBtn_H) style:(UITableViewStylePlain)];
+    self.rankListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0,69, Win_W, Win_H - 118) style:(UITableViewStylePlain)];
     
     [self.rankListTableView registerNib:[UINib nibWithNibName:@"RankListTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:RankListTableViewCell_Identify];
     
@@ -165,6 +231,14 @@ UITableViewDelegate
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return cellHeight;
+}
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    return [self addRankListUpBtn];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return rankListUpBtn_H;
 }
 // 设置cell个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -234,6 +308,8 @@ UITableViewDelegate
     detaVC.onlyID = model.oneID;
     
     detaVC.onlyTime = model.comic_update_time;
+    
+    detaVC.title = model.comic_name;
     
     //跳转
     [self.navigationController pushViewController:detaVC animated:YES];

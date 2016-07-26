@@ -48,6 +48,36 @@ UITableViewDelegate
     // 请求数据
     [self MakeRequest];
     
+    MJRefreshGifHeader * header  = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        
+        [self MakeRequest];
+        
+    }];
+    
+    header.stateLabel.font = Font_20;
+    
+    header.lastUpdatedTimeLabel.font = Font_18;
+    
+    NSArray * idleImages = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
+    
+    NSArray * pullingImages = @[[UIImage imageNamed:@"3"],[UIImage imageNamed:@"4"]];
+    
+    NSArray * refreshingImages = @[[UIImage imageNamed:@"5"],[UIImage imageNamed:@"6"],[UIImage imageNamed:@"7"],
+                                   [UIImage imageNamed:@"8"],[UIImage imageNamed:@"9"],[UIImage imageNamed:@"10"]];
+    
+    //   普通状态下的动画图片
+    
+    
+    [header setImages:idleImages forState:MJRefreshStateIdle];
+    
+    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+    [header setImages:pullingImages forState:MJRefreshStatePulling];
+    
+    // 设置正在刷新状态的动画图片
+    [header setImages:refreshingImages duration:0.34f forState:MJRefreshStateRefreshing];
+  
+    self.higtEnerTableView.mj_header = header;
+    
 }
 //请求数据
 -(void)MakeRequest{
@@ -72,6 +102,8 @@ UITableViewDelegate
             
             //回到主线程刷新UI
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [weakSelf.higtEnerTableView.mj_header endRefreshing];
                 
                 [weakSelf.higtEnerTableView reloadData];
             });

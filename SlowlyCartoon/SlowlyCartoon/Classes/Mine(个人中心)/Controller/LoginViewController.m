@@ -8,8 +8,10 @@
 
 #import "LoginViewController.h"
 //107 255 232 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
 
+
+@property(nonatomic,strong)PersonManager * personManager;
 @end
 
 @implementation LoginViewController
@@ -18,20 +20,43 @@
     [super viewDidLoad];
 //    切圆角
     [self cutRound];
-
+    
+    
+//    设置userNameTextField代理
+    
+    _userNameTextField.delegate = self;
     
     
     
     // Do any additional setup after loading the view.
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+
+//    从数据空中查找该用户名下是否有avator 并展示在imagev
+    
+    
+  NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
+    
+    if (array.count != 0) {
+        
+        PersonManager * person = array.lastObject;
+        _avatorImagev.image = [UIImage imageWithData:person.avator];
+        
+    }
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setUpAvator];
 }
 - (void)setUpAvator{
+    
     NSData *imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
     if (imageData == nil) {
+        
     }else{
+        
         _avatorImagev.image = [UIImage imageWithData:imageData];
     }
 }
@@ -59,12 +84,36 @@
     if (_userNameTextField.text.length != 0) {
         
         if (_passWordTextField.text.length != 0) {
+            
             EMError *error = [[EMClient sharedClient] loginWithUsername:_userNameTextField.text password:_passWordTextField.text];
+            
         
             if (!error) {
 
                 [[NSUserDefaults standardUserDefaults]setValue:_userNameTextField.text forKey:@"userName"];
+                
                 [[NSUserDefaults standardUserDefaults]setValue:_passWordTextField.text forKey:@"passWord"];
+//把userName写入数据库
+                
+             NSArray* array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
+                
+                for (PersonManager* person1 in array) {
+                    
+                    if ([person1.userName isEqualToString:_userNameTextField.text]) {
+                        
+                        _personManager = person1;
+                    }
+                }
+        
+//如果查询不到该用户 就存入数据库  能查询到 就说明注册的时候已经写入数据库
+                if (_personManager.userName.length == 0) {
+                    
+                    NSData* imageData = UIImageJPEGRepresentation(_avatorImagev.image, 0.5);
+                    
+                    [[CoreDataManager shareCoreDataManager] addObjectContextWithUserName:_userNameTextField.text avator:imageData gender:@"未注册" bornYear:@"未注册" cityName:@"未注册" qqNumber:@"未注册" weChatNumber:@"未注册" weBoNumber:@"未注册" mailboxNumber:@"未注册" phoneNumber:@"未注册" dbName:dataBaseName];
+                }
+                
+               
                 
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 NSLog(@"登录成功");

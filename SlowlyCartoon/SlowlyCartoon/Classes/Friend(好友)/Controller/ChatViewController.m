@@ -132,10 +132,17 @@ AVCaptureMetadataOutputObjectsDelegate//扫描二维码的代理
     
     
     //导航栏的左右方法
-    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction)];
+    UIBarButtonItem * leftItem =[[UIBarButtonItem alloc]initWithTitle:@"返回" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction)];
     
-    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc]initWithTitle:@"扫一扫" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightAcyion)];
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
     
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIBarButtonItem * rightItem = [[UIBarButtonItem alloc]initWithTitle:@"扫一扫" style:(UIBarButtonItemStylePlain) target:self action:@selector(rightAcyion)];
+    
+    [rightItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+   
+    self.navigationItem.rightBarButtonItem  = rightItem;
    
     
 }

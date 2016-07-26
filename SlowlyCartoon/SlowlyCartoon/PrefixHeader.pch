@@ -14,7 +14,9 @@
 
 #import <UIImageView+AFNetworking.h>
 
-#import "coreDataManager.h"
+#import "CoreDataManager.h"
+
+#import "PersonManager.h"
 
 //环信
 #import <HyphenateFullSDK/EMSDKFull.h>

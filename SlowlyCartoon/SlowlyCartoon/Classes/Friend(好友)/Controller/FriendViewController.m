@@ -10,6 +10,8 @@
 #import "SingleFriendManager.h"
 #import "ChatViewController.h"
 #import "MyFriendsCell.h"
+
+#import "LoginViewController.h"
 typedef void(^valueBlock) (void);//命名block
 @interface FriendViewController ()
 <
@@ -29,30 +31,78 @@ EMContactManagerDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title=@"我的好友";
+    
     self.view.backgroundColor=[UIColor whiteColor];
+    
     self.dataArray=[NSMutableArray array];
     
+    
     //导航栏右方法
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addFriends)];
-    
-    //应用登录方法
-    [self loginAction];
+   UIBarButtonItem * rightItem =[[UIBarButtonItem alloc]initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addFriends)];
     
     
-    //添加tableView
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-44) style:(UITableViewStylePlain)];
-    self.tableView.dataSource=self;
-    self.tableView.delegate=self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
-    UIImageView *imageV=[[UIImageView alloc]initWithFrame:self.tableView.bounds];
-    imageV.image=[UIImage imageNamed:@"imagesback1.jpg"];
-//    [self.tableView setBackgroundView:imageV];
-    [self.view addSubview:self.tableView];
+    [rightItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
+    [self setUpAll];
+    
+   }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
     
     //从数据库中请求所有好友-->给dataArray赋值
     [self requestAllFriends];
     
+    [self.tableView reloadData];
+    
+    
+}
+
+#pragma mark-  是否登录判断
+- (void)isLoginAction{
+    
+    NSString * userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    
+    if (userName.length != 0) {
+        
+        
+        
+    }else{
+        
+        UIStoryboard * SB = [UIStoryboard storyboardWithName:@"Mine" bundle:[NSBundle mainBundle]];
+        
+        LoginViewController * loginVC = [SB instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    
+}
+#pragma mark 初始化
+- (void)setUpAll{
+    //添加tableView
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-44) style:(UITableViewStylePlain)];
+    
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.dataSource=self;
+    
+    self.tableView.delegate=self;
+    
+    [self.tableView registerClass:[MyFriendsCell class] forCellReuseIdentifier:@"cellID"];
+    
+    UIImageView *imageV=[[UIImageView alloc]initWithFrame:self.tableView.bounds];
+    
+    imageV.image=[UIImage imageNamed:@"imagesback1.jpg"];
+    
+    //    [self.tableView setBackgroundView:imageV];
+    
+    [self.view addSubview:self.tableView];
     
     //设置代理-->当别人添加我时调用代理方法进行提示
     [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:dispatch_get_main_queue()];
@@ -61,14 +111,8 @@ EMContactManagerDelegate
     //注册XIB
     [self.tableView registerNib:[UINib nibWithNibName:@"MyFriendsCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MyFriendsCell_identify];
     
-}
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.tabBarController.tabBar.hidden=NO;
-    [self.tableView reloadData];
 }
-
 #pragma mark------------------------1.tableView的代理方法------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -84,9 +128,10 @@ EMContactManagerDelegate
     //cell背景图片
     cell.nameLabel.text=_dataArray[indexPath.row];
     cell.nameLabel.font=[UIFont systemFontOfSize:22];
-    cell.backgroundColor =[UIColor colorWithPatternImage:[UIImage imageNamed:@"backView1.jpg"]];
+
     cell.imageV.image =[UIImage imageNamed:@"biaoqing.png"];
     //取消选中cell的点击颜色
+
     UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
     view.backgroundColor=[UIColor clearColor];
     cell.selectedBackgroundView =view;
@@ -99,21 +144,27 @@ EMContactManagerDelegate
     
     return 100;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 2;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 2;
+}
 #pragma mark------------------------2.登录应用方法------------------------
 
 //登录方法
--(void)loginAction{
-    
-    EMError *error = [[EMClient sharedClient] loginWithUsername:@"22" password:@"22"];
-    if (!error) {
-        
-        NSLog(@"登录成功");
-        
-    }else{
-        //调用弹窗，打印登录失败的信息
-        [self boundsWindow:error.errorDescription];
-    }
-}
+//-(void)loginAction{
+//    
+//    EMError *error = [[EMClient sharedClient] loginWithUsername:@"22" password:@"22"];
+//    if (!error) {
+//        
+//        NSLog(@"登录成功");
+//        
+//    }else{
+//        //调用弹窗，打印登录失败的信息
+//        [self boundsWindow:error.errorDescription];
+//    }
+//}
 
 //弹窗
 -(void)boundsWindow:(NSString *)string{
@@ -130,6 +181,7 @@ EMContactManagerDelegate
 -(void)requestAllFriends{
     
     NSArray *tempArray=[[SingleFriendManager shareSingleFriendManager]requestAllFrineds];
+    
     self.dataArray=[NSMutableArray arrayWithArray:tempArray];
     
 }

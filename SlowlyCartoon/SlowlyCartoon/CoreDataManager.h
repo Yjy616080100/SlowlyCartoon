@@ -1,5 +1,5 @@
 //
-//  coreDataManager.h
+//  CoreDataManager.h
 //  SlowlyCartoon
 //
 //  Created by lanou3g on 16/7/22.
@@ -19,16 +19,16 @@
 
 #import <Foundation/Foundation.h>
 @class PersonManager;
-@interface coreDataManager : NSObject
+@interface CoreDataManager : NSObject
 
 //单例
-+(instancetype)sharecoreDataManager;
++(instancetype)shareCoreDataManager;
 
 
-//搜索数据库
--(NSArray *)selectObjectContext;
-//添加数据库
--(void)addObjectContext:(NSString *)userName
+//查询数据库
+-(NSArray *)selectObjectContextFromDbName:(NSString*)dbName;
+//添加数据
+-(void)addObjectContextWithUserName:(NSString *)userName
                  avator:(NSData *)avator
                  gender:(NSString *)gender
                bornYear:(NSString *)bornYear
@@ -37,15 +37,17 @@
            weChatNumber:(NSString *)weChatNumber
              weBoNumber:(NSString *)weBoNumber
           mailboxNumber:(NSString *)mailboxNumber
-            phoneNumber:(NSString *)phoneNumber;
+            phoneNumber:(NSString *)phoneNumber
+                 dbName:(NSString*)dbName;
 
 //删除数据库
--(void)deleteObjectContext:(PersonManager *)model;
+-(void)deleteObjectContext:(PersonManager *)model fromDb:(NSString*)dbName;
 
 //更新数据库
--(void)upDateWithPerson:(PersonManager *)model;
+-(void)upDateWithPerson:(PersonManager *)model dbName:(NSString*)dbName;
 
-
+//通过userNam查询
+- (NSArray* )selectPersonManager;
 
 
 

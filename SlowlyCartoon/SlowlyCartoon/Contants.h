@@ -63,4 +63,6 @@
 
 #define Font_28 [UIFont fontWithName:@"Li-Xuke-Comic-Font" size:28]
 
+#define dataBaseName @"PersonManager"
+
 #endif /* Contants_h */

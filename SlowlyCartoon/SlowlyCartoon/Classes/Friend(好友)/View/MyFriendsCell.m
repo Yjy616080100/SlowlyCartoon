@@ -16,6 +16,9 @@
     self.imageV.layer.masksToBounds = YES;
     self.imageV.layer.cornerRadius = self.imageV.layer.bounds.size.width/2;
     
+    _nameLabel.font = Font_24;
+    
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

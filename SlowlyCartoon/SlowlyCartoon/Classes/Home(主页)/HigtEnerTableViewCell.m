@@ -17,6 +17,10 @@
     
     _HightEnerLabel.textColor = myRedColor;
     
+    self.contentView.layer.cornerRadius = 10;
+    
+    self.contentView.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

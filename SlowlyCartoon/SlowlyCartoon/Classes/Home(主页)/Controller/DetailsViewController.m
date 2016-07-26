@@ -90,7 +90,8 @@
     
     //请求数据
     [self request];
-
+    
+    
 
 }
 - (void)leftItemAction:(UIBarButtonItem * )sender{

@@ -32,6 +32,10 @@
 
 //更新个人信息详情
 @property (strong, nonatomic) NSString * updateInfo;
+
+
+//userInfoModel
+@property(strong,nonatomic)PersonManager * personManager;
 @end
 
 @implementation MIneDetailViewController
@@ -44,7 +48,7 @@
     
     //    关闭滑动
     _tableView.scrollEnabled = NO;
-
+    
 //   初始化数据
     [self setUpDataArray];
     
@@ -63,7 +67,20 @@
 - (void)setUpDataArray{
     _dataArray = @[@[@"头像"],@[@"账户",@"性别",@"出生年月",@"所在城市"],@[@"QQ",@"微信",@"微博",@"邮箱",@"手机"]];
     
-    _detailArray = @[@[@""],@[@"未填写",@"未填写",@"未填写",@"未填写"],@[@"未填写",@"未填写",@"未填写",@"未填写",@"未填写"]].mutableCopy;
+
+    
+    NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
+    
+    for (PersonManager* person1 in array) {
+        
+        if ([person1.userName isEqualToString:[[NSUserDefaults standardUserDefaults]valueForKey:@"userName"]]) {
+            
+            _personManager = person1;
+        }
+    }
+    
+    _detailArray = @[@[@""],@[@"",_personManager.gender,_personManager.bornYear,_personManager.cityName],@[_personManager.qqNumber,_personManager.weChatNumber,_personManager.weBoNumber,_personManager.mailboxNumber,_personManager.phoneNumber]].mutableCopy;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -117,11 +134,19 @@
             cell = [[MineDetailHeadCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:MineDetailHeadCell_Identify];
             
         }
-        NSData * imageData = [[NSUserDefaults standardUserDefaults] valueForKey:@"avator"];
+        NSString * userName = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
         
-        if (imageData != nil) {
+//        从数据库中获取 avator
+     NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
+        
+        for (PersonManager * person1 in array) {
             
-            cell.avatorImage.image = [UIImage imageWithData:imageData];
+            _personManager = person1;
+        }
+        
+        if (_personManager.avator != nil) {
+            
+            cell.avatorImage.image = [UIImage imageWithData:_personManager.avator];
         }
     
         cell.contentLabel.text = _dataArray[indexPath.section][indexPath.row];
@@ -196,9 +221,11 @@
         
 //    调用数组数据处理的方法（如果输入信息不为空）
         if (_updateInfo.length != 0) {
+            
             [self addInfoForCellByIndexPath:indexPath cellInfo:_updateInfo];
         }
         NSLog(@"updateInfo=============================%@",_updateInfo);
+        
         [self dismissViewControllerAnimated:YES completion:^{
 
         }];
@@ -245,16 +272,46 @@
         
         [_detailArray replaceObjectAtIndex:indexPath.section withObject:tempArray];
     
+//    存入数据库
+#pragma mark- 创建保存数据按钮
+    UIBarButtonItem * rightItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:(UIBarButtonItemStylePlain) target:self action:@selector(saveInfo)];
+    
+    [rightItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    self.navigationItem.rightBarButtonItem = rightItem;
+    
 //    修改详情信息 数组  之后刷新Tableview
         [_tableView reloadData];
 }
+#pragma mark-  将修改的数据写入数据库
+- (void)saveInfo{
+    
+//    _detailArray = @[@[@""],@[@"",_personManager.gender,_personManager.bornYear,_personManager.cityName],@[_personManager.qqNumber,_personManager.weChatNumber,_personManager.weBoNumber,_personManager.mailboxNumber,_personManager.phoneNumber]].mutableCopy;
+//     _dataArray = @[@[@"头像"],@[@"账户",@"性别",@"出生年月",@"所在城市"],@[@"QQ",@"微信",@"微博",@"邮箱",@"手机"]];
+    
 
+    
+    
+    _personManager.gender = [[_detailArray objectAtIndex:1] objectAtIndex:1];
+    _personManager.bornYear = _detailArray[1][2];
+    _personManager.cityName = _detailArray[1][3];
+    
+    _personManager.qqNumber = _detailArray[2][0];
+    _personManager.weChatNumber = _detailArray[2][1];
+    _personManager.weBoNumber = _detailArray[2][2];
+    _personManager.mailboxNumber = _detailArray[2][3];
+    _personManager.phoneNumber = _detailArray[2][4];
+    NSLog(@"---------------%@", _detailArray[1][1]);
+    
+//    [[CoreDataManager shareCoreDataManager] upDateWithPerson:person dbName:dataBaseName];
+    
+}
 //
 
-- (void)commitUserInfo:(UIButton * ) sender{
-    
-    NSLog(@"===============%@",sender);
-}
+//- (void)commitUserInfo:(UIButton * ) sender{
+//    
+//    NSLog(@"===============%@",sender);
+//}
 
 
 /*
