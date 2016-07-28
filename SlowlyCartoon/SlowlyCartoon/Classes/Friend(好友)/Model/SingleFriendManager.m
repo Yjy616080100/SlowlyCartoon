@@ -30,7 +30,11 @@ static SingleFriendManager *singleManager = nil;
     NSArray *friendList = [[EMClient sharedClient].contactManager getContactsFromServerWithError:&error];
     
     if (!error) {
+        
         NSLog(@"成功获取好友--\n%@",friendList);
+    }else{
+        
+        NSLog(@"%@",error.errorDescription);
     }
     
     return friendList;
@@ -43,6 +47,9 @@ static SingleFriendManager *singleManager = nil;
     EMError *error = [[EMClient sharedClient].contactManager addContact:useName message:@"shabi"];
     if (!error) {
         NSLog(@"添加好友请求已发送--\n");
+    }else{
+        
+        NSLog(@"%@",error);
     }
 }
 
@@ -53,6 +60,9 @@ static SingleFriendManager *singleManager = nil;
     EMError *error = [[EMClient sharedClient].contactManager deleteContact:useName];
     if (!error) {
         NSLog(@"删除好友成功--\n");
+    }else{
+        
+        NSLog(@"%@",error);
     }
 }
 
@@ -65,6 +75,9 @@ static SingleFriendManager *singleManager = nil;
     if (!error) {
         NSLog(@"加入黑名单请求发送成功");
         
+    }else{
+        
+        NSLog(@"%@",error);
     }
 }
 
@@ -76,6 +89,9 @@ static SingleFriendManager *singleManager = nil;
     if (!error) {
         NSLog(@"将好友从黑名单中移除的请求发送成功");
         
+    }else{
+        
+        NSLog(@"%@",error);
     }
 }
 

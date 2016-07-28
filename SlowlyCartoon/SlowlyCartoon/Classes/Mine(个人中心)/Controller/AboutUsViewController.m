@@ -33,6 +33,20 @@
     //注册cell
     [_tableView registerNib:[UINib nibWithNibName:@"AboutUsTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:AboutUsTableViewCell_Identify];
     
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //视图即将出现
 - (void)viewWillAppear:(BOOL)animated{

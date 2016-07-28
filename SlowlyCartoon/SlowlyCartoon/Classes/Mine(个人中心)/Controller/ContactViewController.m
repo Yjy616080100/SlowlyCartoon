@@ -31,7 +31,7 @@
     _tableView.scrollEnabled = NO;
     
     //    关闭用户交互 这里只是展示
-    _tableView.userInteractionEnabled = NO;
+//    _tableView.userInteractionEnabled = NO;
     
     _tableView.backgroundColor = [UIColor colorWithRed:241/255.0 green:241/255.0 blue:241/255.0 alpha:1];
     
@@ -40,6 +40,20 @@
     //注册cell
     [_tableView registerNib:[UINib nibWithNibName:@"MineSettingTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MineSettingTableViewCell_Identify];
 
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
@@ -86,24 +100,33 @@
     //    关闭tableViewcel点击状态
     [_tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    
+   
+
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0) {
-                //         清理缓存
+                //         漫漫用户QQ群
                 
-                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+//                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                
+                [self pasteInfoFromCellText:indexPath];
+                
             }else{
-                //          检查更新
-                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                //          漫漫粉丝QQ群
+//                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                [self pasteInfoFromCellText:indexPath];
             }
             break;
         case 1:
             if (indexPath.row == 0) {
-                //         修改密码
-                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                //         微博
+//                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                [self pasteInfoFromCellText:indexPath];
             }else{
-                //         退出登录
-                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                //         微信公众号
+//                NSLog(@"%ld====%ld",indexPath.section,indexPath.row);
+                [self pasteInfoFromCellText:indexPath];
             }
             break;
         default:
@@ -111,6 +134,48 @@
     }
 }
 
+- (void)pasteInfoFromCellText:(NSIndexPath*)indexPath{
+    
+    NSString * text = _infoArray[indexPath.section][indexPath.row];
+    
+    NSString * name = _dataArray[indexPath.section][indexPath.row];
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    
+    pasteboard.string = text;
+    
+    [self showAlertWithTitle:@"" message:[NSString stringWithFormat:@"%@已经复制到剪切板",name] dalayTime:1.5];
+}
+
+#pragma mark 自动消失alertView
+
+//初始化UIAlertView
+- (void)showAlertWithTitle:(NSString*)title message:(NSString*)message dalayTime:(CGFloat)delayTime{
+    
+    UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    promptAlert.backgroundColor = [UIColor darkGrayColor];
+    
+    
+    
+    [NSTimer scheduledTimerWithTimeInterval:delayTime
+                                     target:self
+                                   selector:@selector(timerFireMethod:)
+                                   userInfo:promptAlert
+                                    repeats:NO];
+    
+    [promptAlert show];
+}
+
+//UIAlertView 自动消失
+- (void)timerFireMethod:(NSTimer*)theTimer
+{
+    
+    UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
+    
+    [promptAlert dismissWithClickedButtonIndex:0 animated:YES];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

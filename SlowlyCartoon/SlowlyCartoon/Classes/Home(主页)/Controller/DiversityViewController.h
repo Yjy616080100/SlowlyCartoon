@@ -20,6 +20,6 @@
 
 @property (nonatomic, strong) NSMutableArray *diversityArray;
 
-
+@property(nonatomic,strong)NSString* olyID;
 @property (nonatomic, assign)id <DiversityViewControllerDelegate>delegate;
 @end

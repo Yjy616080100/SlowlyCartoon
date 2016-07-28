@@ -85,19 +85,23 @@ UITableViewDelegate
     //    去掉tableVieCell分割线
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
+    
 }
 
 #pragma mark- 刷新数据
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    登录成功获取avator
-//    NSData * imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
-    
-//    if (imageData != nil) {
-//        _avator = [UIImage imageWithData:imageData];
-//    }
+//    NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
 //    
-//    _name = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
+//    for (PersonManager* person in array) {
+//        
+//        if ([person.userName isEqualToString:textField.text]) {
+//            
+//            _avatorImagev.image = [UIImage imageWithData:person.avator];
+//            
+//        }
+//    }
     
 //    显示tabBar
     self.tabBarController.tabBar.hidden = NO;
@@ -148,23 +152,27 @@ UITableViewDelegate
         cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];
 //        判断是否登录
       
-        
         NSString * userName = [[NSUserDefaults standardUserDefaults] valueForKey:@"userName"];
         
-        NSData * avatorData = [[NSUserDefaults standardUserDefaults] valueForKey:@"avator"];
-        
-        UIImage * avatorImage = [UIImage imageWithData:avatorData];
-    
 //        如果登陆
         if (userName.length != 0) {
             
             cell.contentField.text = userName;
             
 //            有头像
-            if (avatorData != nil) {
+    
+            NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
+            
+            for (PersonManager* person in array) {
                 
-                cell.avatorImage.image = avatorImage;
+                if ([person.userName isEqualToString:userName]) {
+                    
+                    cell.avatorImage.image = [UIImage imageWithData:person.avator];
+                    
+                }
             }
+
+        
           
 //        没有登陆
         }else{

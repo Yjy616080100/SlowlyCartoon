@@ -35,8 +35,8 @@
                                     <constraint firstAttribute="height" constant="45" id="bqJ-k5-mx1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="注册">
-                                    <color key="titleColor" red="0.22352941179999999" green="0.74509803919999995" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="注 册">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="registerBtn:" destination="ciI-qD-MLg" eventType="touchUpInside" id="4U2-el-ER8"/>
@@ -111,7 +111,7 @@
                                     <constraint firstAttribute="width" constant="128" id="PtH-26-jR3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="登录">
+                                <state key="normal" title="登 录">
                                     <color key="titleColor" red="0.92662904589999995" green="0.94131145019999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -142,6 +142,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="avatorImagev" destination="1l2-aU-hTJ" id="t0G-s2-dG5"/>
+                        <outlet property="fastLogin" destination="kkm-pJ-0eB" id="eQH-65-07h"/>
                         <outlet property="loginBtn" destination="eCY-Xe-L6C" id="ARL-X0-Vp8"/>
                         <outlet property="passBGImage" destination="sPN-AM-LRj" id="p1E-t6-raZ"/>
                         <outlet property="passWordTextField" destination="Nxi-9u-wEO" id="vhN-7B-uG7"/>
@@ -510,10 +511,10 @@
             </objects>
             <point key="canvasLocation" x="1412" y="488"/>
         </scene>
-        <!--Opinion View Controller-->
+        <!--意见反馈-->
         <scene sceneID="cog-Cm-DQG">
             <objects>
-                <viewController storyboardIdentifier="OpinionViewController" automaticallyAdjustsScrollViewInsets="NO" id="SiH-eb-lG1" customClass="OpinionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpinionViewController" title="意见反馈" automaticallyAdjustsScrollViewInsets="NO" id="SiH-eb-lG1" customClass="OpinionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qlN-x3-qTM"/>
                         <viewControllerLayoutGuide type="bottom" id="47L-E8-Ypq"/>
@@ -551,7 +552,7 @@
                                     <constraint firstAttribute="height" constant="50" id="fZ6-UT-vlX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="发送">
+                                <state key="normal" title="发        送">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -595,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYr-7Y-1Nr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="1111"/>
+            <point key="canvasLocation" x="686" y="1114"/>
         </scene>
         <!--我的消息-->
         <scene sceneID="4a9-H2-OV5">

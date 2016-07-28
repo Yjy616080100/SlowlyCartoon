@@ -62,6 +62,21 @@
     [_tableView registerNib:[UINib nibWithNibName:@"MineDetailHeadCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MineDetailHeadCell_Identify];
     
 //    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuse"];
+    
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //初始化数据
 - (void)setUpDataArray{
@@ -141,7 +156,10 @@
         
         for (PersonManager * person1 in array) {
             
-            _personManager = person1;
+            if ([person1.userName isEqualToString:userName]) {
+                
+                _personManager = person1;
+            }
         }
         
         if (_personManager.avator != nil) {

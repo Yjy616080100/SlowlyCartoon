@@ -65,4 +65,6 @@
 
 #define dataBaseName @"PersonManager"
 
+#define UmengAppkey @"5798759967e58e2bf3001c8c"
+
 #endif /* Contants_h */

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *fastLogin;
 @property (strong, nonatomic) IBOutlet UIImageView *avatorImagev;
 @property (strong, nonatomic) IBOutlet UIImageView *userBGImage;
 @property (strong, nonatomic) IBOutlet UIImageView *passBGImage;

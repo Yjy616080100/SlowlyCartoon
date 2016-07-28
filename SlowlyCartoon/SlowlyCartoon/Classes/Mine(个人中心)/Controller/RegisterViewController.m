@@ -21,6 +21,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.view.backgroundColor = myWhiteColor;
+    
+    self.usernNameTextField.font = Font_20;
+    
+    self.passWordTextfield.font = Font_20;
+    
+    self.confirmBtn.titleLabel.font = Font_22;
+    
+    self.confirmBtn.backgroundColor = myRedColor;
+    
+    self.backToLoginBtn.titleLabel.font = Font_22;
+    
+    self.backToLoginBtn.titleLabel.textColor = myRedColor;
+    
+    [self.backToLoginBtn setTitleColor:myRedColor forState:(UIControlStateNormal)];
+   
 //    切圆角
     [self cutRound];
    
@@ -31,7 +47,20 @@
     
     _avatorImageV.userInteractionEnabled = YES;
     
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
     
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark 选择图片
 - (void)selectAvator:(UIGestureRecognizer*)gesture{

@@ -174,15 +174,21 @@
         
         NSArray *array = [[dic objectForKey:@"data"] objectForKey:@"comment_arr"];
     
-        for (NSDictionary *dict in array) {
-            CommentModel *model = [[CommentModel alloc]init];
-            [model setValuesForKeysWithDictionary:dict];
-            [self.commentVC.commentArray addObject:model];
-            NSLog(@"%@",model);
-        }
+        
         
         //回到主线程刷新UI
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            for (NSDictionary *dict in array) {
+                
+                CommentModel *model = [[CommentModel alloc]init];
+                
+                [model setValuesForKeysWithDictionary:dict];
+                
+                [self.commentVC.commentArray addObject:model];
+                
+                NSLog(@"%@",model);
+            }
             [self.commentVC.commentTableView reloadData];
         });
         
@@ -364,7 +370,9 @@
 }
 //添加控制器
 -(void)addController{
+    
     self.diversityVC = [DiversityViewController new];
+    
     self.commentVC = [CommentViewController new];
     
     self.diversityVC.view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
@@ -376,8 +384,11 @@
     
     //给目录子Controller赋值
     self.diversityVC.briefIntroduceString = [self.dataDuct objectForKey:@"comic_desc"];
+    
     //给数组赋值 （目录数组）
     self.diversityVC.diversityArray = [NSMutableArray array];
+    
+    self.diversityVC.olyID = self.onlyID;
     
     NSArray *array = [self.dataDuct objectForKey:@"comic_order_arr"];
     

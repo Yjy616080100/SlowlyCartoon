@@ -18,6 +18,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = myWhiteColor;
+    
+    self.userNameTextField.font = Font_18;
+    
+    self.passWordTextField.font = Font_18;
+    
+    self.loginBtn.backgroundColor = myRedColor;
+    
+    self.loginBtn.titleLabel.font = Font_22;
+    
+    [self.registerBtn setTitleColor:myRedColor forState:(UIControlStateNormal)];
+    
+    self.registerBtn.titleLabel.font = Font_22;
+    
+   
+    
+    self.fastLogin.font = Font_16;
+    
+    self.fastLogin.textColor = myRedColor;
+    
+//    干掉之前的userName
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userName"];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"avator"];
 //    切圆角
     [self cutRound];
     
@@ -26,9 +52,20 @@
     
     _userNameTextField.delegate = self;
     
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
     
     
-    // Do any additional setup after loading the view.
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
@@ -38,18 +75,22 @@
     
   NSArray * array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
     
-    if (array.count != 0) {
+    for (PersonManager* person in array) {
         
-        PersonManager * person = array.lastObject;
-        _avatorImagev.image = [UIImage imageWithData:person.avator];
-        
+        if ([person.userName isEqualToString:textField.text]) {
+            
+             _avatorImagev.image = [UIImage imageWithData:person.avator];
+            
+        }
     }
     
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self setUpAvator];
+//    [self setUpAvator];
 }
+
+#pragma mark- 头像
 - (void)setUpAvator{
     
     NSData *imageData = [[NSUserDefaults standardUserDefaults]valueForKey:@"avator"];
@@ -86,13 +127,16 @@
         if (_passWordTextField.text.length != 0) {
             
             EMError *error = [[EMClient sharedClient] loginWithUsername:_userNameTextField.text password:_passWordTextField.text];
-            
         
             if (!error) {
-
+                
+//                设置自动登录
+                
+                [[EMClient sharedClient].options setIsAutoLogin:YES];
+                
                 [[NSUserDefaults standardUserDefaults]setValue:_userNameTextField.text forKey:@"userName"];
                 
-                [[NSUserDefaults standardUserDefaults]setValue:_passWordTextField.text forKey:@"passWord"];
+//                [[NSUserDefaults standardUserDefaults]setValue:_passWordTextField.text forKey:@"passWord"];
 //把userName写入数据库
                 
              NSArray* array = [[CoreDataManager shareCoreDataManager] selectPersonManager];
@@ -112,8 +156,6 @@
                     
                     [[CoreDataManager shareCoreDataManager] addObjectContextWithUserName:_userNameTextField.text avator:imageData gender:@"未注册" bornYear:@"未注册" cityName:@"未注册" qqNumber:@"未注册" weChatNumber:@"未注册" weBoNumber:@"未注册" mailboxNumber:@"未注册" phoneNumber:@"未注册" dbName:dataBaseName];
                 }
-                
-               
                 
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 NSLog(@"登录成功");

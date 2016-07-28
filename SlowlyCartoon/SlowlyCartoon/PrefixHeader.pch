@@ -21,6 +21,12 @@
 //环信
 #import <HyphenateFullSDK/EMSDKFull.h>
 
+//友盟
+
+#import <UMSocial.h>
+#import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+#import "UMSocialWechatHandler.h"
 
 //上拉刷新 下拉加载
 #import <MJRefresh/MJRefresh.h>
