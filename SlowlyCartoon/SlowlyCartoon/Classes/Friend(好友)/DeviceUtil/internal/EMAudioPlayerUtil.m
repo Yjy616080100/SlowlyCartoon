@@ -110,8 +110,11 @@ static EMAudioPlayerUtil *audioPlayerUtil = nil;
 // 停止当前播放
 - (void)stopCurrentPlaying{
     if(_player){
+        
         _player.delegate = nil;
+        
         [_player stop];
+        
         _player = nil;
     }
     if (playFinish) {

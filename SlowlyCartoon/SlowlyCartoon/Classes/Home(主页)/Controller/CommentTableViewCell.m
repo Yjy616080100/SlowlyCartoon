@@ -15,11 +15,20 @@
     
     self.userInteractionEnabled = NO;
     
-    _nameLabel.font = Font_22;
+    _nameLabel.font = Font_24;
     
-    _timeLabel.font = Font_12;
+    _nameLabel.textColor = myRedColor;
     
-    _msgLabel.font = Font_14;
+    _timeLabel.font = Font_16;
+    
+    _msgLabel.font = Font_20;
+    
+    self.contentView.backgroundColor = myWhiteColor;
+    
+    self.bgView.layer.cornerRadius = 15;
+    
+    self.bgView.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -34,6 +34,8 @@ UITableViewDelegate
 - (void)addtableView
 {
     self.commentTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    
+    self.commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
     self.commentTableView.delegate = self;
     
@@ -49,7 +51,13 @@ UITableViewDelegate
     
     return self.commentArray.count;
 }
-
+#define cellPadding 2
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    return cellPadding;
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectio{
+//    return cellPadding;
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CommentTableViewCell_Identify];
@@ -71,26 +79,6 @@ UITableViewDelegate
 {
     return cellHeight;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

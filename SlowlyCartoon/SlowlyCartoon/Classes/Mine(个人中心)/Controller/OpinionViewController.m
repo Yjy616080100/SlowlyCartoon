@@ -35,10 +35,30 @@
     
     _sendBtn.layer.masksToBounds = YES;
     
+    _sendBtn.tintColor = myRedColor;
+    
+    _sendBtn.backgroundColor = myRedColor;
+    
+    _sendBtn.titleLabel.font = Font_24;
+    
 //    设置代理(拖线已经搞定)
     _textVIew.delegate = self;
     
     
+    //leftItem
+    UIBarButtonItem * leftItem = [[UIBarButtonItem alloc]initWithTitle:@"<个人中心" style:(UIBarButtonItemStylePlain) target:self action:@selector(leftItemAction:)];
+    
+    
+    
+    [leftItem setTitleTextAttributes:@{NSFontAttributeName:Font_24} forState:(UIControlStateNormal)];
+    
+    
+    self.navigationItem.leftBarButtonItem = leftItem;
+}
+
+-(void)leftItemAction:(UIBarButtonItem*)sender{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //发送

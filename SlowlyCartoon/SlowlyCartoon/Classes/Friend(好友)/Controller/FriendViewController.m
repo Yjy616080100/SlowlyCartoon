@@ -25,6 +25,8 @@ EMContactManagerDelegate
 @property(nonatomic,strong)NSMutableArray *dataArray;
 //block属性
 @property(nonatomic,copy)valueBlock myBlock;
+//用户头像数组
+@property(nonatomic,strong)NSMutableArray * avatorsArray;
 @end
 
 @implementation FriendViewController
@@ -37,6 +39,8 @@ EMContactManagerDelegate
     self.view.backgroundColor=[UIColor whiteColor];
     
     self.dataArray=[NSMutableArray array];
+    
+    _avatorsArray = [NSMutableArray array];
     
     
     //导航栏右方法
@@ -128,8 +132,14 @@ EMContactManagerDelegate
     //cell背景图片
     cell.nameLabel.text=_dataArray[indexPath.row];
     cell.nameLabel.font=[UIFont systemFontOfSize:22];
-
-    cell.imageV.image =[UIImage imageNamed:@"biaoqing.png"];
+    
+    if (_avatorsArray.count == 0) {
+        
+        cell.imageV.image = [UIImage imageNamed:@"biaoqing"];
+    }else{
+         cell.imageV.image = [UIImage imageWithData:_avatorsArray[indexPath.row]];
+    }
+   
     //取消选中cell的点击颜色
 
     UIView *view=[[UIView alloc]initWithFrame:cell.contentView.bounds];
@@ -183,6 +193,21 @@ EMContactManagerDelegate
     NSArray *tempArray=[[SingleFriendManager shareSingleFriendManager]requestAllFrineds];
     
     self.dataArray=[NSMutableArray arrayWithArray:tempArray];
+    
+ NSArray * array = [[CoreDataManager shareCoreDataManager] selectObjectContextFromDbName:dataBaseName];
+    
+    NSData * data = UIImageJPEGRepresentation([UIImage imageNamed:@"biaoqing"], 1);
+    for ( NSString* userName in _dataArray) {
+        
+        for (PersonManager * person in array) {
+            
+            if ([person.userName isEqualToString:userName]) {
+                
+                [_avatorsArray addObject:person.avator];
+            }
+        }
+         [_avatorsArray addObject:data];
+    }
     
 }
 

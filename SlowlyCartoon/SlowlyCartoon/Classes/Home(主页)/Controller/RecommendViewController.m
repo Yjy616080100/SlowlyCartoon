@@ -92,13 +92,13 @@
 - (void)addUnderlyingScrollView
 {
     // 初始化
-    self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 69, self.view.frame.size.width, self.view.frame.size.height)];
+    self.recommendScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 69, self.view.frame.size.width, self.view.frame.size.height - 69)];
     
-  
+    self.recommendScrollView.backgroundColor = myWhiteColor;
     //
     self.recommendScrollView.bounces = YES;
     
-    self.recommendScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*7);
+    self.recommendScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height* 6.4);
     
     self.recommendScrollView.backgroundColor = [UIColor whiteColor];
     
@@ -466,6 +466,7 @@
 
     self.lastCollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.ItemizeScrollView.frame), 414, 2200) collectionViewLayout:flowLayout];
     
+    self.lastCollectionView.backgroundColor = myWhiteColor;
     //设置代理
     self.lastCollectionView.delegate = self;
     

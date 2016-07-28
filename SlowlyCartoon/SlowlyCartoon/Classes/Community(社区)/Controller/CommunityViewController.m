@@ -22,7 +22,10 @@
 @interface CommunityViewController ()
 <
     UITableViewDataSource,
-    UITableViewDelegate
+    UITableViewDelegate,
+    UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate
+
 >
 
 @property (nonatomic,strong)NSMutableArray *familyGroupData;
@@ -36,6 +39,10 @@
 @property (strong, nonatomic) UITableView *familyTableView;
 
 @property (nonatomic,assign)float replyViewDraw;
+
+@property (nonatomic, strong)UIImageView * headIconImageView;
+
+@property(nonatomic,strong)UIImageView * backGroundImageView;
 
 //工具栏的高约束，用于当输入文字过多时改变工具栏的约束
 @property (strong, nonatomic) NSLayoutConstraint *replyInputViewConstraintHeight;
@@ -100,20 +107,17 @@
 {
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, headViewHeight)];
     
+   _backGroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, headViewHeight - 2*padding)];
     
-    //长按应该可以更换背景
-    UIImageView *backGroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, headViewHeight - 2*padding)];
-    
-    backGroundImageView.image = [UIImage imageNamed:@"background.jpg"];
-    [headView addSubview:backGroundImageView];
+    _backGroundImageView.image = [UIImage imageNamed:@"background.jpg"];
+    [headView addSubview:_backGroundImageView];
     
     
-    UIImageView *headIconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding, headViewHeight - headIconHeight, headIconWidth, headIconHeight)];
+    _headIconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(padding, headViewHeight - headIconHeight, headIconWidth, headIconHeight)];
     
-    headIconImageView.image = [UIImage imageNamed:@"headicon"];
+    _headIconImageView.image = [UIImage imageNamed:@"headicon"];
     
-    [headView addSubview:headIconImageView];
-    
+    [headView addSubview:_headIconImageView];
     
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(headIconWidth + 2 * padding, headViewHeight - 0.8*headIconHeight, 100, 15)];
     
@@ -126,8 +130,63 @@
     [headView addSubview:nameLabel];
     
     self.familyTableView.tableHeaderView = headView;
+    
+    //长按更换背景
+    
+    UILongPressGestureRecognizer * longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressAction:)];
+    
+    [self.familyTableView.tableHeaderView addGestureRecognizer:longPressGesture];
+
 }
 
+#pragma mark- 长按更换背景
+
+- (void)longPressAction:(UIGestureRecognizer*)gesture{
+    
+    UIImagePickerController * imagePickerController = [[UIImagePickerController alloc]init];
+    
+    imagePickerController.delegate = self;
+    
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"漫漫请您选择方式" message:@"" preferredStyle:(UIAlertControllerStyleActionSheet)];
+    
+    //    调用相机
+    UIAlertAction * cameraAction = [UIAlertAction actionWithTitle:@"自拍上传" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    //    相册中选取
+    UIAlertAction * photoAlbumAction = [UIAlertAction actionWithTitle:@"从相册中选择" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+        //        跳转到 imagePickerController
+        [self presentViewController:imagePickerController animated:YES completion:^{
+            
+        }];
+        
+    }];
+    
+    //    取消
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:cameraAction];
+    
+    [alertController addAction:photoAlbumAction];
+    
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:^{
+        
+    }];
+
+}
+#pragma mark 图片选择器的代理方法
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
+    _backGroundImageView.image = info[UIImagePickerControllerOriginalImage];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - tableview delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

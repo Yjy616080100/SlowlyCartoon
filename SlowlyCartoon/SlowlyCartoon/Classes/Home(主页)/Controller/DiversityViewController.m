@@ -13,9 +13,10 @@
 
 @interface DiversityViewController ()
 <
-UICollectionViewDelegateFlowLayout,
-UICollectionViewDataSource,
-UIGestureRecognizerDelegate
+    UICollectionViewDelegateFlowLayout,
+    UICollectionViewDataSource,
+    UIGestureRecognizerDelegate,
+    UMSocialUIDelegate
 >
 // 漫画简介
 @property(nonatomic,strong)UILabel *briefIntroduceLabel;
@@ -130,6 +131,8 @@ UIGestureRecognizerDelegate
     
     self.setCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.briefIntroduceLabel.frame), self.view.frame.size.width, self.view.frame.size.height*0.5 + 25) collectionViewLayout:flowLayout];
     
+    self.setCollectionView.backgroundColor = myWhiteColor;
+    
     self.setCollectionView.delegate = self;
     
     self.setCollectionView.dataSource = self;
@@ -175,28 +178,6 @@ UIGestureRecognizerDelegate
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #define btnAndLabelHeight 49
 -(void)addClickLabel{
     self.clickLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.setCollectionView.frame), self.setCollectionView.frame.size.width, btnAndLabelHeight)];
@@ -207,12 +188,6 @@ UIGestureRecognizerDelegate
     
     
 }
-
-
-
-
-
-
 
 //创建继续阅读按钮
 -(void)addReadBtn{
@@ -417,6 +392,24 @@ UIGestureRecognizerDelegate
 //shareAction
 -(void)shareButtonAciton:(UIButton *)btn{
     
+    DiversityModel * model = _diversityArray.lastObject;
+    
+    
+    
+    [UMSocialData defaultData].extConfig.title = model.order_title;
+    
+    [UMSocialData defaultData].extConfig.qqData.url = [NSString stringWithFormat:@"http://m.comicq.cn/index.php/Index/read/comic_id/%@/order_idx/%@.html",self.olyID,model.order_idx];
+    
+    
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"507fcab25270157b37000010"
+                                      shareText:@"漫漫"
+                                     shareImage:[UIImage imageNamed:@"icon"]
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
+    
+    NSLog(@"分享的URL=====%@",[NSString stringWithFormat:@"http://m.comicq.cn/index.php/Index/read/comic_id/%@/order_idx/%@.html",self.olyID,model.order_idx]);
 }
 
 - (void)didReceiveMemoryWarning {
