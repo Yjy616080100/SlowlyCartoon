@@ -1261,7 +1261,7 @@
 				TargetAttributes = {
 					D691F5991D366B1E004359E1 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 2B88K93HYM;
+						DevelopmentTeam = BAGEK5GNCE;
 					};
 					D691F5B21D366B1E004359E1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1662,6 +1662,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1684,6 +1685,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/SlowlyCartoon/PrefixHeader.pch";
 				INFOPLIST_FILE = SlowlyCartoon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
